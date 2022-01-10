@@ -1,0 +1,1032 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Misc">
+      <UniqueIdentifier>{2d9efa49-368d-4b7b-bca2-bb596eaf7655}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test">
+      <UniqueIdentifier>{419c2a6e-2798-4c33-946e-7fd79645af58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test\Basis">
+      <UniqueIdentifier>{63abe94d-3a6a-4e16-a5aa-3864175515f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Feature">
+      <UniqueIdentifier>{55b1c0c2-c126-4d38-b59e-e798a5463bbf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test\Feature">
+      <UniqueIdentifier>{5cb4bc23-cecc-49a2-854c-4c631cdbdc05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Client">
+      <UniqueIdentifier>{9dc3e460-da19-456d-8f9b-8466fd36bc41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test\Backgnd">
+      <UniqueIdentifier>{b5380f13-40c5-4c28-b60b-36fcbff19a79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test\Services">
+      <UniqueIdentifier>{23dd4837-de6a-4f45-825a-a8919cf4602b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Feature\ODB">
+      <UniqueIdentifier>{42940e95-12b9-433d-afbc-b36ac3dc4ad8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Backgnd">
+      <UniqueIdentifier>{61faccfc-0da2-492f-b6e8-76bc1dd59871}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Backgnd\ODB">
+      <UniqueIdentifier>{ca6f02ac-e540-47a6-9a0e-5a6e49edc889}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application">
+      <UniqueIdentifier>{7bc36ff5-24b6-413d-8b5d-029e7dc6ed8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\ODB">
+      <UniqueIdentifier>{7061387b-d9c4-479f-a07c-b119f88732f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test\Registry">
+      <UniqueIdentifier>{a664a680-b7a9-4f13-ab8e-70a0df9bda67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Domain">
+      <UniqueIdentifier>{b5486b90-35f9-4045-b64c-34eee5b525d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Domain\Basis">
+      <UniqueIdentifier>{3e12f07b-afd7-450d-af88-33994ea1c14f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Domain\Basis\ODB">
+      <UniqueIdentifier>{a6e002ac-30e3-451b-9045-2a74730f6c3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Domain\Registry">
+      <UniqueIdentifier>{49f15d6f-3275-4096-b1e1-c426105793bb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Domain\Registry\ODB">
+      <UniqueIdentifier>{de530e18-1284-4977-bd9c-bc0431113608}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Domain\Services">
+      <UniqueIdentifier>{aac44d67-3da7-442f-87e6-0f1912516cdc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Domain\Services\ODB">
+      <UniqueIdentifier>{f747f4d3-8ccc-4486-98d0-b7ba0d1898ca}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="ReportTypes.h">
+      <Filter>Domain\Basis</Filter>
+    </ClInclude>
+    <ClInclude Include="BasisFwd.h">
+      <Filter>Domain\Basis</Filter>
+    </ClInclude>
+    <ClInclude Include="BasisRefs.h">
+      <Filter>Domain\Basis</Filter>
+    </ClInclude>
+    <ClInclude Include="Transaction.h">
+      <Filter>Backgnd</Filter>
+    </ClInclude>
+    <ClInclude Include="Exception.h">
+      <Filter>Backgnd</Filter>
+    </ClInclude>
+    <ClInclude Include="Content.h">
+      <Filter>Domain\Basis</Filter>
+    </ClInclude>
+    <ClInclude Include="Diff.h">
+      <Filter>Domain\Basis</Filter>
+    </ClInclude>
+    <ClInclude Include="ReportTypesSuit.h">
+      <Filter>Test\Basis</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreImpl.h" />
+    <ClInclude Include="Basis.h">
+      <Filter>Domain\Basis</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreTestAssist.h">
+      <Filter>Test\Basis</Filter>
+    </ClInclude>
+    <ClInclude Include="PlainFacade.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="PlainTypes.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceTypes.h">
+      <Filter>Domain\Basis</Filter>
+    </ClInclude>
+    <ClInclude Include="Database.h">
+      <Filter>Backgnd</Filter>
+    </ClInclude>
+    <ClInclude Include="Features.h">
+      <Filter>Feature</Filter>
+    </ClInclude>
+    <ClInclude Include="Core.h" />
+    <ClInclude Include="FakeCiscoFeature.h">
+      <Filter>Test\Feature</Filter>
+    </ClInclude>
+    <ClInclude Include="Frontend.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="Client.h">
+      <Filter>Client</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectClient.h">
+      <Filter>Client</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreFwd.h" />
+    <ClInclude Include="BackgndFwd.h">
+      <Filter>Backgnd</Filter>
+    </ClInclude>
+    <ClInclude Include="Executive.h">
+      <Filter>Backgnd</Filter>
+    </ClInclude>
+    <ClInclude Include="Executor.h">
+      <Filter>Backgnd</Filter>
+    </ClInclude>
+    <ClInclude Include="Services.h">
+      <Filter>Domain\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="ServicesFwd.h">
+      <Filter>Domain\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="EventDispatcher.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="EventFlow.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="ServicesRefs.h">
+      <Filter>Domain\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="Restrictions.h">
+      <Filter>Backgnd</Filter>
+    </ClInclude>
+    <ClInclude Include="BasisPacking.h">
+      <Filter>Domain\Basis\ODB</Filter>
+    </ClInclude>
+    <ClInclude Include="Packing.h">
+      <Filter>Backgnd\ODB</Filter>
+    </ClInclude>
+    <ClInclude Include="ServicesPacking.h">
+      <Filter>Domain\Services\ODB</Filter>
+    </ClInclude>
+    <ClInclude Include="Variant.h">
+      <Filter>Backgnd\ODB</Filter>
+    </ClInclude>
+    <ClInclude Include="ComposedFeature.h">
+      <Filter>Feature</Filter>
+    </ClInclude>
+    <ClInclude Include="Transformations.h">
+      <Filter>Domain\Basis</Filter>
+    </ClInclude>
+    <ClInclude Include="IntegrityChecking.h">
+      <Filter>Domain\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="GroupingReports.h">
+      <Filter>Domain\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="Compliance.h">
+      <Filter>Domain\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="Validation.h">
+      <Filter>Domain\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="TextDiff.h">
+      <Filter>Backgnd</Filter>
+    </ClInclude>
+    <ClInclude Include="Security.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="XmlDiff.h">
+      <Filter>Backgnd</Filter>
+    </ClInclude>
+    <ClInclude Include="XmlDiffSuit.h">
+      <Filter>Test\Backgnd</Filter>
+    </ClInclude>
+    <ClInclude Include="Actions.h">
+      <Filter>Domain\Basis</Filter>
+    </ClInclude>
+    <ClInclude Include="Archive.h">
+      <Filter>Domain\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="ActionShortcuts.h">
+      <Filter>Domain\Basis</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomActions.h">
+      <Filter>Domain\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="Async.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="JobManager.h">
+      <Filter>Backgnd</Filter>
+    </ClInclude>
+    <ClInclude Include="RegistryFwd.h">
+      <Filter>Domain\Registry</Filter>
+    </ClInclude>
+    <ClInclude Include="RegistryRefs.h">
+      <Filter>Domain\Registry</Filter>
+    </ClInclude>
+    <ClInclude Include="Registry.h">
+      <Filter>Domain\Registry</Filter>
+    </ClInclude>
+    <ClInclude Include="Sources.h">
+      <Filter>Domain\Registry</Filter>
+    </ClInclude>
+    <ClInclude Include="RegistryPacking.h">
+      <Filter>Domain\Registry\ODB</Filter>
+    </ClInclude>
+    <ClInclude Include="Roles.h">
+      <Filter>Domain\Registry</Filter>
+    </ClInclude>
+    <ClInclude Include="Collector.h">
+      <Filter>Domain\Registry</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceTypeActivities.h">
+      <Filter>Domain\Basis</Filter>
+    </ClInclude>
+    <ClInclude Include="Activity.h">
+      <Filter>Domain\Basis</Filter>
+    </ClInclude>
+    <ClInclude Include="Conveyor.h">
+      <Filter>Domain\Registry</Filter>
+    </ClInclude>
+    <ClInclude Include="ServicesDecl.h">
+      <Filter>Domain\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="RegistryDecl.h">
+      <Filter>Domain\Registry</Filter>
+    </ClInclude>
+    <ClInclude Include="RoutineRunner.h">
+      <Filter>Backgnd</Filter>
+    </ClInclude>
+    <ClInclude Include="ActionDelegates.h">
+      <Filter>Domain\Basis</Filter>
+    </ClInclude>
+    <ClInclude Include="Scheduler.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="AppDecl.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="AppFwd.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="AppRefs.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="Tasks.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="RoutineRunnerSuit.h">
+      <Filter>Test\Backgnd</Filter>
+    </ClInclude>
+    <ClInclude Include="Counters.h">
+      <Filter>Test\Backgnd</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceTypesSuit.h">
+      <Filter>Test\Basis</Filter>
+    </ClInclude>
+    <ClInclude Include="ActionsSuit.h">
+      <Filter>Test\Basis</Filter>
+    </ClInclude>
+    <ClInclude Include="ActionDelegatesSuit.h">
+      <Filter>Test\Basis</Filter>
+    </ClInclude>
+    <ClInclude Include="ShortcutsSuit.h">
+      <Filter>Test\Basis</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceTypeActivitiesSuit.h">
+      <Filter>Test\Basis</Filter>
+    </ClInclude>
+    <ClInclude Include="RolesSuit.h">
+      <Filter>Test\Registry</Filter>
+    </ClInclude>
+    <ClInclude Include="SourcesSuit.h">
+      <Filter>Test\Registry</Filter>
+    </ClInclude>
+    <ClInclude Include="CollectorSuit.h">
+      <Filter>Test\Registry</Filter>
+    </ClInclude>
+    <ClInclude Include="ConveyorSuit.h">
+      <Filter>Test\Registry</Filter>
+    </ClInclude>
+    <ClInclude Include="TextDiffSuit.h">
+      <Filter>Test\Backgnd</Filter>
+    </ClInclude>
+    <ClInclude Include="stddecl.h">
+      <Filter>Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="TrivialTypes.h">
+      <Filter>Backgnd</Filter>
+    </ClInclude>
+    <ClInclude Include="BasisTrivialTypes.h">
+      <Filter>Domain\Basis</Filter>
+    </ClInclude>
+    <ClInclude Include="ServicesTrivialTypes.h">
+      <Filter>Domain\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="RegistryTrivialTypes.h">
+      <Filter>Domain\Registry</Filter>
+    </ClInclude>
+    <ClInclude Include="CoreDomain.h" />
+    <ClInclude Include="AppTrivialTypes.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="JoinedQueries.h">
+      <Filter>Domain\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomQueries.h">
+      <Filter>Domain\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomFilters.h">
+      <Filter>Domain\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="XmlNodeFilter.h">
+      <Filter>Backgnd</Filter>
+    </ClInclude>
+    <ClInclude Include="AsioSyslog.h">
+      <Filter>Backgnd</Filter>
+    </ClInclude>
+    <ClInclude Include="Syslog.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="StreamTypes.h">
+      <Filter>Domain\Basis</Filter>
+    </ClInclude>
+    <ClInclude Include="Reservoir.h">
+      <Filter>Domain\Registry</Filter>
+    </ClInclude>
+    <ClInclude Include="StreamMessage.h">
+      <Filter>Domain\Basis</Filter>
+    </ClInclude>
+    <ClInclude Include="Convertions.h">
+      <Filter>Domain\Basis</Filter>
+    </ClInclude>
+    <ClInclude Include="Selections.h">
+      <Filter>Domain\Basis</Filter>
+    </ClInclude>
+    <ClInclude Include="Groupings.h">
+      <Filter>Domain\Basis</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceResources.h">
+      <Filter>Domain\Registry</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourcePolicies.h">
+      <Filter>Domain\Registry</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourcePoliciesSuit.h">
+      <Filter>Test\Registry</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceResourcesSuit.h">
+      <Filter>Test\Registry</Filter>
+    </ClInclude>
+    <ClInclude Include="StreamFilters.h">
+      <Filter>Domain\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="Mail.h">
+      <Filter>Backgnd</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourcePolicyDataset.h">
+      <Filter>Domain\Registry\ODB</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceDataset.h">
+      <Filter>Domain\Registry\ODB</Filter>
+    </ClInclude>
+    <ClInclude Include="RoleDataset.h">
+      <Filter>Domain\Registry\ODB</Filter>
+    </ClInclude>
+    <ClInclude Include="StreamTypesSuit.h">
+      <Filter>Test\Basis</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectionsSuit.h">
+      <Filter>Test\Basis</Filter>
+    </ClInclude>
+    <ClInclude Include="GroupingsSuit.h">
+      <Filter>Test\Basis</Filter>
+    </ClInclude>
+    <ClInclude Include="Notifier.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="Mailing.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="CurrentReportDataset.h">
+      <Filter>Domain\Registry\ODB</Filter>
+    </ClInclude>
+    <ClInclude Include="ComplianceDataset.h">
+      <Filter>Domain\Services\ODB</Filter>
+    </ClInclude>
+    <ClInclude Include="ValidationDataset.h">
+      <Filter>Domain\Services\ODB</Filter>
+    </ClInclude>
+    <ClInclude Include="IntegrityCheckingDataset.h">
+      <Filter>Domain\Services\ODB</Filter>
+    </ClInclude>
+    <ClInclude Include="Trackings.h">
+      <Filter>Domain\Basis</Filter>
+    </ClInclude>
+    <ClInclude Include="TrackingStreams.h">
+      <Filter>Domain\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="Links.h">
+      <Filter>Domain\Registry</Filter>
+    </ClInclude>
+    <ClInclude Include="SuitsFeature.h">
+      <Filter>Test\Feature</Filter>
+    </ClInclude>
+    <ClInclude Include="LinkDataset.h">
+      <Filter>Domain\Registry\ODB</Filter>
+    </ClInclude>
+    <ClInclude Include="ArchivingDataset.h">
+      <Filter>Domain\Services\ODB</Filter>
+    </ClInclude>
+    <ClInclude Include="ScheduleDataset.h">
+      <Filter>Application\ODB</Filter>
+    </ClInclude>
+    <ClInclude Include="SecurityDataset.h">
+      <Filter>Application\ODB</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomReportDataset.h">
+      <Filter>Domain\Services\ODB</Filter>
+    </ClInclude>
+    <ClInclude Include="DateTime.h">
+      <Filter>Backgnd</Filter>
+    </ClInclude>
+    <ClInclude Include="EventLog.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="ODBTools.h">
+      <Filter>Backgnd</Filter>
+    </ClInclude>
+    <ClInclude Include="StreamDataset.h">
+      <Filter>Domain\Registry\ODB</Filter>
+    </ClInclude>
+    <ClInclude Include="StreamRecordData.h">
+      <Filter>Domain\Registry\ODB</Filter>
+    </ClInclude>
+    <ClInclude Include="ExportTasks.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="SummaryPdf.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="PdfCursorPainter.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="PdfRegularDocTableModel.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="SummaryCollector.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeTools.h">
+      <Filter>Backgnd</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="BasisRefs.cpp">
+      <Filter>Domain\Basis</Filter>
+    </ClCompile>
+    <ClCompile Include="ReportTypes.cpp">
+      <Filter>Domain\Basis</Filter>
+    </ClCompile>
+    <ClCompile Include="Exception.cpp">
+      <Filter>Backgnd</Filter>
+    </ClCompile>
+    <ClCompile Include="Content.cpp">
+      <Filter>Domain\Basis</Filter>
+    </ClCompile>
+    <ClCompile Include="ReportTypesSuit.cpp">
+      <Filter>Test\Basis</Filter>
+    </ClCompile>
+    <ClCompile Include="CoreTestAssist.cpp">
+      <Filter>Test\Basis</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceTypes.cpp">
+      <Filter>Domain\Basis</Filter>
+    </ClCompile>
+    <ClCompile Include="Database.cpp">
+      <Filter>Backgnd</Filter>
+    </ClCompile>
+    <ClCompile Include="Transaction.cpp">
+      <Filter>Backgnd</Filter>
+    </ClCompile>
+    <ClCompile Include="PlainFacade.cpp">
+      <Filter>Application</Filter>
+    </ClCompile>
+    <ClCompile Include="Features.cpp">
+      <Filter>Feature</Filter>
+    </ClCompile>
+    <ClCompile Include="Core.cpp" />
+    <ClCompile Include="Basis.cpp">
+      <Filter>Domain\Basis</Filter>
+    </ClCompile>
+    <ClCompile Include="CoreImpl.cpp" />
+    <ClCompile Include="FakeCiscoFeature.cpp">
+      <Filter>Test\Feature</Filter>
+    </ClCompile>
+    <ClCompile Include="Frontend.cpp">
+      <Filter>Application</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectClient.cpp">
+      <Filter>Client</Filter>
+    </ClCompile>
+    <ClCompile Include="Client.cpp">
+      <Filter>Client</Filter>
+    </ClCompile>
+    <ClCompile Include="Executor.cpp">
+      <Filter>Backgnd</Filter>
+    </ClCompile>
+    <ClCompile Include="Services.cpp">
+      <Filter>Domain\Services</Filter>
+    </ClCompile>
+    <ClCompile Include="EventFlow.cpp">
+      <Filter>Application</Filter>
+    </ClCompile>
+    <ClCompile Include="ServicesRefs.cpp">
+      <Filter>Domain\Services</Filter>
+    </ClCompile>
+    <ClCompile Include="BasisPacking.cpp">
+      <Filter>Domain\Basis\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="Packing.cpp">
+      <Filter>Backgnd\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="ServicesValues-odb.cxx">
+      <Filter>Domain\Services\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="BasisValues-odb.cxx">
+      <Filter>Domain\Basis\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="Values-odb.cxx">
+      <Filter>Backgnd\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="ServicesPacking.cpp">
+      <Filter>Domain\Services\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomReportData-odb.cxx">
+      <Filter>Domain\Services\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="ComposedFeature.cpp">
+      <Filter>Feature</Filter>
+    </ClCompile>
+    <ClCompile Include="IntegrityChecking.cpp">
+      <Filter>Domain\Services</Filter>
+    </ClCompile>
+    <ClCompile Include="IntegrityCheckingData-odb.cxx">
+      <Filter>Domain\Services\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="GroupingReports.cpp">
+      <Filter>Domain\Services</Filter>
+    </ClCompile>
+    <ClCompile Include="GroupingReportData-odb.cxx">
+      <Filter>Domain\Services\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="FeatureData-odb.cxx">
+      <Filter>Feature\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="Compliance.cpp">
+      <Filter>Domain\Services</Filter>
+    </ClCompile>
+    <ClCompile Include="ComplianceData-odb.cxx">
+      <Filter>Domain\Services\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="Executive.cpp">
+      <Filter>Backgnd</Filter>
+    </ClCompile>
+    <ClCompile Include="Validation.cpp">
+      <Filter>Domain\Services</Filter>
+    </ClCompile>
+    <ClCompile Include="ValidationData-odb.cxx">
+      <Filter>Domain\Services\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="Diff.cpp">
+      <Filter>Domain\Basis</Filter>
+    </ClCompile>
+    <ClCompile Include="TextDiff.cpp">
+      <Filter>Backgnd</Filter>
+    </ClCompile>
+    <ClCompile Include="SecurityData-odb.cxx">
+      <Filter>Application\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="Security.cpp">
+      <Filter>Application</Filter>
+    </ClCompile>
+    <ClCompile Include="XmlDiff.cpp">
+      <Filter>Backgnd</Filter>
+    </ClCompile>
+    <ClCompile Include="XmlDiffSuit.cpp">
+      <Filter>Test\Backgnd</Filter>
+    </ClCompile>
+    <ClCompile Include="Actions.cpp">
+      <Filter>Domain\Basis</Filter>
+    </ClCompile>
+    <ClCompile Include="ArchivedReportData-odb.cxx">
+      <Filter>Domain\Services\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="ArchivingSettingsData-odb.cxx">
+      <Filter>Domain\Services\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="Archive.cpp">
+      <Filter>Domain\Services</Filter>
+    </ClCompile>
+    <ClCompile Include="ActionShortcuts.cpp">
+      <Filter>Domain\Basis</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomActions.cpp">
+      <Filter>Domain\Services</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomActionData-odb.cxx">
+      <Filter>Domain\Services\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="Async.cpp">
+      <Filter>Application</Filter>
+    </ClCompile>
+    <ClCompile Include="JobManager.cpp">
+      <Filter>Backgnd</Filter>
+    </ClCompile>
+    <ClCompile Include="RegistryRefs.cpp">
+      <Filter>Domain\Registry</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources.cpp">
+      <Filter>Domain\Registry</Filter>
+    </ClCompile>
+    <ClCompile Include="RegistryValues-odb.cxx">
+      <Filter>Domain\Registry\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="RegistryPacking.cpp">
+      <Filter>Domain\Registry\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="Roles.cpp">
+      <Filter>Domain\Registry</Filter>
+    </ClCompile>
+    <ClCompile Include="RoleData-odb.cxx">
+      <Filter>Domain\Registry\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceData-odb.cxx">
+      <Filter>Domain\Registry\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="CurrentReportData-odb.cxx">
+      <Filter>Domain\Registry\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="ReportPolicyData-odb.cxx">
+      <Filter>Domain\Registry\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="Collector.cpp">
+      <Filter>Domain\Registry</Filter>
+    </ClCompile>
+    <ClCompile Include="Registry.cpp">
+      <Filter>Domain\Registry</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceTypeActivities.cpp">
+      <Filter>Domain\Basis</Filter>
+    </ClCompile>
+    <ClCompile Include="Conveyor.cpp">
+      <Filter>Domain\Registry</Filter>
+    </ClCompile>
+    <ClCompile Include="Activity.cpp">
+      <Filter>Domain\Basis</Filter>
+    </ClCompile>
+    <ClCompile Include="ActionDelegates.cpp">
+      <Filter>Domain\Basis</Filter>
+    </ClCompile>
+    <ClCompile Include="ScheduleData-odb.cxx">
+      <Filter>Application\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="Scheduler.cpp">
+      <Filter>Application</Filter>
+    </ClCompile>
+    <ClCompile Include="Tasks.cpp">
+      <Filter>Application</Filter>
+    </ClCompile>
+    <ClCompile Include="AppRefs.cpp">
+      <Filter>Application</Filter>
+    </ClCompile>
+    <ClCompile Include="RoutineRunnerSuit.cpp">
+      <Filter>Test\Backgnd</Filter>
+    </ClCompile>
+    <ClCompile Include="Counters.cpp">
+      <Filter>Test\Backgnd</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceTypesSuit.cpp">
+      <Filter>Test\Basis</Filter>
+    </ClCompile>
+    <ClCompile Include="ActionsSuit.cpp">
+      <Filter>Test\Basis</Filter>
+    </ClCompile>
+    <ClCompile Include="ActionDelegatesSuit.cpp">
+      <Filter>Test\Basis</Filter>
+    </ClCompile>
+    <ClCompile Include="ShortcutsSuit.cpp">
+      <Filter>Test\Basis</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceTypeActivitiesSuit.cpp">
+      <Filter>Test\Basis</Filter>
+    </ClCompile>
+    <ClCompile Include="RolesSuit.cpp">
+      <Filter>Test\Registry</Filter>
+    </ClCompile>
+    <ClCompile Include="SourcesSuit.cpp">
+      <Filter>Test\Registry</Filter>
+    </ClCompile>
+    <ClCompile Include="CollectorSuit.cpp">
+      <Filter>Test\Registry</Filter>
+    </ClCompile>
+    <ClCompile Include="ConveyorSuit.cpp">
+      <Filter>Test\Registry</Filter>
+    </ClCompile>
+    <ClCompile Include="TextDiffSuit.cpp">
+      <Filter>Test\Backgnd</Filter>
+    </ClCompile>
+    <ClCompile Include="CoreDomain.cpp" />
+    <ClCompile Include="AppValues-odb.cxx">
+      <Filter>Application\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="JoinedQueries.cpp">
+      <Filter>Domain\Services</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomQueries.cpp">
+      <Filter>Domain\Services</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomFilters.cpp">
+      <Filter>Domain\Services</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomFilterData-odb.cxx">
+      <Filter>Domain\Services\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="XmlNodeFilter.cpp">
+      <Filter>Backgnd</Filter>
+    </ClCompile>
+    <ClCompile Include="AsioSyslog.cpp">
+      <Filter>Backgnd</Filter>
+    </ClCompile>
+    <ClCompile Include="Syslog.cpp">
+      <Filter>Application</Filter>
+    </ClCompile>
+    <ClCompile Include="StreamTypes.cpp">
+      <Filter>Domain\Basis</Filter>
+    </ClCompile>
+    <ClCompile Include="StreamRecordData-odb.cxx">
+      <Filter>Domain\Registry\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="Reservoir.cpp">
+      <Filter>Domain\Registry</Filter>
+    </ClCompile>
+    <ClCompile Include="SyslogData-odb.cxx">
+      <Filter>Application\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="StreamMessage.cpp">
+      <Filter>Domain\Basis</Filter>
+    </ClCompile>
+    <ClCompile Include="Selections.cpp">
+      <Filter>Domain\Basis</Filter>
+    </ClCompile>
+    <ClCompile Include="Groupings.cpp">
+      <Filter>Domain\Basis</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceResources.cpp">
+      <Filter>Domain\Registry</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourcePolicies.cpp">
+      <Filter>Domain\Registry</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourcePoliciesSuit.cpp">
+      <Filter>Test\Registry</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceResourcesSuit.cpp">
+      <Filter>Test\Registry</Filter>
+    </ClCompile>
+    <ClCompile Include="Convertions.cpp">
+      <Filter>Domain\Basis</Filter>
+    </ClCompile>
+    <ClCompile Include="StreamFilters.cpp">
+      <Filter>Domain\Services</Filter>
+    </ClCompile>
+    <ClCompile Include="StreamFilterData-odb.cxx">
+      <Filter>Domain\Services\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="Mail.cpp">
+      <Filter>Backgnd</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourcePolicyDataset.cpp">
+      <Filter>Domain\Registry\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceDataset.cpp">
+      <Filter>Domain\Registry\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="RoleDataset.cpp">
+      <Filter>Domain\Registry\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="StreamTypesSuit.cpp">
+      <Filter>Test\Basis</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectionsSuit.cpp">
+      <Filter>Test\Basis</Filter>
+    </ClCompile>
+    <ClCompile Include="GroupingsSuit.cpp">
+      <Filter>Test\Basis</Filter>
+    </ClCompile>
+    <ClCompile Include="NotificationData-odb.cxx">
+      <Filter>Application\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="Notifier.cpp">
+      <Filter>Application</Filter>
+    </ClCompile>
+    <ClCompile Include="Mailing.cpp">
+      <Filter>Application</Filter>
+    </ClCompile>
+    <ClCompile Include="MailingData-odb.cxx">
+      <Filter>Application\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="CurrentReportDataset.cpp">
+      <Filter>Domain\Registry\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="ComplianceDataset.cpp">
+      <Filter>Domain\Services\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="ValidationDataset.cpp">
+      <Filter>Domain\Services\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="IntegrityCheckingDataset.cpp">
+      <Filter>Domain\Services\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="Trackings.cpp">
+      <Filter>Domain\Basis</Filter>
+    </ClCompile>
+    <ClCompile Include="TrackingStreams.cpp">
+      <Filter>Domain\Services</Filter>
+    </ClCompile>
+    <ClCompile Include="TrackingStreamData-odb.cxx">
+      <Filter>Domain\Services\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="Links.cpp">
+      <Filter>Domain\Registry</Filter>
+    </ClCompile>
+    <ClCompile Include="LinkData-odb.cxx">
+      <Filter>Domain\Registry\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="SuitsFeature.cpp">
+      <Filter>Test\Feature</Filter>
+    </ClCompile>
+    <ClCompile Include="LinkDataset.cpp">
+      <Filter>Domain\Registry\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="ArchivingDataset.cpp">
+      <Filter>Domain\Services\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="ScheduleDataset.cpp">
+      <Filter>Application\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="SecurityDataset.cpp">
+      <Filter>Application\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomReportDataset.cpp">
+      <Filter>Domain\Services\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomQueryData-odb.cxx">
+      <Filter>Domain\Services\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="EventLog.cpp">
+      <Filter>Application</Filter>
+    </ClCompile>
+    <ClCompile Include="EventRecord-odb.cxx">
+      <Filter>Application\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="StreamSettingsData-odb.cxx">
+      <Filter>Domain\Registry\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="StreamData-odb.cxx">
+      <Filter>Domain\Registry\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="StreamDataset.cpp">
+      <Filter>Domain\Registry\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="StreamInputData-odb.cxx">
+      <Filter>Domain\Registry\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="ExportTasks.cpp">
+      <Filter>Application</Filter>
+    </ClCompile>
+    <ClCompile Include="SummaryPdf.cpp">
+      <Filter>Application</Filter>
+    </ClCompile>
+    <ClCompile Include="PdfCursorPainter.cpp">
+      <Filter>Application</Filter>
+    </ClCompile>
+    <ClCompile Include="PdfRegularDocTableModel.cpp">
+      <Filter>Application</Filter>
+    </ClCompile>
+    <ClCompile Include="SummaryCollector.cpp">
+      <Filter>Application</Filter>
+    </ClCompile>
+    <ClCompile Include="SummaryData-odb.cxx">
+      <Filter>Application\ODB</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="ServicesValues.hxx">
+      <Filter>Domain\Services\ODB</Filter>
+    </CustomBuild>
+    <CustomBuild Include="BasisValues.hxx">
+      <Filter>Domain\Basis\ODB</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Values.hxx">
+      <Filter>Backgnd\ODB</Filter>
+    </CustomBuild>
+    <CustomBuild Include="IntegrityCheckingData.hxx">
+      <Filter>Domain\Services\ODB</Filter>
+    </CustomBuild>
+    <CustomBuild Include="GroupingReportData.hxx">
+      <Filter>Domain\Services\ODB</Filter>
+    </CustomBuild>
+    <CustomBuild Include="FeatureData.hxx">
+      <Filter>Feature\ODB</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ComplianceData.hxx">
+      <Filter>Domain\Services\ODB</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ValidationData.hxx">
+      <Filter>Domain\Services\ODB</Filter>
+    </CustomBuild>
+    <CustomBuild Include="SecurityData.hxx">
+      <Filter>Application\ODB</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ArchivedReportData.hxx">
+      <Filter>Domain\Services\ODB</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ArchivingSettingsData.hxx">
+      <Filter>Domain\Services\ODB</Filter>
+    </CustomBuild>
+    <CustomBuild Include="CustomActionData.hxx">
+      <Filter>Domain\Services\ODB</Filter>
+    </CustomBuild>
+    <CustomBuild Include="RegistryValues.hxx">
+      <Filter>Domain\Registry\ODB</Filter>
+    </CustomBuild>
+    <CustomBuild Include="RoleData.hxx">
+      <Filter>Domain\Registry\ODB</Filter>
+    </CustomBuild>
+    <CustomBuild Include="SourceData.hxx">
+      <Filter>Domain\Registry\ODB</Filter>
+    </CustomBuild>
+    <CustomBuild Include="CurrentReportData.hxx">
+      <Filter>Domain\Registry\ODB</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ReportPolicyData.hxx">
+      <Filter>Domain\Registry\ODB</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ScheduleData.hxx">
+      <Filter>Application\ODB</Filter>
+    </CustomBuild>
+    <CustomBuild Include="AppValues.hxx">
+      <Filter>Application\ODB</Filter>
+    </CustomBuild>
+    <CustomBuild Include="CustomFilterData.hxx">
+      <Filter>Domain\Services\ODB</Filter>
+    </CustomBuild>
+    <CustomBuild Include="StreamRecordData.hxx">
+      <Filter>Domain\Registry\ODB</Filter>
+    </CustomBuild>
+    <CustomBuild Include="SyslogData.hxx">
+      <Filter>Application\ODB</Filter>
+    </CustomBuild>
+    <CustomBuild Include="StreamFilterData.hxx">
+      <Filter>Domain\Services\ODB</Filter>
+    </CustomBuild>
+    <CustomBuild Include="NotificationData.hxx">
+      <Filter>Application\ODB</Filter>
+    </CustomBuild>
+    <CustomBuild Include="MailingData.hxx">
+      <Filter>Application\ODB</Filter>
+    </CustomBuild>
+    <CustomBuild Include="TrackingStreamData.hxx">
+      <Filter>Domain\Services\ODB</Filter>
+    </CustomBuild>
+    <CustomBuild Include="LinkData.hxx">
+      <Filter>Domain\Registry\ODB</Filter>
+    </CustomBuild>
+    <CustomBuild Include="CustomReportData.hxx">
+      <Filter>Domain\Services\ODB</Filter>
+    </CustomBuild>
+    <CustomBuild Include="CustomQueryData.hxx">
+      <Filter>Domain\Services\ODB</Filter>
+    </CustomBuild>
+    <CustomBuild Include="EventRecord.hxx">
+      <Filter>Application\ODB</Filter>
+    </CustomBuild>
+    <CustomBuild Include="StreamSettingsData.hxx">
+      <Filter>Domain\Registry\ODB</Filter>
+    </CustomBuild>
+    <CustomBuild Include="StreamData.hxx">
+      <Filter>Domain\Registry\ODB</Filter>
+    </CustomBuild>
+    <CustomBuild Include="StreamInputData.hxx">
+      <Filter>Domain\Registry\ODB</Filter>
+    </CustomBuild>
+    <CustomBuild Include="SummaryData.hxx">
+      <Filter>Application\ODB</Filter>
+    </CustomBuild>
+  </ItemGroup>
+</Project>

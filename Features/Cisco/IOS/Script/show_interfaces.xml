@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<script>
+  <commands>
+    <mode>
+      <exchange>
+        <send/>
+        <recv>
+          <unexpected>
+            <complete/>
+          </unexpected>
+        </recv>
+      </exchange>
+    </mode>
+    <exec>
+      <exchange>
+        <send>
+          <text>terminal length 0</text>
+        </send>
+        <recv>
+          <unexpected>
+            <complete/>
+          </unexpected>
+        </recv>
+      </exchange>
+    </exec>
+    <mode>
+      <exchange>
+        <send>
+          <text>en</text>
+        </send>
+        <recv>
+          <expected>
+            <pattern>(P|p)assword</pattern>
+            <exchange>
+              <send>
+                <variable>en_password</variable>
+              </send>
+              <recv/>
+            </exchange>
+          </expected>
+          <expected>
+            <pattern>^% Access denied</pattern>
+            <fail/>
+          </expected>
+          <unexpected>
+            <complete/>
+          </unexpected>
+        </recv>
+      </exchange>
+    </mode>
+    <exec>
+      <exchange>
+        <send>
+          <text>show interfaces</text>
+        </send>
+        <recv>
+          <expected>
+            <pattern>^% Invalid input</pattern>
+            <fail/>
+          </expected>
+          <unexpected>
+            <complete/>
+          </unexpected>
+        </recv>
+      </exchange>
+    </exec>
+  </commands>
+</script>

@@ -1,0 +1,511 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{55767065-A52D-4F73-9C57-4D230D5229C5}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>TRWebServer</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_SCL_SECURE_NO_WARNINGS;WIN32;_DEBUG;_CONSOLE;_LIB;BOOST_OPTIONAL_USE_OLD_DEFINITION_OF_NONE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zm355 %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings>4503</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>wtd.lib;wthttpd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_SCL_SECURE_NO_WARNINGS;WIN32;_DEBUG;_CONSOLE;_LIB;BOOST_OPTIONAL_USE_OLD_DEFINITION_OF_NONE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\;..\..\3rdParty\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zm355 %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings>4503</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\..\3rdParty\vcpkg\installed\x64-windows\debug\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>boost_filesystem-vc140-mt-gd.lib;boost_thread-vc140-mt-gd.lib;boost_wserialization-vc140-mt-gd.lib;boost_serialization-vc140-mt-gd.lib;boost_regex-vc140-mt-gd.lib;boost_iostreams-vc140-mt-gd.lib;legacy_stdio_definitions.lib;crypt32.lib;wtd.lib;wthttpd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;BOOST_OPTIONAL_USE_OLD_DEFINITION_OF_NONE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\External\libxml2-2.7.7.win32\include;..\..\External\libxslt-1.1.26.win32\include;..\..\External\libxslt-plugin-regexp-0.3;..\..\External\iconv-1.9.2.win32\include;..\..\External\libodb-2.3.0;..\..\External\boost_1_59_0;..\..\External\Wt-3.3.8-msvs2013-Windows-x86-SDK\include;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zm355 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>wt.lib;wthttp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\External\Wt-3.3.8-msvs2013-Windows-x86-SDK\lib;..\..\External\boost_1_59_0\stage\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_LIB;BOOST_OPTIONAL_USE_OLD_DEFINITION_OF_NONE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\;..\..\3rdParty\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zm355 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>boost_filesystem-vc140-mt.lib;boost_thread-vc140-mt.lib;boost_wserialization-vc140-mt.lib;boost_serialization-vc140-mt.lib;boost_regex-vc140-mt.lib;boost_iostreams-vc140-mt.lib;legacy_stdio_definitions.lib;crypt32.lib;wt.lib;wthttp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\3rdParty\vcpkg\installed\x64-windows\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="ActionDlg.h" />
+    <ClInclude Include="ActionOptionsEditor.h" />
+    <ClInclude Include="ActionOptionsPage.h" />
+    <ClInclude Include="ActionOutputPage.h" />
+    <ClInclude Include="ActionSelectionPage.h" />
+    <ClInclude Include="AdminPage.h" />
+    <ClInclude Include="AppClient.h" />
+    <ClInclude Include="BrowseNodeDlg.h" />
+    <ClInclude Include="ChangesTable.h" />
+    <ClInclude Include="ExportSummaryDlg.h" />
+    <ClInclude Include="FeaturesPage.h" />
+    <ClInclude Include="Layout.h" />
+    <ClInclude Include="OptionProperties.h" />
+    <ClInclude Include="PatternComparePage.h" />
+    <ClInclude Include="InventoryTable.h" />
+    <ClInclude Include="PersistReportWizard.h" />
+    <ClInclude Include="PropertyNodeValue.h" />
+    <ClInclude Include="CommonPropertyDoc.h" />
+    <ClInclude Include="CommonProperty.h" />
+    <ClInclude Include="CommonPropertyArrayView.h" />
+    <ClInclude Include="CommonPropertyPage.h" />
+    <ClInclude Include="CommonPropertyView.h" />
+    <ClInclude Include="ComposedCollection.h" />
+    <ClInclude Include="FilterSetupPage.h" />
+    <ClInclude Include="PreviewPage.h" />
+    <ClInclude Include="NodeFiltersView.h" />
+    <ClInclude Include="Panel.h" />
+    <ClInclude Include="PropertyBox.h" />
+    <ClInclude Include="PropertyGrid.h" />
+    <ClInclude Include="PropertySheet.h" />
+    <ClInclude Include="PropertyWizard.h" />
+    <ClInclude Include="PropertyNodeFactory.h" />
+    <ClInclude Include="RebuildDlg.h" />
+    <ClInclude Include="ReportViewOptionsEditor.h" />
+    <ClInclude Include="RunTaskWizard.h" />
+    <ClInclude Include="ScheduleSelectionPage.h" />
+    <ClInclude Include="ScheduleSettingsDlg.h" />
+    <ClInclude Include="SearchPage.h" />
+    <ClInclude Include="SelfArray.h" />
+    <ClInclude Include="SourceBrowseDlg.h" />
+    <ClInclude Include="SourcesTableView.h" />
+    <ClInclude Include="SourcesView.h" />
+    <ClInclude Include="ReloadDlg.h" />
+    <ClInclude Include="ShortcutDlg.h" />
+    <ClInclude Include="ArchivedReportPage.h" />
+    <ClInclude Include="ArchivePage.h" />
+    <ClInclude Include="ArchiveQueryDlg.h" />
+    <ClInclude Include="ArchiveTable.h" />
+    <ClInclude Include="CompareContentPage.h" />
+    <ClInclude Include="ComplianceContentView.h" />
+    <ClInclude Include="ComplianceSetupView.h" />
+    <ClInclude Include="ComplianceReportPage.h" />
+    <ClInclude Include="ComplianceEditor.h" />
+    <ClInclude Include="ComplianceSetupPage.h" />
+    <ClInclude Include="ContentEditor.h" />
+    <ClInclude Include="CurrentReportsPage.h" />
+    <ClInclude Include="Dialog.h" />
+    <ClInclude Include="DiffView.h" />
+    <ClInclude Include="GetTimeDlg.h" />
+    <ClInclude Include="LoginScreen.h" />
+    <ClInclude Include="AlertsTable.h" />
+    <ClInclude Include="QueriedReportPage.h" />
+    <ClInclude Include="RegularDiffModel.h" />
+    <ClInclude Include="RegularDiffTreeView.h" />
+    <ClInclude Include="RegularDiffView.h" />
+    <ClInclude Include="ReportOptionsEditor.h" />
+    <ClInclude Include="PatternEditor.h" />
+    <ClInclude Include="PropertyDialog.h" />
+    <ClInclude Include="RegularContentEditor.h" />
+    <ClInclude Include="RegularDocEditor.h" />
+    <ClInclude Include="RoleOptionsPage.h" />
+    <ClInclude Include="RoleSelectionPage.h" />
+    <ClInclude Include="RoleSettingsDlg.h" />
+    <ClInclude Include="SourceOptionsPage.h" />
+    <ClInclude Include="SourceSelectionPage.h" />
+    <ClInclude Include="StandardModel.h" />
+    <ClInclude Include="StandardTable.h" />
+    <ClInclude Include="StaticValue.h" />
+    <ClInclude Include="Application.h" />
+    <ClInclude Include="ContainerArray.h" />
+    <ClInclude Include="CustomValue.h" />
+    <ClInclude Include="CommonPropertyTable.h" />
+    <ClInclude Include="QueryConditionDlg.h" />
+    <ClInclude Include="RefValue.h" />
+    <ClInclude Include="RegularDocTableView.h" />
+    <ClInclude Include="CreateQueryPage.h" />
+    <ClInclude Include="RegularReportPage.h" />
+    <ClInclude Include="CurrentReportPage.h" />
+    <ClInclude Include="CurrentReportsTable.h" />
+    <ClInclude Include="QueryDocModel.h" />
+    <ClInclude Include="QueryDocView.h" />
+    <ClInclude Include="OptionsPage.h" />
+    <ClInclude Include="RegularDocTreeView.h" />
+    <ClInclude Include="RegularContentView.h" />
+    <ClInclude Include="RegularDocModel.h" />
+    <ClInclude Include="ContentView.h" />
+    <ClInclude Include="ReportOptionsPage.h" />
+    <ClInclude Include="ReportSelectionPage.h" />
+    <ClInclude Include="Property.h" />
+    <ClInclude Include="SourcePanel.h" />
+    <ClInclude Include="MainFrame.h" />
+    <ClInclude Include="SourcePage.h" />
+    <ClInclude Include="SourceSettingsPage.h" />
+    <ClInclude Include="SourcesPage.h" />
+    <ClInclude Include="SourcesTreeView.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="StreamFilterPage.h" />
+    <ClInclude Include="StreamFilterView.h" />
+    <ClInclude Include="StreamOptionsPage.h" />
+    <ClInclude Include="StreamPage.h" />
+    <ClInclude Include="OpenStreamDlg.h" />
+    <ClInclude Include="StreamPreviewPage.h" />
+    <ClInclude Include="StreamSelectionPage.h" />
+    <ClInclude Include="StreamView.h" />
+    <ClInclude Include="SubjectActionOptionsPage.h" />
+    <ClInclude Include="SubjectOptionsPage.h" />
+    <ClInclude Include="SubjectReportOptionsPage.h" />
+    <ClInclude Include="SubjectStreamOptionsPage.h" />
+    <ClInclude Include="SuitSettingsPage.h" />
+    <ClInclude Include="TabWidget.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="TaskDlg.h" />
+    <ClInclude Include="TaskOutputPage.h" />
+    <ClInclude Include="TextContentEditor.h" />
+    <ClInclude Include="TextContentView.h" />
+    <ClInclude Include="TextDiffModel.h" />
+    <ClInclude Include="TextDiffTableView.h" />
+    <ClInclude Include="TextDiffView.h" />
+    <ClInclude Include="PlainTextView.h" />
+    <ClInclude Include="TRWebServer.h" />
+    <ClInclude Include="UploadDialog.h" />
+    <ClInclude Include="UsersPage.h" />
+    <ClInclude Include="ValidatedContentView.h" />
+    <ClInclude Include="ValidatedDocModel.h" />
+    <ClInclude Include="ValidatedDocTableView.h" />
+    <ClInclude Include="ValidatedDocTreeView.h" />
+    <ClInclude Include="ValidatedReportPage.h" />
+    <ClInclude Include="ValidationSettingsPage.h" />
+    <ClInclude Include="ValidatorEditor.h" />
+    <ClInclude Include="ValidatorView.h" />
+    <ClInclude Include="Value.h" />
+    <ClInclude Include="VirtualList.h" />
+    <ClInclude Include="WelcomePage.h" />
+    <ClInclude Include="AppEventDisp.h" />
+    <ClInclude Include="BaseTreeModel.h" />
+    <ClInclude Include="WelcomePanels.h" />
+    <ClInclude Include="WidgetHolder.h" />
+    <ClInclude Include="WtTools.h" />
+    <ClInclude Include="XmlContentView.h" />
+    <ClInclude Include="XmlDiffModel.h" />
+    <ClInclude Include="XmlDiffTreeView.h" />
+    <ClInclude Include="XmlDiffView.h" />
+    <ClInclude Include="XmlDocModel.h" />
+    <ClInclude Include="XmlDocTreeView.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ActionDlg.cpp" />
+    <ClCompile Include="ActionOptionsEditor.cpp" />
+    <ClCompile Include="ActionOptionsPage.cpp" />
+    <ClCompile Include="ActionOutputPage.cpp" />
+    <ClCompile Include="ActionSelectionPage.cpp" />
+    <ClCompile Include="AdminPage.cpp" />
+    <ClCompile Include="AppClient.cpp" />
+    <ClCompile Include="BrowseNodeDlg.cpp" />
+    <ClCompile Include="ChangesTable.cpp" />
+    <ClCompile Include="CommonProperty.cpp" />
+    <ClCompile Include="CommonPropertyArrayView.cpp" />
+    <ClCompile Include="CommonPropertyDoc.cpp" />
+    <ClCompile Include="CommonPropertyPage.cpp" />
+    <ClCompile Include="CommonPropertyView.cpp" />
+    <ClCompile Include="CreateQueryPage.cpp" />
+    <ClCompile Include="ExportSummaryDlg.cpp" />
+    <ClCompile Include="FeaturesPage.cpp" />
+    <ClCompile Include="FilterSetupPage.cpp" />
+    <ClCompile Include="Layout.cpp" />
+    <ClCompile Include="OptionProperties.cpp" />
+    <ClCompile Include="PatternComparePage.cpp" />
+    <ClCompile Include="InventoryTable.cpp" />
+    <ClCompile Include="PersistReportWizard.cpp" />
+    <ClCompile Include="PreviewPage.cpp" />
+    <ClCompile Include="NodeFiltersView.cpp" />
+    <ClCompile Include="Panel.cpp" />
+    <ClCompile Include="PlainTextView.cpp" />
+    <ClCompile Include="PropertyBox.cpp" />
+    <ClCompile Include="PropertyNodeFactory.cpp" />
+    <ClCompile Include="PropertyNodeValue.cpp" />
+    <ClCompile Include="PropertySheet.cpp" />
+    <ClCompile Include="PropertyWizard.cpp" />
+    <ClCompile Include="RebuildDlg.cpp" />
+    <ClCompile Include="ReportViewOptionsEditor.cpp" />
+    <ClCompile Include="RunTaskWizard.cpp" />
+    <ClCompile Include="ScheduleSelectionPage.cpp" />
+    <ClCompile Include="ScheduleSettingsDlg.cpp" />
+    <ClCompile Include="SearchPage.cpp" />
+    <ClCompile Include="SourceBrowseDlg.cpp" />
+    <ClCompile Include="SourcesTableView.cpp" />
+    <ClCompile Include="SourcesTreeView.cpp" />
+    <ClCompile Include="SourcesView.cpp" />
+    <ClCompile Include="StreamFilterPage.cpp" />
+    <ClCompile Include="StreamFilterView.cpp" />
+    <ClCompile Include="StreamOptionsPage.cpp" />
+    <ClCompile Include="StreamPage.cpp" />
+    <ClCompile Include="OpenStreamDlg.cpp" />
+    <ClCompile Include="StreamPreviewPage.cpp" />
+    <ClCompile Include="StreamSelectionPage.cpp" />
+    <ClCompile Include="StreamView.cpp" />
+    <ClCompile Include="SubjectActionOptionsPage.cpp" />
+    <ClCompile Include="SubjectOptionsPage.cpp" />
+    <ClCompile Include="SubjectStreamOptionsPage.cpp" />
+    <ClCompile Include="SuitSettingsPage.cpp" />
+    <ClCompile Include="TaskDlg.cpp" />
+    <ClCompile Include="ReloadDlg.cpp" />
+    <ClCompile Include="ShortcutDlg.cpp" />
+    <ClCompile Include="Application.cpp" />
+    <ClCompile Include="ArchivedReportPage.cpp" />
+    <ClCompile Include="ArchivePage.cpp" />
+    <ClCompile Include="ArchiveQueryDlg.cpp" />
+    <ClCompile Include="ArchiveTable.cpp" />
+    <ClCompile Include="CompareContentPage.cpp" />
+    <ClCompile Include="ComplianceContentView.cpp">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">MaxSpeed</Optimization>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='Release|x64'">MaxSpeed</Optimization>
+      <InlineFunctionExpansion Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Default</InlineFunctionExpansion>
+      <InlineFunctionExpansion Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Default</InlineFunctionExpansion>
+      <IntrinsicFunctions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</IntrinsicFunctions>
+      <IntrinsicFunctions Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</IntrinsicFunctions>
+      <WholeProgramOptimization Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</WholeProgramOptimization>
+      <WholeProgramOptimization Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</WholeProgramOptimization>
+    </ClCompile>
+    <ClCompile Include="ComplianceEditor.cpp" />
+    <ClCompile Include="ComplianceSetupView.cpp" />
+    <ClCompile Include="ComplianceReportPage.cpp" />
+    <ClCompile Include="ComplianceSetupPage.cpp" />
+    <ClCompile Include="CurrentReportsPage.cpp" />
+    <ClCompile Include="Dialog.cpp" />
+    <ClCompile Include="DiffView.cpp" />
+    <ClCompile Include="QueryConditionDlg.cpp" />
+    <ClCompile Include="GetTimeDlg.cpp" />
+    <ClCompile Include="LoginScreen.cpp" />
+    <ClCompile Include="AlertsTable.cpp" />
+    <ClCompile Include="QueriedReportPage.cpp" />
+    <ClCompile Include="RegularDiffModel.cpp" />
+    <ClCompile Include="RegularDiffTreeView.cpp" />
+    <ClCompile Include="RegularDiffView.cpp" />
+    <ClCompile Include="ReportOptionsEditor.cpp" />
+    <ClCompile Include="PatternEditor.cpp" />
+    <ClCompile Include="CommonPropertyTable.cpp" />
+    <ClCompile Include="PropertyDialog.cpp" />
+    <ClCompile Include="RegularContentEditor.cpp" />
+    <ClCompile Include="RegularDocEditor.cpp" />
+    <ClCompile Include="RegularReportPage.cpp" />
+    <ClCompile Include="CurrentReportPage.cpp" />
+    <ClCompile Include="CurrentReportsTable.cpp" />
+    <ClCompile Include="QueryDocModel.cpp" />
+    <ClCompile Include="QueryDocView.cpp" />
+    <ClCompile Include="OptionsPage.cpp" />
+    <ClCompile Include="RegularDocTreeView.cpp" />
+    <ClCompile Include="RegularContentView.cpp" />
+    <ClCompile Include="RegularDocModel.cpp" />
+    <ClCompile Include="ContentView.cpp" />
+    <ClCompile Include="RegularDocTableView.cpp" />
+    <ClCompile Include="ReportOptionsPage.cpp" />
+    <ClCompile Include="ReportSelectionPage.cpp" />
+    <ClCompile Include="Property.cpp" />
+    <ClCompile Include="RoleOptionsPage.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="RoleSelectionPage.cpp" />
+    <ClCompile Include="RoleSettingsDlg.cpp" />
+    <ClCompile Include="SourceOptionsPage.cpp" />
+    <ClCompile Include="SourcePanel.cpp" />
+    <ClCompile Include="SourceSelectionPage.cpp" />
+    <ClCompile Include="MainFrame.cpp" />
+    <ClCompile Include="SourcePage.cpp" />
+    <ClCompile Include="SourceSettingsPage.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="SourcesPage.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="SubjectReportOptionsPage.cpp" />
+    <ClCompile Include="TabWidget.cpp" />
+    <ClCompile Include="TaskOutputPage.cpp" />
+    <ClCompile Include="TextContentEditor.cpp" />
+    <ClCompile Include="TextContentView.cpp" />
+    <ClCompile Include="TextDiffModel.cpp" />
+    <ClCompile Include="TextDiffTableView.cpp" />
+    <ClCompile Include="TextDiffView.cpp" />
+    <ClCompile Include="TRWebServer.cpp" />
+    <ClCompile Include="UploadDialog.cpp" />
+    <ClCompile Include="UsersPage.cpp" />
+    <ClCompile Include="ValidatedContentView.cpp" />
+    <ClCompile Include="ValidatedDocModel.cpp" />
+    <ClCompile Include="ValidatedDocTableView.cpp" />
+    <ClCompile Include="ValidatedDocTreeView.cpp" />
+    <ClCompile Include="ValidatedReportPage.cpp" />
+    <ClCompile Include="ValidationSettingsPage.cpp" />
+    <ClCompile Include="ValidatorEditor.cpp" />
+    <ClCompile Include="ValidatorView.cpp" />
+    <ClCompile Include="Value.cpp" />
+    <ClCompile Include="VirtualList.cpp" />
+    <ClCompile Include="WelcomePage.cpp" />
+    <ClCompile Include="AppEventDisp.cpp" />
+    <ClCompile Include="BaseTreeModel.cpp" />
+    <ClCompile Include="WelcomePanels.cpp" />
+    <ClCompile Include="XmlContentView.cpp" />
+    <ClCompile Include="XmlDiffModel.cpp" />
+    <ClCompile Include="XmlDiffTreeView.cpp" />
+    <ClCompile Include="XmlDiffView.cpp" />
+    <ClCompile Include="XmlDocModel.cpp" />
+    <ClCompile Include="XmlDocTreeView.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\STLTools\STLTools.vcxproj">
+      <Project>{373d471f-0764-45ac-a27b-da6bc7a709cf}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TRCore\TRCore.vcxproj">
+      <Project>{90ce06c3-1ba9-4c8b-b864-ff5136352517}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TRExternalFeature\TRExternalFeature.vcxproj">
+      <Project>{b4cb86cc-ce1c-40aa-ab23-07de19c07791}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\TRXML\TRXML.vcxproj">
+      <Project>{9fe67ca9-64ee-4167-af9b-6ef3b4765186}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\XMLTools\XMLTools.vcxproj">
+      <Project>{e2d8d880-81b4-4e99-ac59-f4738e48c1eb}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\XSLTTools\XSLTTools.vcxproj">
+      <Project>{59ad3172-cf03-4f8c-8e86-3e32a99f835a}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="docroot\localization\localization.xml" />
+    <Xml Include="message.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="docroot\icons\snow.png" />
+    <Image Include="docroot\icons\sun01.png" />
+    <Image Include="docroot\icons\timer-reload.png" />
+    <Image Include="docroot\icons\w_cloud.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="docroot\css\technical-reporter.css" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

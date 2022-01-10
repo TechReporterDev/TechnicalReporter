@@ -1,0 +1,1737 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<feature>
+  <uuid>A7D585CD-C303-476C-BB17-9298AA4A98D8</uuid>
+  <name>GeneralLinux</name>
+
+  <report_type>
+    <uuid>E955C6C9-582E-44CE-A4B6-BDBD4BCC03DA</uuid>
+    <tag>PS</tag>
+    <name>'ps'</name>
+    <syntax>TEXT</syntax>
+  </report_type>
+
+  <report_type>
+    <uuid>DD4ACEDD-E563-4C8D-BEA3-53D9ED628850</uuid>
+    <tag>MOUNT</tag>
+    <name>'mount'</name>
+    <syntax>TEXT</syntax>
+  </report_type>
+  
+  <report_type>
+    <uuid>1E9D0365-8631-4618-BA43-9396C09437AE</uuid>
+    <tag>PASSWD</tag>
+    <name>'passwd'</name>
+    <syntax>TEXT</syntax>
+  </report_type>
+
+  <report_type>
+    <uuid>AAAEDF73-B8A5-4780-8E62-FD06B477DAFB</uuid>
+    <tag>SHADOW</tag>
+    <name>'shadow'</name>
+    <syntax>TEXT</syntax>
+  </report_type>
+
+  <report_type>
+    <uuid>32C0AA9C-C6B8-4F3A-8535-9AE7E0979FE9</uuid>
+    <tag>GROUP</tag>
+    <name>'group'</name>
+    <syntax>TEXT</syntax>
+  </report_type>
+  
+   <report_type>
+    <uuid>483056D7-E588-4422-B182-8A425BE0B011</uuid>
+    <tag>SUDOERS</tag>
+    <name>'sudoers'</name>
+    <syntax>TEXT</syntax>
+  </report_type>
+  
+  <report_type>
+    <uuid>488E548C-BC52-45D5-8DE4-ECCB2C867EA1</uuid>
+    <tag>GRUB_MENU</tag>
+    <name>'/boot/grub/menu.lst'</name>
+    <syntax>TEXT</syntax>
+  </report_type>
+
+  <report_type>
+    <uuid>342D2176-9339-454E-B790-372BAB7E6419</uuid>
+    <tag>FSTAB</tag>
+    <name>'fstab'</name>
+    <syntax>TEXT</syntax>
+  </report_type>
+
+  <report_type>
+    <uuid>247AF7C6-DB22-4766-BC6F-63B39DDD4C07</uuid>
+    <tag>IFCONFIG</tag>
+    <name>'ifconfig'</name>
+    <syntax>TEXT</syntax>
+  </report_type>
+
+  <report_type>
+    <uuid>7F03DF2F-B401-443B-BCB5-32850D2177A8</uuid>
+    <tag>MODPROBE</tag>
+    <name>'modprobe.conf'</name>
+    <syntax>TEXT</syntax>
+  </report_type>
+
+  <report_type>
+    <uuid>801F077B-B0C5-44D2-A40D-20B3E6774288</uuid>
+    <tag>SECURETTY</tag>
+    <name>'securetty'</name>
+    <syntax>TEXT</syntax>
+  </report_type>
+
+  <report_type>
+    <uuid>74F320E1-AC1B-4942-9C1B-AB9647609C04</uuid>
+    <tag>NETSTAT_NATP</tag>
+    <name>'netstat -natp'</name>
+    <syntax>TEXT</syntax>
+  </report_type>
+
+  <report_type>
+    <uuid>BB852BC4-CD72-4D97-83BF-7C90B71FEA5E</uuid>
+    <tag>ENV</tag>
+    <name>'env'</name>
+    <syntax>TEXT</syntax>
+  </report_type>
+  
+  <report_type>
+    <uuid>608B06DC-19C9-4193-8FD3-800A8E17CECB</uuid>
+    <tag>PROCESSES</tag>
+    <name>Processes</name>
+    <syntax>REGULAR</syntax>
+    <content_definition>
+      <ps class="LIST" caption="PS" description="">
+        <prcss class="STRUCT" caption="Process" description="">
+          <pid class="STRING" caption="PID" description=""/>
+          <user class="STRING" caption="User" description=""/>
+          <name class="STRING" caption="Name" description=""/>
+        </prcss>
+      </ps>
+    </content_definition>
+  </report_type>
+
+  <report_type>
+    <uuid>BB42591F-11A6-481B-B761-DACCB6DADFDD</uuid>
+    <tag>MOUNTED_DEVICES</tag>
+    <name>Mounted devices</name>
+    <syntax>REGULAR</syntax>
+    <content_definition>
+      <mount class="LIST" caption="Mounted devices" description="">
+        <mount class="STRUCT" caption="Mounting" description="">
+          <device class="STRING" caption="Device" description=""/>
+          <mp class="STRING" caption="MP" description="Mount point"/>
+          <fs class="STRING" caption="FS" description="File system type"/>
+          <attrs class="STRING" caption="Attributes" description=""/>
+        </mount>
+      </mount>    
+    </content_definition>
+  </report_type>
+
+  <report_type>
+    <uuid>1F2177ED-07A2-4655-82FE-4B7B4E8DCE20</uuid>
+    <tag>USERS</tag>
+    <name>Users</name>
+    <syntax>REGULAR</syntax>
+    <content_definition>
+      <users class="LIST" caption="Users" description="">
+        <META>
+          <ACTION uuid="93EFE263-43F3-4F9B-9BA2-36E58901AF05" caption="Add">
+            <params xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+              <name>               
+              </name>
+              <password>
+              </password>
+            </params>
+          </ACTION>
+        </META>
+        <user class="STRUCT" caption="User" description="">          
+          <META>
+            <ACTION uuid="FD707D1E-A623-4A78-8FFC-B9345882B61E" caption="Remove">
+              <params xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+                <name><xsl:value-of select="name"/></name>
+              </params>
+            </ACTION>
+          </META>
+          <name class="STRING" caption="Name" description=""/>
+          <password class="STRING" caption="Password" description=""/>  
+          <uid class="STRING" caption="UID" description=""/>
+          <gid class="STRING" caption="GID" description=""/>
+          <comment class="STRING" caption="Comment" description=""/>
+          <path class="STRING" caption="Path" description=""/>
+          <shell class="STRING" caption="Shell" description=""/>
+        </user>
+      </users>
+    </content_definition>
+  </report_type>
+
+  <report_type>
+    <uuid>EACF4447-9440-40AA-9289-6035EC67CE8E</uuid>
+    <tag>PASSWORDS</tag>
+    <name>Passwords</name>
+    <syntax>REGULAR</syntax>
+    <content_definition>
+      <passwords class="LIST" caption="Passwords" description="">
+        <password class="STRUCT" caption="Password" description="">
+          <user class="STRING" caption="User" description=""/>
+          <hash class="STRING" caption="Hash" description=""/>
+          <options class="STRING" caption="Options" description=""/>        
+        </password>
+      </passwords>
+    </content_definition>
+  </report_type>
+
+  <report_type>
+    <uuid>1C013B97-A3E5-439A-8FC3-FC39A282921E</uuid>
+    <tag>GROUPS</tag>
+    <name>Groups</name>
+    <syntax>REGULAR</syntax>
+    <content_definition>
+      <groups class="LIST" caption="Groups" description="">
+        <group class="STRUCT" caption="User" description="">
+          <name class="STRING" caption="Name" description=""/>
+          <password class="STRING" caption="Password" description=""/>
+          <members class="LIST" caption="Members" description="">
+            <name class="STRING" caption="User name" description=""/>
+          </members>
+        </group>
+      </groups>
+    </content_definition>
+  </report_type>
+
+  <report_type>
+    <uuid>F69B990C-C5BD-49A1-BF0E-125CC40AFF17</uuid>
+    <tag>SUDO</tag>
+    <name>Sudo options</name>
+    <syntax>REGULAR</syntax>
+    <content_definition>
+      <records class="LIST" caption="Records" description="">
+        <record class="STRUCT" caption="Record" description="">
+          <userspec class="STRUCT" caption="User spec" description="" optional="yes">
+            <user class="STRING" caption="User name" description=""/>
+            <host class="STRING" caption="Host" description=""/>
+            <runas class="STRING" caption="Runas" description=""/>
+            <commands class="LIST" caption="Commands" description="">
+              <command class="STRUCT" caption="Command" description="">
+                <options class="LIST" caption="Options" description="">
+                  <option class="STRUCT" caption="Option" description="">
+                    <value class="STRING" caption="Value" optional="yes" description=""/>
+                  </option>                    
+                </options>
+                <digest class="STRING" caption="Digest" optional="yes" description=""/>                  
+                <path class="STRING" caption="Path" description=""/>                
+              </command>
+            </commands>              
+          </userspec>
+          <alias class="STRUCT" caption="Alias" description="" optional="yes">
+            <type class="STRING" caption="Type" description=""/>
+            <name class="STRING" caption="Name" description=""/>
+            <items class="LIST" caption="Items" description="">
+               <item class="STRING" caption="Item" description=""/>
+            </items>        
+          </alias>
+          <defaults class="STRUCT" caption="Defaults" description="" optional="yes">
+            <options class="LIST" caption="Options" description="">
+               <option class="STRING" caption="Option" description=""/>
+            </options>              
+          </defaults>
+        </record>
+      </records>
+    </content_definition>
+  </report_type>
+
+  <report_type>
+    <uuid>0C85B5F5-F25B-4264-B091-C698FFDB3407</uuid>
+    <tag>GRUB_OPTIONS</tag>
+    <name>GRUB loader options</name>
+    <syntax>REGULAR</syntax>
+    <content_definition>
+      <grub class="STRUCT" caption="GRUB loader options" description="">
+        <default class="STRING" caption="default" description=""/>
+        <password class="STRING" caption="password" description="" optional="yes"/>
+        <timeout class="STRING" caption="timeout" description="" optional="yes"/>
+        <systems class="LIST" caption="Operating Systems" description="">
+          <system class="STRUCT" caption="System" description="">
+            <title class="STRING" caption="Title" description=""/>
+            <kernel class="STRUCT" caption="Kernel" description="OS kernel setup" optional="yes">
+              <path class="STRING" caption="Path" description="Path to kernel file">                
+              </path>
+              <options class="LIST" caption="Boot options" description="">
+                <option class="STRING" caption="Boot option" description=""/>
+              </options>
+            </kernel>            
+          </system>
+        </systems>
+      </grub>
+    </content_definition>
+  </report_type>
+
+  <report_type>
+    <uuid>22FD4410-B07C-4365-AEA4-197BBFFF1F58</uuid>
+    <tag>FILE_SYSTEMS_TABLE</tag>
+    <name>File systems table</name>
+    <syntax>REGULAR</syntax>
+    <content_definition>
+      <fstab class="LIST" caption="File systems table" description="">
+        <mount class="STRUCT" caption="Mounting" description="">
+          <device class="STRING" caption="Device" description=""/>
+          <mp class="STRING" caption="MP" description="Mount point"/>
+          <fs class="STRING" caption="FS" description="File system type"/>
+          <options class="LIST" caption="Options" description="">
+            <option class="STRING" caption="Option" description="Option"/>
+          </options>
+        </mount>
+      </fstab>
+    </content_definition>
+  </report_type>
+
+  <report_type>
+    <uuid>0E8F172F-AB51-4773-BE46-2F2CF8606770</uuid>
+    <tag>NETWORKS</tag>
+    <name>Networks</name>
+    <syntax>REGULAR</syntax>
+    <content_definition>
+      <networks class="LIST" caption="Networks" description="">
+        <network class="STRUCT" caption="Network" description="">
+          <name class="STRING" caption="Name" description=""/>
+          <encap class="STRING" caption="Encap" description=""/>
+          <hwaddress class="STRING" caption="HW" description="Hardware address" optional="yes"/>
+          <ip class="STRING" caption="IP" description="IP Address"/>
+          <mask class="STRING" caption="Mask" description="IP Network"/>
+        </network>
+      </networks>
+    </content_definition>
+  </report_type>
+
+  <report_type>
+    <uuid>352F1EE9-BC3D-481B-A958-E8EE9D9B7DCA</uuid>
+    <tag>MODPROBE_OPTIONS</tag>
+    <name>Kernel module loading options</name>
+    <syntax>REGULAR</syntax>
+    <content_definition>
+      <modprobe class="LIST" caption="Modprobe options" description="">
+        <line class="STRUCT" caption="Line" description="">
+          <name class="STRING" caption="Name" description=""/>
+          <wildcard class="STRING" caption="Wildcard" description="" optional="yes"/>
+          <module class="STRING" caption="Module" description="Kernel module name" optional="yes"/>
+          <command class="STRING" caption="Command" description="" optional="yes"/>
+          <options class="STRING" caption="Options" description="" optional="yes"/>
+        </line>
+      </modprobe>
+    </content_definition>
+  </report_type>
+
+  <report_type>
+    <uuid>02FA6629-4603-4145-AAEA-1CD39F6BF473</uuid>
+    <tag>WORLD_WRITABLE_DIRS</tag>
+    <name>World-writable directories</name>
+    <syntax>REGULAR</syntax>
+    <content_definition>
+      <world_writable_dirs class="LIST" caption="World-Writable directories" description="">
+        <dir class="STRUCT" caption="Directory" description="">
+          <name class="STRING" caption="Name" description=""/>
+          <owner class="STRING" caption="Owner" description=""/>
+          <permissions class="STRING" caption="Permissions" description=""/>
+        </dir>
+      </world_writable_dirs>    
+    </content_definition>
+  </report_type>
+
+  <report_type>
+    <uuid>C6AE4F8E-AC91-4D1B-B018-01EF37AE5BDF</uuid>
+    <tag>WORLD_WRITABLE_FILES</tag>
+    <name>World-writable files</name>
+    <syntax>REGULAR</syntax>
+    <content_definition>
+      <world_writable_files class="LIST" caption="World-writable files" description="">
+        <file class="STRUCT" caption="File" description="">
+          <name class="STRING" caption="Name" description=""/>
+        </file>
+      </world_writable_files>
+    </content_definition>
+  </report_type>
+
+  <report_type>
+    <uuid>FAE07936-9763-4247-BBFD-CD47E40BDCC7</uuid>
+    <tag>SUID_EXECUTABLES</tag>
+    <name>SUID executales</name>
+    <syntax>REGULAR</syntax>
+    <content_definition>
+      <suid_executables class="LIST" caption="SUID executable files" description="">
+        <file class="STRUCT" caption="File" description="">
+          <name class="STRING" caption="Name" description=""/>
+          <owner class="STRING" caption="Owner" description=""/>
+        </file>
+      </suid_executables>
+    </content_definition>
+  </report_type>
+
+  <report_type>
+    <uuid>8753153D-3517-4EDF-A5A2-5EAC2AD5DB25</uuid>
+    <tag>SGID_EXECUTABLES</tag>
+    <name>SGID executales</name>
+    <syntax>REGULAR</syntax>
+    <content_definition>
+      <sgid_executables class="LIST" caption="SGID executable files" description="">
+        <file class="STRUCT" caption="File" description="">
+          <name class="STRING" caption="Name" description=""/>
+          <group class="STRING" caption="Group" description=""/>
+        </file>
+      </sgid_executables>
+    </content_definition>
+  </report_type>
+
+  <report_type>
+    <uuid>AF1F183E-9230-4461-8223-DBD15B9CB6B3</uuid>
+    <tag>SECURED_TERMINALS</tag>
+    <name>Secured terminals</name>
+    <syntax>REGULAR</syntax>
+    <content_definition>
+      <secured_terminals class="LIST" caption="Terminals" description="">
+        <terminal class="STRUCT" caption="Terminal" description="">
+          <name class="STRING" caption="Name" description=""/>
+        </terminal>
+      </secured_terminals>
+    </content_definition>
+  </report_type>
+
+  <report_type>
+    <uuid>F15863A9-0468-4181-B097-8F1BD1282C88</uuid>
+    <tag>NETWORK_CONNECTIONS</tag>
+    <name>Network connections</name>
+    <syntax>REGULAR</syntax>
+    <content_definition>
+      <network_connections class="LIST" caption="Network connections" description="">
+        <network_connection class="STRUCT" caption="Connection" description="">
+          <proto class="STRING" caption="Protocol" description=""/>
+          <local_address class="STRING" caption="Local address" description=""/>
+          <foreign_address class="STRING" caption="Foreign address" description=""/>
+          <state class="STRING" caption="State" description=""/>
+          <program class="STRING" caption="PID/Program name" description=""/>            
+        </network_connection>
+      </network_connections>
+    </content_definition>
+  </report_type>
+  
+  <report_type>
+    <uuid>C069354D-3449-432C-A205-9E9A39AF6EB3</uuid>
+    <tag>ENVIRONMENT_VARIABLES</tag>
+    <name>Environment variables</name>
+    <syntax>REGULAR</syntax>
+    <content_definition>
+      <environment_variables class="LIST" caption="Environment variables" description="">
+        <variable class="STRUCT" caption="Connection" description="">
+          <name class="STRING" caption="Name" description=""/>
+          <value class="STRING" caption="Value" description=""/>         
+        </variable>
+      </environment_variables>
+    </content_definition>
+  </report_type>
+
+  <report_type>
+    <uuid>6A7E2539-872E-47BD-A5B2-00116007A672</uuid>
+    <tag>PATH</tag>
+    <name>Path</name>
+    <syntax>REGULAR</syntax>
+    <content_definition>
+      <path class="LIST" caption="Path variable" description="">
+        <directory class="STRUCT" caption="Directory" description="">
+          <name class="STRING" caption="Name" description=""/>
+        </directory>
+      </path>
+    </content_definition>
+  </report_type>
+          
+  <report_type>
+    <uuid>F88EF15D-94D1-4AD6-AF4F-286FCA7A8371</uuid>
+    <tag>SECURITY</tag>
+    <name>Security</name>
+    <syntax>CHECKLIST</syntax>
+    <content_definition>
+      <compliance>
+        <password_encryption caption='Password encryption' description='Check user password encryption' type='LISTING' result='Encrypted' value='User'>
+        </password_encryption>
+        <partitioning caption='Partitioning' description='Create separate partitions for specific paths' type='LISTING' result='Separate' value='Path'>
+        </partitioning>
+        <grub_password caption='GRUB password' description='Setup GRUB password' type='CHECKING' result='Exist' value='Hash'>
+        </grub_password>
+        <dhcp_software caption='DHCP software' description='Disable DHCP software if possible' type='LISTING' result='Disabled' value='Process Name'>
+        </dhcp_software>
+        <partition_options caption='Local non-root partition options' description='Option "nodev" must be specified for non-root partitions' type='LISTING' result='Checked' value='Mount point'>
+        </partition_options>
+        <removable_partition_options caption='Removable storage partition options' description='Options "nodev", "nosuid" and "noexec" must be specified for removable partitions' type='LISTING' result='Checked' value='Mount point'>
+        </removable_partition_options>
+        <temporary_partition_options caption='Temporary storage partition check' description='Options "nodev", "nosuid" and "noexec" must be specified for temporary partitions' type='LISTING' result='Checked' value='Mount point'>
+        </temporary_partition_options>
+        <modprobe_usb_driver_loading caption='Modprobe USB storage driver loading' description='Disable modprobe loading of USB storage driver loading' type='CHECKING' result='Disabled' value='Module'>
+        </modprobe_usb_driver_loading>
+        <uncommon_fs_mounting caption='Uncommon file systems mounting' description='Disable mounting of uncommon file systems' type='LISTING' result='Checked' value='File system'>       
+        </uncommon_fs_mounting>
+        <system_file_permissions caption='Permissions on system files' description='Verify permissions on passwd, shadow, group and gshadow' type='LISTING' result='Verified' value='File'>
+        </system_file_permissions>
+        <world_writable_directories caption='World-writable directories' description='Set sticky bin on world-writable directories' type='LISTING' result='Verified' value='File'>
+        </world_writable_directories>
+        <world_writable_files caption='World-writable files' description='Remove global write access from world-writable files' type='LISTING' result='Verified' value='File'>
+        </world_writable_files>
+        <suid_sgid_executables caption='SUID/SGID executable files' description='Examine unauthorized SUID/SGID executable files' type='LISTING' result='Verified' value='File'>
+        </suid_sgid_executables>
+        <world_writable_ownership caption='World-writable directories ownership' description='World-writable directories should be owned by root' type='LISTING' result='Verified' value='Directory'>
+        </world_writable_ownership>
+        <secured_terminals caption='Secured terminals' description="Only 'console' and 'tty#' allowed to login 'root'" type='LISTING' result='Secured' value='Terminal'>
+        </secured_terminals>
+        <sudo_configuration caption='SUDO configuration' description="Configure sudo to improve auditing of root access" type='CHECKING' result='Configured' value='Group'>
+        </sudo_configuration>
+        <blocked_system_accounts caption='System accounts blocking' description="Block shell and login access to non-root system accounts" type='LISTING' result='Blocked' value='User'>
+        </blocked_system_accounts>
+        <empty_passwords caption='Empty passwords' description="Verify that no accounts have empty oassword fields" type='LISTING' result='Not empty' value='User'>
+        </empty_passwords>
+        <shadowed_passwords caption='Shadowed password hashes' description="Verify that all account password hashes are shadowed" type='LISTING' result='Shadowed' value='User'>          
+        </shadowed_passwords>
+        <non_root_uids caption='Non-root accounts UID' description="Verify that no non-root accounts have UID 0" type='LISTING' result='Verified' value='User'>          
+        </non_root_uids>          
+        <legacy_plus_entries caption="Legacy ’+’ entries" description="Remove legacy ’+’ Entries from password files" type='LISTING' result='Verified' value='File'>
+        </legacy_plus_entries>
+        <user_home_permissions caption="User home permissions" description="Ensure that user home directories are not group-writable or world-readable" type='LISTING' result='Verified' value='File'>
+        </user_home_permissions>
+      </compliance>
+    </content_definition>
+  </report_type>
+
+  <stream_type>
+    <uuid>946C0B5C-269C-4681-8BEC-F001B39B289A</uuid>
+    <tag>SYSLOG_STREAM</tag>
+    <name>Syslog</name>
+    <message_definition>
+      <syslog class="STRUCT" caption="Message" description="">
+        <raw class="STRING" caption="Raw" description="">          
+        </raw>
+      </syslog>
+    </message_definition>   
+  </stream_type>
+    
+  <source_type>
+    <uuid>46A13042-F815-4281-9895-1B138A645891</uuid>
+    <tag>GENERAL_LINUX</tag>
+    <name>General Linux</name>
+    <settings caption="Config" description="Description">
+      <connection caption="Connection" description="">
+        <address style="STRINGLINE" caption="Address" description="">
+        </address>
+        <login style="STRINGLINE" caption="Login" description="">
+        </login>
+        <password style="STRINGLINE" caption="Password" description="" secret="1">
+        </password>
+      </connection>
+    </settings>
+    <downloads>
+      <download>
+        <uuid>
+          <uuid-of>PS</uuid-of>
+        </uuid>
+        <command xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+          c:\dev\TechnicalReporter\x64\Debug\LinuxTerminal.exe
+          "ps"
+          --address <xsl:value-of select="/settings/connection/address"/>
+          --login <xsl:value-of select="/settings/connection/login"/>
+          --password <xsl:value-of select="/settings/connection/password"/>
+        </command>
+      </download>
+      <download>
+        <uuid>
+          <uuid-of>PASSWD</uuid-of>
+        </uuid>
+        <command xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+          c:\dev\TechnicalReporter\x64\Debug\LinuxTerminal.exe
+          "cat /etc/passwd"
+          --address <xsl:value-of select="/settings/connection/address"/>
+          --login <xsl:value-of select="/settings/connection/login"/>
+          --password <xsl:value-of select="/settings/connection/password"/>
+        </command>
+      </download>
+      <download>
+        <uuid>
+          <uuid-of>SHADOW</uuid-of>
+        </uuid>
+        <command xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+          c:\dev\TechnicalReporter\x64\Debug\LinuxTerminal.exe
+          "sudo cat /etc/shadow"
+          --address <xsl:value-of select="/settings/connection/address"/>
+          --login <xsl:value-of select="/settings/connection/login"/>
+          --password <xsl:value-of select="/settings/connection/password"/>
+        </command>
+      </download>
+      <download>
+        <uuid>
+          <uuid-of>GROUP</uuid-of>
+        </uuid>
+        <command xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+          c:\dev\TechnicalReporter\x64\Debug\LinuxTerminal.exe
+          "cat /etc/group"
+          --address <xsl:value-of select="/settings/connection/address"/>
+          --login <xsl:value-of select="/settings/connection/login"/>
+          --password <xsl:value-of select="/settings/connection/password"/>
+        </command>
+      </download>
+      <download>
+        <uuid>
+          <uuid-of>SUDOERS</uuid-of>
+        </uuid>
+        <command xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+          c:\dev\TechnicalReporter\x64\Debug\LinuxTerminal.exe
+          "sudo cat /etc/sudoers"
+          --address <xsl:value-of select="/settings/connection/address"/>
+          --login <xsl:value-of select="/settings/connection/login"/>
+          --password <xsl:value-of select="/settings/connection/password"/>
+        </command>
+      </download>
+      <download>
+        <uuid>
+          <uuid-of>MOUNT</uuid-of>
+        </uuid>
+        <command xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+          c:\dev\TechnicalReporter\x64\Debug\LinuxTerminal.exe
+          "mount"
+          --address <xsl:value-of select="/settings/connection/address"/>
+          --login <xsl:value-of select="/settings/connection/login"/>
+          --password <xsl:value-of select="/settings/connection/password"/>
+        </command>
+      </download>
+      <download discard-empty="yes">
+        <uuid>
+          <uuid-of>GRUB_MENU</uuid-of>
+        </uuid>
+        <command xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+          c:\dev\TechnicalReporter\x64\Debug\LinuxTerminal.exe
+          "cat /mnt/sda1/boot/grub/menu.lst || echo''"
+          --address <xsl:value-of select="/settings/connection/address"/>
+          --login <xsl:value-of select="/settings/connection/login"/>
+          --password <xsl:value-of select="/settings/connection/password"/>
+        </command>
+      </download>
+      <download>
+        <uuid>
+          <uuid-of>FSTAB</uuid-of>
+        </uuid>
+        <command xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+          c:\dev\TechnicalReporter\x64\Debug\LinuxTerminal.exe
+          "cat /etc/fstab"
+          --address <xsl:value-of select="/settings/connection/address"/>
+          --login <xsl:value-of select="/settings/connection/login"/>
+          --password <xsl:value-of select="/settings/connection/password"/>
+        </command>
+      </download>
+      <download>
+        <uuid>
+          <uuid-of>IFCONFIG</uuid-of>
+        </uuid>
+        <command xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+          c:\dev\TechnicalReporter\x64\Debug\LinuxTerminal.exe
+          "ifconfig"
+          --address <xsl:value-of select="/settings/connection/address"/>
+          --login <xsl:value-of select="/settings/connection/login"/>
+          --password <xsl:value-of select="/settings/connection/password"/>
+        </command>
+      </download>
+      <download>
+        <uuid>
+          <uuid-of>MODPROBE</uuid-of>
+        </uuid>
+        <command xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+          c:\dev\TechnicalReporter\x64\Debug\LinuxTerminal.exe
+          "cat /etc/modprobe.conf"
+          --address <xsl:value-of select="/settings/connection/address"/>
+          --login <xsl:value-of select="/settings/connection/login"/>
+          --password <xsl:value-of select="/settings/connection/password"/>
+        </command>
+      </download>
+      <download>
+        <uuid>
+          <uuid-of>SECURETTY</uuid-of>
+        </uuid>
+        <command xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+          c:\dev\TechnicalReporter\x64\Debug\LinuxTerminal.exe
+          "cat /etc/securetty"
+          --address <xsl:value-of select="/settings/connection/address"/>
+          --login <xsl:value-of select="/settings/connection/login"/>
+          --password <xsl:value-of select="/settings/connection/password"/>
+        </command>
+      </download>
+      <download>
+        <uuid>
+          <uuid-of>NETSTAT_NATP</uuid-of>
+        </uuid>
+        <command xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+          c:\dev\TechnicalReporter\x64\Debug\LinuxTerminal.exe
+          "sudo netstat -natp"
+          --address <xsl:value-of select="/settings/connection/address"/>
+          --login <xsl:value-of select="/settings/connection/login"/>
+          --password <xsl:value-of select="/settings/connection/password"/>
+        </command>
+      </download>
+      <download>
+        <uuid>
+          <uuid-of>ENV</uuid-of>
+        </uuid>
+        <command xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+          c:\dev\TechnicalReporter\x64\Debug\LinuxTerminal.exe
+          "sudo env"
+          --address <xsl:value-of select="/settings/connection/address"/>
+          --login <xsl:value-of select="/settings/connection/login"/>
+          --password <xsl:value-of select="/settings/connection/password"/>
+        </command>       
+      </download>
+    </downloads>
+    <streams>
+      <stream>
+        <uuid>
+          <uuid-of>SYSLOG_STREAM</uuid-of>
+        </uuid>
+        <protocol>SYSLOG</protocol>
+        <address xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+          <xsl:value-of select="/settings/connection/address"/>
+        </address>
+        <regex_parser>
+          <syslog>
+            <raw>
+              <copy/>
+            </raw>
+          </syslog>        
+        </regex_parser>
+        <format_script>
+          <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:exsl="http://exslt.org/common" xmlns:tools="http://xslt-plugin.org/tools" extension-element-prefixes="exsl tools">
+            <xsl:output method="xml"/>        
+            <xsl:template match="/">
+              <stream>
+                <message>
+                  <severity>INFO</severity>
+                  <event>Syslog message recieved</event>
+                  <body>
+                    <xsl:copy-of select="/"/>
+                  </body>
+                </message>
+              </stream>
+            </xsl:template>
+          </xsl:stylesheet>
+        </format_script>    
+      </stream>
+    </streams>
+    <actions>
+      <action>
+        <uuid>
+          <uuid-of>ADD_USER</uuid-of>
+        </uuid>
+        <command xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+          c:\dev\TechnicalReporter\x64\Debug\LinuxTerminal.exe
+          "sudo adduser <xsl:value-of select="/input/params/name"/>"
+          --address <xsl:value-of select="/input/settings/connection/address"/>
+          --login <xsl:value-of select="/input/settings/connection/login"/>
+          --password <xsl:value-of select="/input/settings/connection/password"/>
+          --question ".*New password:" --answer <xsl:value-of select="/input/params/password"/>
+          --question ".*Retype password:" --answer <xsl:value-of select="/input/params/password"/>
+        </command>
+        <reload>
+          <uuid>
+            <uuid-of>PASSWD</uuid-of>
+          </uuid>  
+        </reload>
+      </action>
+      <action>
+        <uuid>
+          <uuid-of>DELETE_USER</uuid-of>
+        </uuid>
+        <command xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+          c:\dev\TechnicalReporter\x64\Debug\LinuxTerminal.exe
+          "sudo deluser <xsl:value-of select="/input/params/name"/>"
+          --address <xsl:value-of select="/input/settings/connection/address"/>
+          --login <xsl:value-of select="/input/settings/connection/login"/>
+          --password <xsl:value-of select="/input/settings/connection/password"/>
+        </command>
+        <reload>
+          <uuid>
+            <uuid-of>PASSWD</uuid-of>
+          </uuid>
+        </reload>
+      </action>
+
+      <action>
+        <uuid>
+          <uuid-of>FIND</uuid-of>
+        </uuid>
+        <command xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xml:space="preserve">
+          c:\dev\TechnicalReporter\x64\Debug\LinuxTerminal.exe
+          "sudo find <xsl:value-of select="/input/params/where"/> <xsl:value-of select="/input/params/what"/>"
+          --address <xsl:value-of select="/input/settings/connection/address"/>
+          --login <xsl:value-of select="/input/settings/connection/login"/>
+          --password <xsl:value-of select="/input/settings/connection/password"/>
+        </command>
+      </action>
+  
+      <action>
+        <uuid>
+          <uuid-of>LS</uuid-of>
+        </uuid>
+        <command xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+          c:\dev\TechnicalReporter\x64\Debug\LinuxTerminal.exe
+          "echo -n 'ls -l ';realpath <xsl:value-of select="/input/params/path"/>; sudo ls 
+          <xsl:if test="/input/params/show_hidden='1'">-a </xsl:if>
+          -l <xsl:value-of select="/input/params/path"/>"
+          --address <xsl:value-of select="/input/settings/connection/address"/>
+          --login <xsl:value-of select="/input/settings/connection/login"/>
+          --password <xsl:value-of select="/input/settings/connection/password"/>
+        </command>
+      </action>      
+    </actions>
+  </source_type>
+    
+  <selection>
+    <uuid>CC6BEFF9-B0D4-4D25-A183-124072948C70</uuid>    
+    <input>
+      <uuid>
+        <uuid-of>PS</uuid-of>
+      </uuid>      
+    </input>
+    <output_uuid>
+      <uuid-of>PROCESSES</uuid-of>
+    </output_uuid>
+    <script type="REGEX_PARSER">
+      <ps>
+        <prcss select="^\s*(\d+)\s+(\S+).*?(\S+)$">
+          <id input="3">
+            <copy/>
+          </id>
+          <pid input="1">
+            <copy/>
+          </pid>
+          <user input="2">
+            <copy/>
+          </user>
+          <name input="3">
+            <copy/>
+          </name>    
+        </prcss>
+      </ps>
+    </script>
+  </selection>
+
+  <selection>
+    <uuid>F57802AD-C977-47F1-9FD9-839CAEB6A2E2</uuid>
+    <input>
+      <uuid>
+        <uuid-of>MOUNT</uuid-of>
+      </uuid>
+    </input>
+    <output_uuid>
+      <uuid-of>MOUNTED_DEVICES</uuid-of>
+    </output_uuid>
+    <script type="REGEX_PARSER">
+      <mount>
+        <mount select="^(\S+?) on (.+?) type (\S+?) (.*?)$">
+          <id input="1">
+            <copy/>
+          </id>
+          <device input="1">
+            <copy/>
+          </device>
+          <mp input="2">
+            <copy/>
+          </mp>
+          <fs input="3">
+            <copy/>
+          </fs>
+          <attrs input="4">
+            <copy/>
+          </attrs>
+        </mount>
+      </mount>
+    </script>
+  </selection>
+  
+  <selection>
+    <uuid>35ACF0CE-2D5F-49F4-8DB1-A0A33F3FCA7F</uuid>    
+    <input>
+      <uuid>
+        <uuid-of>PASSWD</uuid-of>
+      </uuid>
+    </input>
+    <output_uuid>
+      <uuid-of>USERS</uuid-of>
+    </output_uuid>
+    <script type="REGEX_PARSER">
+      <users>
+        <user select="^(.*?):(.*?):(.*?):(.*?):(.*?):(.*?):(.*?)$">
+          <id input="1">
+            <copy/>                   
+          </id>
+          <name input="1">
+            <copy/>
+          </name>
+          <password input="2">
+            <copy/>
+          </password>
+          <uid input="3">
+            <copy/>
+          </uid>
+          <gid input="4">
+            <copy/>
+          </gid>
+          <comment input="5">
+            <copy/>
+          </comment>
+          <path input="6">
+            <copy/>
+          </path>
+          <shell input="7">
+            <copy/>
+          </shell>
+        </user>
+      </users>
+    </script>
+  </selection>
+
+  <selection>
+    <uuid>619B0E97-1EA5-4C4C-B2D7-B800F0D6F77B</uuid>
+    <input>
+      <uuid>
+        <uuid-of>SHADOW</uuid-of>
+      </uuid>
+    </input>
+    <output_uuid>
+      <uuid-of>PASSWORDS</uuid-of>
+    </output_uuid>
+    <script type="REGEX_PARSER">
+      <passwords>
+        <password select="^(.*?):(.*?):(.*?)$">
+          <id input="1">
+            <copy/>
+          </id>
+          <user input="1">
+            <copy/>
+          </user>
+          <hash input="2">
+            <copy/>
+          </hash>
+          <options input="3">
+            <copy/>
+          </options>         
+        </password>
+      </passwords>
+    </script>
+  </selection>
+
+  <selection>
+    <uuid>B1B73A02-B988-4A76-B7A8-77FA600562F5</uuid>
+    <input>
+      <uuid>
+        <uuid-of>GROUP</uuid-of>
+      </uuid>
+    </input>
+    <output_uuid>
+      <uuid-of>GROUPS</uuid-of>
+    </output_uuid>
+    <script type="REGEX_PARSER">
+      <groups>
+        <group select="^(.*?):(.*?):(.*?):(.*?)$">
+          <id select="continue">
+            <copy input="1"/>
+            <text>:</text>
+            <copy input="3"/>
+          </id>
+          <name input="1">
+            <copy/>
+          </name>
+          <password input="2">
+            <copy/>
+          </password>
+          <members input="4">
+            <name select="(.+?)(,|$)">
+              <copy input="1"/>
+            </name>
+          </members>       
+        </group>
+      </groups>
+    </script>
+  </selection>
+
+  <selection>
+    <uuid>4AFD0616-055E-4F4C-95ED-94B495644DBE</uuid>
+    <input>
+      <uuid>
+        <uuid-of>SUDOERS</uuid-of>
+      </uuid>
+    </input>
+    <output_uuid>
+      <uuid-of>SUDO</uuid-of>
+    </output_uuid>
+    <preprocessor>
+      <regex_replace>
+        <pattern>\\\r\n</pattern>
+        <replacement/>
+      </regex_replace>
+    </preprocessor>
+    <script type="REGEX_PARSER">
+      <records>
+        <record select="^(?!#)(Defaults\S*)(.*?)$">
+          <id input="1">
+            <copy/>
+          </id>
+          <defaults select="continue">
+            <options input ="2">
+              <option select="\s*(.+?)\s*(,|$)">
+                <id input="1">
+                  <copy/>  
+                </id>
+                <copy input="1"/>
+              </option>
+            </options>              
+          </defaults>
+        </record>
+         <record select="^(?!#)(\S*_Alias)\s+(\S+)\s+=(.*?)$">
+          <id input="2">
+            <copy/>
+          </id>
+          <alias select="continue">
+            <type input="1">
+              <copy/>
+            </type>
+            <name input="2">
+              <copy/>
+            </name>
+            <items input="3">
+              <item select="\s*(.+?)\s*(,|$)">
+                <id input="1">
+                  <copy/>  
+                </id>
+                <copy input="1"/>
+              </item>
+            </items>
+          </alias>
+         </record>
+         <record select="^(?!#)(?!\S+_Alias)(\S+?)\s+(\S+?)\s*=\s*(\((.+?)\)\s+)?(.*?)$">
+          <id input="1">
+            <copy/>
+          </id>          
+          <userspec select="continue">
+            <user input="1">
+              <copy/>
+            </user>
+            <host input="2">
+              <copy/>
+            </host>
+            <runas input="4" default_input="">
+              <copy/>
+            </runas>
+            <commands input="5">
+              <command select="\s*((.+?:\s+)*)(sha\S+\s+)?(.+?)(,|$)">
+                <id input="4">
+                  <copy/>
+                </id>
+                <options input="1">
+                  <option select="(.+?):\s+">
+                    <id input="1">
+                      <copy/>
+                    </id>
+                    <value input="1">
+                      <copy/>
+                    </value>                    
+                  </option>
+                </options>
+                <digest input="3">
+                  <copy/>
+                </digest>
+                <path input="4">
+                  <copy/>
+                </path>
+              </command>
+            </commands>
+          </userspec>         
+        </record>
+      </records>
+    </script>
+  </selection>
+  
+  <selection>
+    <uuid>3EE7C5D8-DCE0-41E6-9683-D8011DBF3A0B</uuid>
+    <input>
+      <uuid>
+        <uuid-of>GRUB_MENU</uuid-of>
+      </uuid>
+    </input>
+    <output_uuid>
+      <uuid-of>GRUB_OPTIONS</uuid-of>
+    </output_uuid>
+    <script type="REGEX_PARSER">
+      <grub>
+        <default select="^default (.*?)$">
+          <copy input="1"/>
+        </default>
+        <password select="^password --md5 (.*?)$">
+          <copy input="1"/>         
+        </password>
+        <timeout select="^timeout (\S+)$">
+          <copy input="1"/>
+        </timeout>
+
+        <systems>
+          <system select="^title.*?((?=title)|\Z)">
+            <title select="^title (\S+)$">
+              <copy input="1"/>
+            </title>
+            <kernel select="^kernel (\S+)(.*?)$">
+              <path input="1">
+                <copy/>
+              </path>
+              <options input="2">
+                <option select="\S+">
+                  <copy/>
+                </option>
+              </options>
+            </kernel>            
+          </system>
+        </systems>        
+      </grub>
+    </script>
+  </selection>
+
+  <selection>
+    <uuid>2216091D-8C60-4976-816E-FCAB98EE3114</uuid>
+    <input>
+      <uuid>
+        <uuid-of>FSTAB</uuid-of>
+      </uuid>      
+    </input>
+    <output_uuid>
+      <uuid-of>FILE_SYSTEMS_TABLE</uuid-of>
+    </output_uuid>
+    <script type="REGEX_PARSER">
+      <fstab>
+        <mount select="^(\S*?) +(\S*?) +(\S*?) +(\S*?) +\d +\d(.*?)$">
+          <id input="1">
+            <copy/>
+          </id>
+          <device input="1">
+            <copy/>
+          </device>
+          <mp input="2">
+            <copy/>
+          </mp>
+          <fs input="3">
+            <copy/>
+          </fs>
+          <options input="4">
+            <option select="(.+?)(,|$)">
+              <copy input="1"/>
+            </option>
+          </options>          
+        </mount>
+      </fstab>
+    </script>
+  </selection>
+
+  <selection>
+    <uuid>6B617BFA-FDB5-44D8-9D74-E0D048CF0556</uuid>
+    <input>
+      <uuid>
+        <uuid-of>IFCONFIG</uuid-of>
+      </uuid>
+    </input>
+    <output_uuid>
+      <uuid-of>NETWORKS</uuid-of>
+    </output_uuid>
+    <script type="REGEX_PARSER">
+      <networks>
+        <network select="^(\S+) +Link encap:(.*?)( +HWaddr (.*?))?$.*?inet addr:(\S+).*?Mask:(\S+).*?((?=^\S+)|\Z)">
+          <name input="1">
+            <copy/>
+          </name>
+          <encap input="2">
+            <copy/>
+          </encap>
+          <hwaddress input="4">
+            <copy/>
+          </hwaddress>
+          <ip input="5">
+            <copy/>
+          </ip>
+          <mask input="6">
+            <copy/>
+          </mask>
+        </network>
+      </networks>
+    </script>
+  </selection>
+
+  <selection>
+    <uuid>7DF2E9AF-0453-4AD5-95C8-EA5A27764141</uuid>
+    <input>
+      <uuid>
+        <uuid-of>MODPROBE</uuid-of>
+      </uuid>
+    </input>
+    <output_uuid>
+      <uuid-of>MODPROBE_OPTIONS</uuid-of>
+    </output_uuid>
+    <script type="REGEX_PARSER">
+      <modprobe>
+        <line select="^alias +(\S+) +(\S+)(.*?)$">
+          <name>
+            <text>alias</text>
+          </name>
+          <wildcard input="1">
+            <copy/>
+          </wildcard>
+          <module input="2">
+            <copy/>
+          </module>          
+        </line>        
+        <line select="^(install|remove) +(\S+) +(.*?) *$">
+          <name input="1">
+            <copy/>
+          </name>
+          <module input="2">
+            <copy/>
+          </module>
+          <command input="3">
+            <copy/>
+          </command>
+        </line>
+      </modprobe>
+    </script>
+  </selection>
+
+  <selection>
+    <uuid>C07C65C7-99DE-48B1-9C2F-1059C81679C7</uuid>
+    <input>
+      <uuid>
+        <uuid-of>FIND_WORLD_WRITABLE_DIRS</uuid-of>
+      </uuid>
+    </input>
+    <output_uuid>
+      <uuid-of>WORLD_WRITABLE_DIRS</uuid-of>
+    </output_uuid>
+    <script type="REGEX_PARSER">
+      <world_writable_dirs>
+        <dir select="^\s*?(\S+?)\s*?(\d+?)\s*?(\S+?)\s*?(\S+?)\s*?(\d+?)\s*?(\S+?)\s*?(\S+?)\s*?(\S+?)\s*?(\S+?)\s*?(-> (\S+?)\s*?)?$">
+          <name input="9">
+            <copy/>
+          </name>
+          <owner input="3">
+            <copy/>
+          </owner>
+          <permissions input="1">
+            <copy/>
+          </permissions>         
+        </dir>
+      </world_writable_dirs>
+    </script>
+  </selection>
+
+  <selection>
+    <uuid>7FB4D738-5394-4056-9751-514D02A58690</uuid>
+    <input>
+      <uuid>
+        <uuid-of>FIND_WORLD_WRITABLE_FILES</uuid-of>
+      </uuid>
+    </input>
+    <output_uuid>
+      <uuid-of>WORLD_WRITABLE_FILES</uuid-of>
+    </output_uuid>
+    <script type="REGEX_PARSER">
+      <world_writable_files>
+        <file select="^(.+?)$">
+          <name input="1">
+            <copy/>
+          </name>
+        </file>
+      </world_writable_files>
+    </script>
+  </selection>
+
+  <selection>
+    <uuid>17D1E407-AC38-4F26-8167-22B6862F10F1</uuid>
+    <input>
+      <uuid>
+        <uuid-of>FIND_SUID_EXECUTABLES</uuid-of>
+      </uuid>
+    </input>
+    <output_uuid>
+      <uuid-of>SUID_EXECUTABLES</uuid-of>
+    </output_uuid>
+    <script type="REGEX_PARSER">
+      <suid_executables>
+        <file select="^\s*?(\S+?)\s*?(\d+?)\s*?(\S+?)\s*?(\S+?)\s*?(\d+?)\s*?(\S+?)\s*?(\S+?)\s*?(\S+?)\s*?(\S+?)\s*?(-> (\S+?)\s*?)?$">
+          <name input="9">
+            <copy/>
+          </name>
+          <owner input="3">
+            <copy/>
+          </owner>
+        </file>
+      </suid_executables>
+    </script>
+  </selection>
+
+  <selection>
+    <uuid>9CC5911F-4ABB-4C3D-AA4E-45D8E2727E94</uuid>
+    <input>
+      <uuid>
+        <uuid-of>FIND_SGID_EXECUTABLES</uuid-of>
+      </uuid>
+    </input>
+    <output_uuid>
+      <uuid-of>SGID_EXECUTABLES</uuid-of>
+    </output_uuid>
+    <script type="REGEX_PARSER">
+      <sgid_executables>
+        <file select="^\s*?(\S+?)\s*?(\d+?)\s*?(\S+?)\s*?(\S+?)\s*?(\d+?)\s*?(\S+?)\s*?(\S+?)\s*?(\S+?)\s*?(\S+?)\s*?(-> (\S+?)\s*?)?$">
+          <name input="9">
+            <copy/>
+          </name>
+          <group input="4">
+            <copy/>
+          </group>
+        </file>
+      </sgid_executables>
+    </script>
+  </selection>
+
+  <selection>
+    <uuid>AB8AD061-60D1-4F83-8DB0-C7824F03AFB3</uuid>
+    <input>
+      <uuid>
+        <uuid-of>SECURETTY</uuid-of>
+      </uuid>
+    </input>
+    <output_uuid>
+      <uuid-of>SECURED_TERMINALS</uuid-of>
+    </output_uuid>
+    <script type="REGEX_PARSER">
+      <secured_terminals>
+        <terminal select="^([^#\s]+?)\s*?$">
+          <name input="1">
+            <copy/>
+          </name>         
+        </terminal>
+      </secured_terminals>
+    </script>
+  </selection>
+
+  <selection>
+    <uuid>EC3CF081-71FE-49AD-AD3B-D8BF38F1F247</uuid>
+    <input>
+      <uuid>
+        <uuid-of>NETSTAT_NATP</uuid-of>
+      </uuid>
+    </input>
+    <output_uuid>
+      <uuid-of>NETWORK_CONNECTIONS</uuid-of>
+    </output_uuid>
+    <script type="REGEX_PARSER">
+      <network_connections>
+        <network_connection select="^(\S+)\s+?(\d+)\s+?(\d+)\s+?(\S+)\s+?(\S+)\s+?(\S+)\s+?(.*?)$">
+          <id select="continue">
+            <copy input="7"/>
+            <text> - </text>
+            <copy input="5"/>
+          </id>
+          <proto input="1">
+            <copy/>
+          </proto>
+          <local_address input="4">
+            <copy/>            
+          </local_address>          
+          <foreign_address input="5">
+            <copy/>
+          </foreign_address>
+          <state input="6">
+            <copy/>
+          </state>
+          <program input="7">
+            <copy/>
+          </program>
+        </network_connection>
+      </network_connections>
+    </script>
+  </selection>
+  
+  <selection>
+    <uuid>62BE25D5-1A89-4791-B418-9C2369A67236</uuid>
+    <input>
+      <uuid>
+        <uuid-of>ENV</uuid-of>
+      </uuid>
+    </input>
+    <output_uuid>
+      <uuid-of>ENVIRONMENT_VARIABLES</uuid-of>
+    </output_uuid>
+    <script type="REGEX_PARSER">
+      <environment_variables>
+        <variable select="^(.*?)=(.*?)$">
+          <id input="1">
+            <copy/>
+          </id>
+          <name input="1">
+            <copy/>
+          </name>
+          <value input="2">
+            <copy/>            
+          </value>   
+        </variable>
+      </environment_variables>
+    </script>
+  </selection>
+ 
+  <selection>
+    <uuid>56671771-2F94-4C09-A730-4F720B7116CA</uuid>
+    <input>
+      <uuid>
+        <uuid-of>ENV</uuid-of>
+      </uuid>
+    </input>
+    <output_uuid>
+      <uuid-of>PATH</uuid-of>
+    </output_uuid>
+    <script type="REGEX_PARSER">
+      <path select="^PATH=(.+?)?$">
+        <directory input="1" select="^(.*?)(:|$)">
+          <id input="1">
+            <copy/>
+          </id>
+          <name input="1">
+            <copy/>
+          </name>
+        </directory>
+      
+        <directory input="1" select=":([^:]*)">
+          <id input="1">
+            <copy/>
+          </id>
+          <name input="1">
+            <copy/>
+          </name>
+        </directory>
+      </path>
+    </script>
+  </selection>
+    
+  <selection>
+    <external_definition>Security.xml</external_definition>
+  </selection>
+
+  <grouping>
+    <name>Global processes</name>
+    <input_uuid>
+      <uuid-of>PROCESSES</uuid-of>
+    </input_uuid>
+    <output_uuid>69D13DBF-129B-4C6D-A33E-2DDD1DD684A6</output_uuid>   
+  </grouping>
+
+  <compliance>
+    <name>Security checking</name>
+    <input_uuid>
+      <uuid-of>SECURITY</uuid-of>
+    </input_uuid>
+    <output_uuid>E93266A4-842B-494B-95D6-EDCBB0645239</output_uuid>
+  </compliance>
+
+  <validation>
+    <name>Processes valitation</name>
+    <input_uuid>
+      <uuid-of>PROCESSES</uuid-of>
+    </input_uuid>
+    <output_uuid>A60BF668-3CF8-44FA-B8C6-D2C5B1D9C007</output_uuid>
+  </validation>
+
+  <action>
+    <uuid>93EFE263-43F3-4F9B-9BA2-36E58901AF05</uuid>
+    <tag>ADD_USER</tag>
+    <name>Add user</name>
+    <params_definition>
+      <params style="COLLECTION" caption="" description="Specify user perameters">
+          <name style="STRINGLINE" caption="Name" description="">
+          </name>
+          <password style="STRINGLINE" caption="Password" description="" secret="1">
+          </password>
+      </params>
+    </params_definition>   
+  </action>
+
+  <action>
+    <uuid>FD707D1E-A623-4A78-8FFC-B9345882B61E</uuid>
+    <tag>DELETE_USER</tag>
+    <name>Delete user</name>
+    <params_definition>
+      <params style="COLLECTION" caption="Delete user" description="Description">
+        <name style="STRINGLINE" caption="Name" description="">
+        </name>
+      </params>
+    </params_definition>
+  </action>
+
+  <action>
+    <uuid>79C32340-2604-4DD9-9D7B-D568A0784BB3</uuid>
+    <tag>FIND</tag>
+    <name>'find'</name>
+    <params_definition>
+      <params style="COLLECTION" caption="Find" description="Unix find command">
+        <where style="STRINGLINE" caption="Where" description="Start directory">
+        </where>
+        <what style="STRINGLINE" caption="Options" description="Any options available for UNIX find command">
+        </what>        
+      </params>
+    </params_definition>
+    <output_definition>
+      <syntax>TEXT</syntax>
+    </output_definition>      
+  </action>
+
+  <action>
+    <uuid>91AD5D4B-EF0C-4605-95F8-420C5E147547</uuid>
+    <tag>FIND_NAME</tag>
+    <name>Find name</name>
+    <params_definition>
+      <params style="COLLECTION" caption="Find file" description="Description">
+        <where style="STRINGLINE" caption="Where" description="">
+        </where>
+        <what style="STRINGLINE" caption="What" description="">
+        </what>
+      </params>
+    </params_definition>
+    <output_definition>
+      <syntax>REGULAR</syntax>
+      <content_definition>
+        <names class="LIST" caption="Names" description="">
+          <name class="STRUCT" caption="Name" description="">
+            <id class="STRING" caption="Path" description=""/>           
+          </name>
+        </names>
+      </content_definition>
+    </output_definition>
+  </action>
+  
+  <action>
+    <uuid>453C4DA0-DF5F-4303-847C-488E520427D2</uuid>
+    <tag>LS</tag>
+    <name>'ls'</name>
+    <params_definition>
+      <params style="COLLECTION" caption="LS" description="Description">
+        <path style="STRINGLINE" caption="Path" description=""/>        
+        <show_hidden style="CHECK" caption="Show hidden" description="List all files including hidden file starting with '.'"/>
+      </params>
+    </params_definition>
+    <output_definition>
+      <syntax>TEXT</syntax>
+    </output_definition>      
+  </action>
+  
+  <action>
+    <uuid>6EA28EA2-6C39-430E-8134-B1E42A7AE54F</uuid>
+    <tag>DIR</tag>
+    <name>DIR</name>    
+    
+    <params_definition>
+      <params style="COLLECTION" caption="DIR" description="Description">
+        <path style="STRINGLINE" caption="Path" description=""/>
+        <show_hidden style="CHECK" caption="Show hidden" description="list all files including hidden file starting with '.'"/>
+      </params>
+    </params_definition>
+    
+    <output_definition>
+      <syntax>REGULAR</syntax>
+      <content_definition>
+        <dir class="STRUCT" caption="DIR" description="">
+          <path class="STRING" caption="Path" description=""/>
+          <files class="LIST" caption="Files" description="">
+            <file class="STRUCT" caption="File" description="">              
+              <META>
+                <ACTION uuid="6EA28EA2-6C39-430E-8134-B1E42A7AE54F" caption="DIR">
+                  <params xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+                    <path>
+                      <xsl:value-of select="../../path"/>/<xsl:value-of select="name"/>   
+                    </path>
+                    <show_hidden>1</show_hidden>
+                  </params>
+                </ACTION>
+              </META>
+              <permissions class="STRING" caption="Permissions" description=""/>
+              <owner class="STRING" caption="Owner" description=""/>
+              <group class="STRING" caption="Group" description=""/>
+              <size class="STRING" caption="Size" description=""/>
+              <name class="STRING" caption="Name" description=""/>
+            </file>
+          </files>
+        </dir>
+      </content_definition>
+    </output_definition>
+  </action>
+
+  <action_shortcut>
+    <uuid>152550A6-439D-48FA-8127-398511AEF6BB</uuid>    
+    <name>'/etc'</name>
+    <host_action_uuid>
+      <uuid-of>DIR</uuid-of>
+    </host_action_uuid>
+    <output>
+      <tag>ETC</tag>
+      <uuid>E2313669-F936-42A4-8389-6A86FCE760D3</uuid>
+    </output>
+    <params>
+      <path>/etc</path>
+      <show_hidden>0</show_hidden>
+    </params>
+  </action_shortcut>
+  
+  <action_shortcut>
+    <uuid>262EA47B-8468-478B-A215-F174B474D12E</uuid>    
+    <name>'/home'</name>
+    <host_action_uuid>
+      <uuid-of>DIR</uuid-of>
+    </host_action_uuid>
+    <output>
+      <tag>HOME</tag>
+      <uuid>FDFD5103-A4B4-45E1-B46A-D211ABA90434</uuid>
+    </output>
+    <params>
+      <path>/home</path>
+      <show_hidden>0</show_hidden>
+    </params>
+  </action_shortcut>
+
+  <action_shortcut>
+    <uuid>89C5938F-EC17-495A-B208-9645DEE53B32</uuid>
+    <name>World-writable directories</name>
+    <host_action_uuid>
+      <uuid-of>FIND</uuid-of>
+    </host_action_uuid>
+    <output>
+      <tag>FIND_WORLD_WRITABLE_DIRS</tag>
+      <uuid>4C6CF572-F923-485E-84EA-739F970B9162</uuid>
+    </output>
+    <params>
+      <where>/</where>
+      <what>-xdev -type d -perm -0002 -exec ls -ld {} \;</what>
+    </params>
+  </action_shortcut>
+
+  <action_shortcut>
+    <uuid>2AD336EA-C1E5-4127-AEDD-B5E2271E8015</uuid>
+    <name>World-writable files</name>
+    <host_action_uuid>
+      <uuid-of>FIND</uuid-of>
+    </host_action_uuid>
+    <output>
+      <tag>FIND_WORLD_WRITABLE_FILES</tag>
+      <uuid>17D643B7-AF7F-4523-9364-4961CCA45834</uuid>
+    </output>
+    <params>
+      <where>/</where>
+      <what>-xdev -type f -perm -0002 -print</what>
+    </params>
+  </action_shortcut>
+
+  <action_shortcut>
+    <uuid>A319504C-DC02-4A33-8A2D-B645795BD5E3</uuid>
+    <name>SUID executable files</name>
+    <host_action_uuid>
+      <uuid-of>FIND</uuid-of>
+    </host_action_uuid>
+    <output>
+      <tag>FIND_SUID_EXECUTABLES</tag>
+      <uuid>8C3CE35F-10C6-48EB-A070-9BB1B8CFAB17</uuid>
+    </output>
+    <params>
+      <where>/</where>
+      <what>-xdev -type f -perm -4000 -exec ls -ld {} \;</what>
+    </params>
+  </action_shortcut>
+
+  <action_shortcut>
+    <uuid>10F96700-FD39-4F12-AC5D-4C5A8F10E48F</uuid>
+    <name>SGID executable files</name>
+    <host_action_uuid>
+      <uuid-of>FIND</uuid-of>
+    </host_action_uuid>
+    <output>
+      <tag>FIND_SGID_EXECUTABLES</tag>
+      <uuid>971B1A4D-23B6-44F1-BE81-EFA9F32CC742</uuid>
+    </output>
+    <params>
+      <where>/</where>
+      <what>-xdev -type f -perm -2000 -exec ls -ld {} \;</what>
+    </params>
+  </action_shortcut>
+
+  <action_delegate>
+    <host_action_uuid>
+      <uuid-of>LS</uuid-of>
+    </host_action_uuid>
+    <guest_action_uuid>
+      <uuid-of>DIR</uuid-of>
+    </guest_action_uuid>    
+    
+    <params xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+      <path>
+        <xsl:value-of select="/params/path"/>
+      </path>
+      <show_hidden>
+        <xsl:value-of select="/params/show_hidden"/>
+      </show_hidden>
+    </params>    
+    
+    <output_transform type="REGEX_PARSER">
+        <dir>
+          <path select="^\.*?ls.*?(\S+?)\s*?$">
+            <copy input="1"/>
+          </path>
+          <files>
+            <file select="^\s*?(\S+?)\s*?(\d+?)\s*?(\S+?)\s*?(\S+?)\s*?(\d+?)\s*?(\S+?)\s*?(\S+?)\s*?(\S+?)\s*?(\S+?)\s*?(-> (\S+?)\s*?)?$">
+              <id input ="9">
+                <copy/>
+              </id>
+              <permissions input="1">
+                <copy/>
+              </permissions>
+              <owner input="3">
+                <copy/>
+              </owner>
+              <group input="4">
+                <copy/>
+              </group>
+              <size input="5">
+                <copy/>
+              </size>
+              <name input="9">
+                <copy/>
+              </name>
+            </file>
+          </files>
+        </dir>
+    </output_transform>
+  </action_delegate>
+  
+  <action_delegate>
+    <host_action_uuid>
+      <uuid-of>FIND</uuid-of>
+    </host_action_uuid>
+    <guest_action_uuid>
+      <uuid-of>FIND_NAME</uuid-of>
+    </guest_action_uuid>
+    
+    <params xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+      <where>
+        <xsl:value-of select="/params/where"/>
+      </where>
+      <what>
+        <xsl:text/>-name '<xsl:value-of select="/params/what"/>'<xsl:text/>
+      </what>
+    </params>   
+    
+    <output_transform type="REGEX_PARSER">
+        <names>
+          <name select="^\s*?(\S+?)\s*?$">
+            <id input="1">
+              <copy/>
+            </id>
+          </name>
+        </names>
+    </output_transform>
+  </action_delegate>  
+</feature>

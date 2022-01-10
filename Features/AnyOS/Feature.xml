@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<feature>
+  <uuid>520F9A4D-87C7-4A3F-893C-042940DE9D63</uuid>
+  <name>AnyOS</name>
+
+  <report_type>
+    <uuid>94FC0D88-B8B5-4E3F-BC01-B3E14362216E</uuid>
+    <tag>PROCESSES</tag>
+    <name>Processes</name>
+    <syntax>REGULAR</syntax>
+    <content_definition>
+      <ps class="LIST" caption="PS" description="">
+        <prcss class="STRUCT" caption="Process" description="">
+          <pid class="STRING" caption="PID" description=""/>
+          <user class="STRING" caption="User" description=""/>
+          <name class="STRING" caption="Name" description=""/>
+        </prcss>
+      </ps>
+    </content_definition>
+  </report_type>
+
+  <report_type>
+    <uuid>3EFD2A41-59C0-463E-AFB2-6FDA1F35C164</uuid>
+    <tag>USERS</tag>
+    <name>Users</name>
+    <syntax>REGULAR</syntax>
+    <content_definition>
+      <users class="LIST" caption="Users" description="">
+        <META>
+          <ACTION uuid="2883BF11-F3A3-476A-9195-99262B8BA33D" caption="Add">
+            <params xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+              <name>               
+              </name>
+              <password>
+              </password>
+            </params>
+          </ACTION>
+        </META>
+        <user class="STRUCT" caption="User" description="">          
+          <META>
+            <ACTION uuid="FEE91BC8-E416-4751-A96B-053822181C0D" caption="Remove">
+              <params xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+                <name><xsl:value-of select="name"/></name>
+              </params>
+            </ACTION>
+          </META>
+          <name class="STRING" caption="Name" description=""/>
+        </user>
+      </users>
+    </content_definition>
+  </report_type>  
+
+  <report_type>
+    <uuid>CA1076B9-163A-4D6C-BCA4-777933E6851C</uuid>
+    <tag>INTERFACES</tag>
+    <name>Interfaces</name>
+    <syntax>REGULAR</syntax>
+    <content_definition>
+      <networks class="LIST" caption="Networks" description="">
+        <network class="STRUCT" caption="Network" description="">
+          <name class="STRING" caption="Name" description=""/>
+          <hwaddress class="STRING" caption="HW" description="Hardware address" optional="yes"/>
+          <ip class="STRING" caption="IP" description="IP Address"/>
+          <mask class="STRING" caption="Mask" description="IP Network"/>
+        </network>
+      </networks>
+    </content_definition>
+  </report_type>  
+
+  <report_type>
+    <uuid>5764ADFD-6EB7-449C-B41A-5CFA3577FEFE</uuid>
+    <tag>NETWORK_CONNECTIONS</tag>
+    <name>Network connections</name>
+    <syntax>REGULAR</syntax>
+    <content_definition>
+      <network_connections class="LIST" caption="Network connections" description="">
+        <network_connection class="STRUCT" caption="Connection" description="">
+          <proto class="STRING" caption="Protocol" description=""/>
+          <local_address class="STRING" caption="Local address" description=""/>
+          <foreign_address class="STRING" caption="Foreign address" description=""/>
+          <state class="STRING" caption="State" description=""/>
+          <program class="STRING" caption="PID/Program name" description=""/>            
+        </network_connection>
+      </network_connections>
+    </content_definition>
+  </report_type> 
+
+  <stream_type>
+    <uuid>D32854C8-93CC-4D4A-B240-EC8CE07996F4</uuid>
+    <tag>SYSLOG_STREAM</tag>
+    <name>Syslog</name>
+    <message_definition>
+      <syslog class="STRUCT" caption="Message" description="">
+        <raw class="STRING" caption="Raw" description="">          
+        </raw>
+      </syslog>
+    </message_definition>   
+  </stream_type>  
+  
+  <action>
+    <uuid>2883BF11-F3A3-476A-9195-99262B8BA33D</uuid>
+    <tag>ADD_USER</tag>
+    <name>Add user</name>
+    <params_definition>
+      <params style="COLLECTION" caption="" description="Specify user perameters">
+          <name style="STRINGLINE" caption="Name" description="">
+          </name>
+          <password style="STRINGLINE" caption="Password" description="" secret="1">
+          </password>
+      </params>
+    </params_definition>   
+  </action>
+
+  <action>
+    <uuid>FEE91BC8-E416-4751-A96B-053822181C0D</uuid>
+    <tag>DELETE_USER</tag>
+    <name>Delete user</name>
+    <params_definition>
+      <params style="COLLECTION" caption="Delete user" description="Description">
+        <name style="STRINGLINE" caption="Name" description="">
+        </name>
+      </params>
+    </params_definition>
+  </action>
+  
+</feature>

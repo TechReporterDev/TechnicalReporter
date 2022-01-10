@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<selection>
+  <uuid>3F3810EC-3E48-484D-974F-50496C6242A2</uuid>
+  <input>
+    <uuid>
+      <uuid-of>INTERFACES</uuid-of>
+    </uuid>
+    <uuid>
+      <uuid-of>PARSED_RUNNING</uuid-of>
+    </uuid>
+  </input>
+  <output_uuid>
+    <uuid-of>SECURITY</uuid-of>
+  </output_uuid>
+  <script type="XSLT">
+    <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:exsl="http://exslt.org/common" xmlns:tools="http://xslt-plugin.org/tools" extension-element-prefixes="exsl tools">
+      <xsl:strip-space elements="*" />
+      <xsl:output method="xml"/>
+      <xsl:template name="interface_check">
+        <interface_type>
+          <xsl:for-each select="//networks/network">
+            <checking>
+              <result>
+                <xsl:choose>
+                  <xsl:when test="tools:regex-match(name, '.*(E|e)thernet.*')">
+                    <xsl:text>1</xsl:text>
+                  </xsl:when>
+                  <xsl:otherwise>
+                    <xsl:text>0</xsl:text>
+                  </xsl:otherwise>
+                </xsl:choose>
+              </result>
+              <value>
+                <xsl:value-of select="name"/>
+              </value>
+            </checking>
+          </xsl:for-each>
+        </interface_type>
+      </xsl:template>
+
+      <xsl:template name="unsecured_protocols_check">
+        <unsecured_protocols>
+          <xsl:for-each select="//lines/line">
+            <xsl:variable name="line" select="name"/>
+            <xsl:for-each select="input/protocols/protocol">
+              <checking>
+                <result>
+                  <xsl:choose>
+                    <xsl:when test="tools:regex-match(text(), 'all|telnet')">
+                      <xsl:text>1</xsl:text>
+                    </xsl:when>
+                    <xsl:otherwise>
+                      <xsl:text>0</xsl:text>
+                    </xsl:otherwise>
+                  </xsl:choose>
+                </result>
+                <value>
+                  <xsl:value-of select="$line"/>
+                  [<xsl:value-of select="text()"/>]
+                </value>
+              </checking>
+            </xsl:for-each>
+          </xsl:for-each>
+        </unsecured_protocols>
+      </xsl:template>
+      
+      <xsl:template match="/">
+        <compliance>
+          <xsl:call-template name="interface_check"/>
+          <xsl:call-template name="unsecured_protocols_check"/>
+        </compliance>
+      </xsl:template>
+    </xsl:stylesheet>
+  </script>
+</selection>

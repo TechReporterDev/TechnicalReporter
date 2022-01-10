@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<feature>
+  <uuid>5A8E16B5-96D7-4712-8B80-F6A3E5E587C5</uuid>
+  <name>Cisco IOS</name>
+  
+  <dependencies>
+    <feature>
+      <uuid>520F9A4D-87C7-4A3F-893C-042940DE9D63</uuid>
+      <name>AnyOS</name>
+      <report_type>
+        <uuid>CA1076B9-163A-4D6C-BCA4-777933E6851C</uuid>
+        <tag>INTERFACES</tag>
+        <name>Interfaces</name>
+      </report_type>
+    </feature>    
+  </dependencies>
+  
+  <report_type>
+    <uuid>8AB4EAAE-5A2A-4C7E-B056-A31D9466B16E</uuid>
+    <tag>SHOW_RUNNING</tag>
+    <name>'show running config'</name>
+    <syntax>TEXT</syntax>
+  </report_type>
+
+  <report_type>
+    <uuid>FD2FB480-B290-404A-A44C-D01D901B40F4</uuid>
+    <tag>PARSED_RUNNING</tag>
+    <name>Parsed running</name>
+    <syntax>REGULAR</syntax>
+    <content_definition>
+      <running class="STRUCT" caption="Parsed running" description="">
+        <lines class="LIST" caption="lines" description="">
+          <line class="STRUCT" caption="Line" description="">
+            <name class="STRING" caption="Name" description=""/>
+            <input class="STRUCT" caption="Input" description="" optional="yes">
+              <protocols class="LIST" caption="Protocols" description="">
+                <protocol class="STRING" caption="Protocol" description=""/>
+              </protocols>                
+            </input>      
+          </line>
+        </lines>
+      </running>
+    </content_definition>
+  </report_type>
+
+  <report_type>
+    <uuid>869DA697-F1B4-4D7B-8D72-863B2D7EA5A1</uuid>
+    <tag>SHOW_INTERFACES</tag>
+    <name>'show interfaces'</name>
+    <syntax>TEXT</syntax>
+  </report_type>
+
+  <report_type>
+    <uuid>40AAA3C3-A725-4FEA-848A-25B850C3CE69</uuid>
+    <tag>SECURITY</tag>
+    <name>Security</name>
+    <syntax>CHECKLIST</syntax>
+    <content_definition>
+      <compliance>
+        <interface_type caption='interface_type' description='Checkinterface_type' type='LISTING' result='Ethernet' value='Name'>
+        </interface_type>
+        <unsecured_protocols caption='unsecured_protocols' description='unsecured_protocols' type='LISTING' result='Found' value='Line'>
+        </unsecured_protocols>
+      </compliance>
+    </content_definition>
+  </report_type>
+
+  <source_type>
+    <uuid>A9FF9B38-792F-43EB-A7BC-FD1778E137BE</uuid>
+    <tag>CISCO_IOS</tag>
+    <name>Cisco IOS</name>
+    <settings caption="Config" description="Description">
+      <connection caption="Connection" description="">
+        <address style="STRINGLINE" caption="Address" description="">
+        </address>
+        <login style="STRINGLINE" caption="Login" description="">
+        </login>
+        <password style="STRINGLINE" caption="Password" description="" secret="1">
+        </password>
+        <en_password style="STRINGLINE" caption="Enable password" description="" secret="1">
+        </en_password>
+      </connection>
+    </settings>
+    <downloads>
+      <download>
+        <uuid>
+          <uuid-of>SHOW_RUNNING</uuid-of>
+        </uuid>
+        <command xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+          CiscoTerminal.exe
+          --address <xsl:value-of select="/settings/connection/address"/>
+          --login <xsl:value-of select="/settings/connection/login"/>
+          --password <xsl:value-of select="/settings/connection/password"/>
+          --script Features/Cisco/IOS/Script/show_running.xml
+          --en_password=<xsl:value-of select="/settings/connection/en_password"/>
+        </command>
+      </download>
+      <download>
+        <uuid>
+          <uuid-of>SHOW_INTERFACES</uuid-of>
+        </uuid>
+        <command xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+          CiscoTerminal.exe
+          --address <xsl:value-of select="/settings/connection/address"/>
+          --login <xsl:value-of select="/settings/connection/login"/>
+          --password <xsl:value-of select="/settings/connection/password"/>
+          --script Features/Cisco/IOS/Script/show_interfaces.xml
+          --en_password=<xsl:value-of select="/settings/connection/en_password"/>
+        </command>
+      </download>
+    </downloads>
+    <streams>      
+    </streams>
+    <actions>      
+    </actions>
+  </source_type>
+
+  <selection>
+    <uuid>F5461343-4489-49EA-A937-2EBC5BFEABD7</uuid>
+    <input>
+      <uuid>
+        <uuid-of>SHOW_INTERFACES</uuid-of>
+      </uuid>
+    </input>
+    <output_uuid>
+      <uuid-of>INTERFACES</uuid-of>
+    </output_uuid>    
+    <script type="REGEX_PARSER">
+      <networks>
+        <network select="^(\S+) is (up|down).*? Hardware [^\n]*address is (\S+).*? Internet address is (\S+?)\/(\S+).*?((?=^\S+)|\Z)">
+          <name input="1">
+            <copy/>
+          </name>
+          <hwaddress input="3">
+            <copy/>
+          </hwaddress>
+          <ip input="4">
+            <copy/>
+          </ip>
+          <mask input="5">
+            <copy/>
+          </mask>
+        </network>
+      </networks>
+    </script>
+  </selection>
+
+  <selection>
+    <uuid>2E0AC6C0-FB19-4034-B1EA-3CCA805CE029</uuid>
+    <input>
+      <uuid>
+        <uuid-of>SHOW_RUNNING</uuid-of>
+      </uuid>
+    </input>
+    <output_uuid>
+      <uuid-of>PARSED_RUNNING</uuid-of>
+    </output_uuid>
+    <script type="REGEX_PARSER">
+      <running>
+        <lines>
+          <line select="^line (.*?$).*?((?=^\S+)|\Z)">
+            <name input="1">
+              <copy/>
+            </name>              
+            <input select="transport input (.*?)$">
+              <protocols input="1">
+                <protocol select="\s*(\S+)">
+                  <copy input="1"/>
+                </protocol>
+              </protocols>                
+            </input>      
+          </line>
+        </lines>
+      </running>
+    </script>
+  </selection>
+
+  <selection>
+    <external_definition>Security.xml</external_definition>
+  </selection>
+  
+</feature>

@@ -1,0 +1,9 @@
+#pragma once
+#include "BackgndFwd.h"
+#include "BasisFwd.h"
+#include "BasisRefs.h"
+#include "RegistryFwd.h"
+#include "RegistryRefs.h"
+#include "ServicesFwd.h"
+#include "ServicesRefs.h"
+#include "stddecl.h"

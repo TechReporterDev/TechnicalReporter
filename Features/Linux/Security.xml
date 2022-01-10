@@ -1,0 +1,643 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<selection>
+  <uuid>81FCCE2D-A416-4139-A805-59594C093FCB</uuid>
+  <input>
+    <uuid>
+      <uuid-of>USERS</uuid-of>
+    </uuid>
+    <uuid>
+      <uuid-of>GROUPS</uuid-of>
+    </uuid>
+    <uuid>
+      <uuid-of>MOUNTED_DEVICES</uuid-of>
+    </uuid>
+    <uuid mode="NULLABLE">
+      <uuid-of>GRUB_OPTIONS</uuid-of>
+    </uuid>
+    <uuid>
+      <uuid-of>PROCESSES</uuid-of>
+    </uuid>
+    <uuid>
+      <uuid-of>FILE_SYSTEMS_TABLE</uuid-of>
+    </uuid>    
+    <uuid>
+      <uuid-of>MODPROBE_OPTIONS</uuid-of>
+    </uuid>
+    <uuid>
+      <uuid-of>ETC</uuid-of>
+    </uuid>
+    <uuid>
+      <uuid-of>HOME</uuid-of>
+    </uuid>
+    <uuid>
+      <uuid-of>WORLD_WRITABLE_DIRS</uuid-of>
+    </uuid>
+    <uuid>
+      <uuid-of>WORLD_WRITABLE_FILES</uuid-of>
+    </uuid>
+   <uuid>
+      <uuid-of>SUID_EXECUTABLES</uuid-of>
+    </uuid>
+   <uuid>
+      <uuid-of>SGID_EXECUTABLES</uuid-of>
+    </uuid>
+    <uuid>
+      <uuid-of>SECURED_TERMINALS</uuid-of>
+    </uuid>
+    <uuid>
+      <uuid-of>SUDO</uuid-of>
+    </uuid>
+    <uuid>
+      <uuid-of>PASSWORDS</uuid-of>
+    </uuid>
+  </input>
+  <output_uuid>
+    <uuid-of>SECURITY</uuid-of>
+  </output_uuid>
+  <script type="XSLT">
+    <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:exsl="http://exslt.org/common" xmlns:tools="http://xslt-plugin.org/tools" extension-element-prefixes="exsl tools">
+      <xsl:strip-space elements="*" />
+      <xsl:output method="xml"/>
+      <xsl:template name="password_encryption">
+        <password_encryption>
+          <xsl:for-each select="//users/user">
+            <checking>
+              <result>
+                <xsl:choose>
+                  <xsl:when test="password='x'">
+                    <xsl:text>1</xsl:text>
+                  </xsl:when>
+                  <xsl:otherwise>
+                    <xsl:text>0</xsl:text>
+                  </xsl:otherwise>
+                </xsl:choose>
+              </result>
+              <value>
+                <xsl:value-of select="name"/>
+              </value>
+            </checking>
+          </xsl:for-each>
+        </password_encryption>
+      </xsl:template>
+
+      <xsl:template name="partition_checking">
+        <xsl:param name = "mount_point"/>
+        <checking>
+          <result>
+            <xsl:choose>
+              <xsl:when test="//mount/mount/mp=$mount_point">
+                <xsl:text>1</xsl:text>
+              </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>0</xsl:text>
+              </xsl:otherwise>
+            </xsl:choose>
+          </result>
+          <value>
+            <xsl:value-of select="$mount_point"/>
+          </value>
+        </checking>
+      </xsl:template>
+
+      <xsl:template name="partitioning">
+        <partitioning>
+          <xsl:call-template name="partition_checking">
+            <xsl:with-param name="mount_point">/tmp</xsl:with-param>
+          </xsl:call-template>
+          <xsl:call-template name="partition_checking">
+            <xsl:with-param name="mount_point">/var</xsl:with-param>
+          </xsl:call-template>
+        </partitioning>
+      </xsl:template>
+
+      <xsl:template name="grub_password">
+        <grub_password>
+          <result>
+            <xsl:choose>
+              <xsl:when test="//grub/password">
+                <xsl:text>1</xsl:text>
+              </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>0</xsl:text>
+              </xsl:otherwise>
+            </xsl:choose>
+          </result>
+          <value>
+            <xsl:value-of select="//grub/password"/>
+          </value>
+        </grub_password>
+      </xsl:template>
+
+      <xsl:template name="dhcp_software">
+        <dhcp_software>
+          <xsl:for-each select="///prcss">
+            <xsl:if test="tools:regex-match(name, '.*dhcpc.*')">              
+                <checking>
+                  <result>0</result>
+                  <value>
+                    <xsl:value-of select="name"/>
+                  </value>
+                </checking>
+             </xsl:if>
+          </xsl:for-each>
+        </dhcp_software>
+      </xsl:template>
+
+      <xsl:template name="partition_options">
+        <partition_options>
+          <xsl:for-each select="//fstab/mount">
+            <xsl:if test="(fs='ext2' or fs='ext3') and mp!='/'">
+              <checking>
+                <result>
+                  <xsl:choose>
+                    <xsl:when test="options/option='nodev'">
+                      <xsl:text>1</xsl:text>
+                    </xsl:when>
+                    <xsl:otherwise>
+                      <xsl:text>0</xsl:text>
+                    </xsl:otherwise>
+                  </xsl:choose>
+                </result>
+                <value>
+                  <xsl:value-of select="mp"/>
+                </value>
+              </checking>
+            </xsl:if>
+          </xsl:for-each>
+        </partition_options>
+      </xsl:template>
+
+      <xsl:template name="removable_partition_options">
+        <removable_partition_options>
+          <xsl:for-each select="//fstab/mount">
+            <xsl:if test="tools:regex-match(mp, '.*(floppy|cdrom|fd\d|sr\d).*')">
+              <checking>
+                <result>
+                  <xsl:choose>
+                    <xsl:when test="options/option='nodev' and options/option='nosuid' and options/option='noexec'">
+                      <xsl:text>1</xsl:text>
+                    </xsl:when>
+                    <xsl:otherwise>
+                      <xsl:text>0</xsl:text>
+                    </xsl:otherwise>
+                  </xsl:choose>
+                </result>
+                <value>
+                  <xsl:value-of select="mp"/>
+                </value>
+              </checking>
+            </xsl:if>
+          </xsl:for-each>
+        </removable_partition_options>
+      </xsl:template>
+
+      <xsl:template name="temporary_partition_options">
+        <temporary_partition_options>
+          <xsl:for-each select="//fstab/mount">
+            <xsl:if test="mp='/tmp' or mp='/dev/shm'">
+              <checking>
+                <result>
+                  <xsl:choose>
+                    <xsl:when test="options/option='nodev' and options/option='nosuid' and options/option='noexec'">
+                      <xsl:text>1</xsl:text>
+                    </xsl:when>
+                    <xsl:otherwise>
+                      <xsl:text>0</xsl:text>
+                    </xsl:otherwise>
+                  </xsl:choose>
+                </result>
+                <value>
+                  <xsl:value-of select="mp"/>
+                </value>
+              </checking>
+            </xsl:if>
+          </xsl:for-each>
+        </temporary_partition_options>
+      </xsl:template>
+
+      <xsl:template name="modprobe_usb_driver_loading">
+        <modprobe_usb_driver_loading>
+          <result>
+            <xsl:choose>
+               <xsl:when test="//modprobe/line[child::name='install' and child::module='usb-storage' and child::command = '/bin/true']">
+                   <xsl:text>1</xsl:text>
+               </xsl:when>
+               <xsl:otherwise>
+                   <xsl:text>0</xsl:text>
+               </xsl:otherwise>
+            </xsl:choose>
+          </result>
+          <value>
+            <xsl:text>usb-storage</xsl:text>
+          </value>
+        </modprobe_usb_driver_loading>
+      </xsl:template>
+
+      <xsl:template name="uncommon_fs_mounting_checking">
+        <xsl:param name = "fs"/>
+        <checking>
+          <result>
+            <xsl:choose>
+              <xsl:when test="//modprobe/line[child::name='install' and child::module=$fs and child::command='/bin/true']">
+                <xsl:text>1</xsl:text>
+              </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>0</xsl:text>
+              </xsl:otherwise>
+            </xsl:choose>
+          </result>
+          <value>
+            <xsl:value-of select="$fs"/>
+          </value>
+        </checking>
+      </xsl:template>    
+      
+      <xsl:template name="uncommon_fs_mounting">
+        <uncommon_fs_mounting>
+          <xsl:call-template name="uncommon_fs_mounting_checking">
+            <xsl:with-param name="fs">cramfs</xsl:with-param>
+          </xsl:call-template>
+          <xsl:call-template name="uncommon_fs_mounting_checking">
+            <xsl:with-param name="fs">freevxfs</xsl:with-param>
+          </xsl:call-template>
+          <xsl:call-template name="uncommon_fs_mounting_checking">
+            <xsl:with-param name="fs">jffs2</xsl:with-param>
+          </xsl:call-template>
+          <xsl:call-template name="uncommon_fs_mounting_checking">
+            <xsl:with-param name="fs">hfs</xsl:with-param>
+          </xsl:call-template>
+          <xsl:call-template name="uncommon_fs_mounting_checking">
+            <xsl:with-param name="fs">hfsplus</xsl:with-param>
+          </xsl:call-template>
+          <xsl:call-template name="uncommon_fs_mounting_checking">
+            <xsl:with-param name="fs">squashfs</xsl:with-param>
+          </xsl:call-template>
+          <xsl:call-template name="uncommon_fs_mounting_checking">
+            <xsl:with-param name="fs">udf</xsl:with-param>            
+          </xsl:call-template>
+        </uncommon_fs_mounting>
+      </xsl:template>
+      
+      <xsl:template name="verify_permissions">
+        <xsl:param name = "permissions"/>
+        <xsl:param name = "owner"/>
+        <xsl:param name = "group"/>
+        <checking>
+          <result>
+            <xsl:choose>
+              <xsl:when test="permissions=$permissions and owner=$owner and group=$group">
+                <xsl:text>1</xsl:text>
+              </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>0</xsl:text>
+              </xsl:otherwise>
+            </xsl:choose>
+          </result>
+          <value>
+            <xsl:value-of select="name"/>
+          </value>
+        </checking>
+      </xsl:template>
+          
+      <xsl:template name="system_file_permissions">
+        <system_file_permissions>
+          <xsl:for-each select="//dir[path='/etc']/files/file">
+            <xsl:if test="name='passwd' or name='group'">
+              <xsl:call-template name="verify_permissions">
+                <xsl:with-param name="permissions">-rw-r--r--</xsl:with-param>
+                <xsl:with-param name="owner">root</xsl:with-param>
+                <xsl:with-param name="group">root</xsl:with-param>
+              </xsl:call-template>
+            </xsl:if>
+            <xsl:if test="name='shadow' or name='gshadow'">
+              <xsl:call-template name="verify_permissions">
+                <xsl:with-param name="permissions">-r--------</xsl:with-param>
+                <xsl:with-param name="owner">root</xsl:with-param>
+                <xsl:with-param name="group">root</xsl:with-param>
+              </xsl:call-template>
+            </xsl:if>
+          </xsl:for-each>        
+        </system_file_permissions>
+      </xsl:template>
+
+      <xsl:template name="world_writable_directories">
+        <world_writable_directories>
+          <xsl:for-each select="//world_writable_dirs/dir">
+            <checking>
+              <result>
+                <xsl:choose>
+                  <xsl:when test="substring(permissions, 10)='t'">
+                    <xsl:text>1</xsl:text>
+                  </xsl:when>
+                  <xsl:otherwise>
+                    <xsl:text>0</xsl:text>
+                  </xsl:otherwise>
+                </xsl:choose>
+              </result>
+              <value>
+                <xsl:value-of select="name"/>
+              </value>
+            </checking>
+          </xsl:for-each>
+        </world_writable_directories>      
+      </xsl:template>
+      
+      <xsl:template name="world_writable_files">
+        <world_writable_files>
+          <xsl:for-each select="//world_writable_files/file">
+            <checking>
+              <result>               
+                 <xsl:text>0</xsl:text>                  
+              </result>
+              <value>
+                <xsl:value-of select="name"/>
+              </value>
+            </checking>
+          </xsl:for-each>
+        </world_writable_files>      
+      </xsl:template>
+      
+      <xsl:template name="suid_sgid_executables">
+        <suid_sgid_executables>
+          <xsl:for-each select="//suid_executables/file">
+            <checking>
+              <result>               
+                 <xsl:text>0</xsl:text>                  
+              </result>
+              <value>
+                <xsl:value-of select="name"/>
+              </value>
+            </checking>
+          </xsl:for-each>
+        <xsl:for-each select="//sgid_executables/file">
+            <checking>
+              <result>               
+                 <xsl:text>0</xsl:text>                  
+              </result>
+              <value>
+                <xsl:value-of select="name"/>
+              </value>
+            </checking>
+          </xsl:for-each>
+        </suid_sgid_executables>      
+      </xsl:template>
+      
+      
+      <xsl:template name="world_writable_ownership">
+        <world_writable_ownership>
+          <xsl:for-each select="//world_writable_dirs/dir">
+            <checking>
+              <result>
+                <xsl:choose>
+                  <xsl:when test="owner='root'">
+                    <xsl:text>1</xsl:text>
+                  </xsl:when>
+                  <xsl:otherwise>
+                    <xsl:text>0</xsl:text>
+                  </xsl:otherwise>
+                </xsl:choose>
+              </result>
+              <value>
+                <xsl:value-of select="name"/>
+              </value>
+            </checking>
+          </xsl:for-each>
+        </world_writable_ownership>      
+      </xsl:template>
+
+      <xsl:template name="secured_terminals">
+        <secured_terminals>
+          <xsl:for-each select="//secured_terminals/terminal">
+            <checking>
+              <result>
+                <xsl:choose>
+                  <xsl:when test="tools:regex-match(name, '(console)|(tty\d)')">
+                    <xsl:text>1</xsl:text>
+                  </xsl:when>
+                  <xsl:otherwise>
+                    <xsl:text>0</xsl:text>
+                  </xsl:otherwise>
+                </xsl:choose>
+              </result>
+              <value>
+                <xsl:value-of select="name"/>
+              </value>
+            </checking>
+          </xsl:for-each>
+        </secured_terminals>
+      </xsl:template>
+
+      <xsl:template name="sudo_configuration">
+        <sudo_configuration>
+          <result>
+              <xsl:choose>
+                <xsl:when test="//records/record/userspec[user='%wheels' and host='ALL' and runas='ALL' and commands/command/path='ALL']">
+                  <xsl:text>1</xsl:text>
+                </xsl:when>
+                <xsl:otherwise>
+                  <xsl:text>0</xsl:text>
+                </xsl:otherwise>
+              </xsl:choose>
+          </result>
+          <value>
+            <xsl:text>wheels</xsl:text>
+          </value>
+        </sudo_configuration>
+      </xsl:template>
+      
+      <xsl:template name="check_account_block">
+        <xsl:param name = "user"/>
+        <checking>
+          <result>
+            <xsl:choose>
+              <xsl:when test="//users/user[name=$user and shell='/dev/null'] and //passwords/password[user=$user and (hash='*' or tools:regex-match(hash, '!.*')) ]">
+                <xsl:text>1</xsl:text>
+              </xsl:when>
+              <xsl:otherwise>
+                <xsl:text>0</xsl:text>
+              </xsl:otherwise>
+            </xsl:choose>
+          </result>
+          <value>
+            <xsl:value-of select="name"/>
+          </value>
+        </checking>
+      </xsl:template>
+                  
+      <xsl:template name="blocked_system_accounts">
+        <blocked_system_accounts>
+           <xsl:for-each select="//users/user[(number(uid) &lt; number(500) or number(uid) &gt; number(10000)) and name!='root']">
+             <xsl:call-template name="check_account_block">
+                <xsl:with-param name="user" select = "name"/>
+             </xsl:call-template>           
+          </xsl:for-each>
+        </blocked_system_accounts>
+      </xsl:template>
+
+      <xsl:template name="empty_passwords">
+        <empty_passwords>
+          <xsl:for-each select="//passwords/password">
+            <checking>
+              <result>
+                <xsl:choose>
+                  <xsl:when test="hash!=''">
+                    <xsl:text>1</xsl:text>
+                  </xsl:when>
+                  <xsl:otherwise>
+                    <xsl:text>0</xsl:text>
+                  </xsl:otherwise>
+                </xsl:choose>
+                </result>
+                <value>
+                  <xsl:value-of select="user"/>
+                </value>
+            </checking>
+          </xsl:for-each>
+        </empty_passwords>
+      </xsl:template>
+
+      <xsl:template name="shadowed_passwords">
+        <shadowed_passwords>
+          <xsl:for-each select="//users/user">
+            <checking>
+              <result>
+                <xsl:choose>
+                  <xsl:when test="password='x'">
+                    <xsl:text>1</xsl:text>
+                  </xsl:when>
+                  <xsl:otherwise>
+                    <xsl:text>0</xsl:text>
+                  </xsl:otherwise>
+                </xsl:choose>
+              </result>
+              <value>
+                <xsl:value-of select="name"/>
+              </value>
+            </checking>
+          </xsl:for-each>
+        </shadowed_passwords>      
+      </xsl:template>
+
+      <xsl:template name="non_root_uids">
+        <non_root_uids>
+          <xsl:for-each select="//users/user[name!='root']">
+            <checking>
+              <result>
+                <xsl:choose>
+                  <xsl:when test="uid!='0'">
+                    <xsl:text>1</xsl:text>
+                  </xsl:when>
+                  <xsl:otherwise>
+                    <xsl:text>0</xsl:text>
+                  </xsl:otherwise>
+                </xsl:choose>
+              </result>
+              <value>
+                <xsl:value-of select="name"/>
+              </value>
+            </checking>
+          </xsl:for-each>
+        </non_root_uids>
+      </xsl:template>
+
+      <xsl:template name="legacy_plus_entries">
+        <legacy_plus_entries>
+          <checking>
+            <result>
+              <xsl:choose>
+                <xsl:when test="//users/user[name='+']">
+                  <xsl:text>0</xsl:text>
+                </xsl:when>
+                <xsl:otherwise>
+                  <xsl:text>1</xsl:text>
+                </xsl:otherwise>
+              </xsl:choose>
+            </result>
+            <value>
+              <xsl:text>/etc/passwd</xsl:text>
+            </value>
+          </checking>
+          <checking>
+            <result>
+              <xsl:choose>
+                <xsl:when test="//groups/group[name='+']">
+                  <xsl:text>0</xsl:text>
+                </xsl:when>
+                <xsl:otherwise>
+                  <xsl:text>1</xsl:text>
+                </xsl:otherwise>
+              </xsl:choose>
+            </result>
+            <value>
+              <xsl:text>/etc/group</xsl:text>
+            </value>
+          </checking>
+          <checking>
+            <result>
+              <xsl:choose>
+                <xsl:when test="//passwords/password[user='+']">
+                  <xsl:text>0</xsl:text>
+                </xsl:when>
+                <xsl:otherwise>
+                  <xsl:text>1</xsl:text>
+                </xsl:otherwise>
+              </xsl:choose>
+            </result>
+            <value>
+              <xsl:text>/etc/shadow</xsl:text>
+            </value>
+          </checking>
+        </legacy_plus_entries>
+      </xsl:template>
+
+      <xsl:template name="user_home_permissions">
+        <user_home_permissions>
+          <xsl:for-each select="//dir[path='/home']/files/file">
+            <checking>
+              <result>
+                <xsl:choose>
+                  <xsl:when test="tools:regex-match(permissions, '.....-.---')">
+                    <xsl:text>1</xsl:text>
+                  </xsl:when>
+                  <xsl:otherwise>
+                    <xsl:text>0</xsl:text>
+                  </xsl:otherwise>
+                </xsl:choose>
+              </result>
+              <value>
+                <xsl:value-of select="name"/>
+              </value>
+            </checking>            
+          </xsl:for-each>
+        </user_home_permissions>      
+    </xsl:template>
+      
+      <xsl:template match="/">
+        <compliance>
+          <xsl:call-template name="password_encryption"/>
+          <xsl:call-template name="partitioning"/>
+          <xsl:call-template name="grub_password"/>
+          <xsl:call-template name="dhcp_software"/>
+          <xsl:call-template name="partition_options"/>
+          <xsl:call-template name="removable_partition_options"/>
+          <xsl:call-template name="temporary_partition_options"/>
+          <xsl:call-template name="modprobe_usb_driver_loading"/>
+          <xsl:call-template name="uncommon_fs_mounting"/>
+          <xsl:call-template name="system_file_permissions"/>
+          <xsl:call-template name="world_writable_directories"/>
+          <xsl:call-template name="world_writable_files"/>
+          <xsl:call-template name="suid_sgid_executables"/>
+          <xsl:call-template name="world_writable_ownership"/>
+          <xsl:call-template name="secured_terminals"/>
+          <xsl:call-template name="sudo_configuration"/>
+          <xsl:call-template name="blocked_system_accounts"/>
+          <xsl:call-template name="empty_passwords"/>
+          <xsl:call-template name="shadowed_passwords"/>
+          <xsl:call-template name="non_root_uids"/>
+          <xsl:call-template name="legacy_plus_entries"/>
+          <xsl:call-template name="user_home_permissions"/>
+        </compliance>
+      </xsl:template>
+    </xsl:stylesheet>
+  </script>
+</selection>

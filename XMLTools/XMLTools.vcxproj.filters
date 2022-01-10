@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Misc">
+      <UniqueIdentifier>{738c6a6f-d0f6-4138-9c58-3b6cec624f2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test">
+      <UniqueIdentifier>{4af6d454-8254-4ab7-b54e-8f73a76ff9ce}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="libxml2_wrap.h" />
+    <ClInclude Include="libxml2_wrap_suit.h">
+      <Filter>Test</Filter>
+    </ClInclude>
+    <ClInclude Include="xml_tools.h" />
+    <ClInclude Include="libxml2_iterator.h" />
+    <ClInclude Include="libxml2_range.h" />
+    <ClInclude Include="libxml2_iterator_suit.h">
+      <Filter>Test</Filter>
+    </ClInclude>
+    <ClInclude Include="xml_tools_fwd.h" />
+    <ClInclude Include="regex_parser.h" />
+    <ClInclude Include="regex_grammar.h" />
+    <ClInclude Include="libxslt_wrap.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="libxml2_wrap.cpp" />
+    <ClCompile Include="libxml2_wrap_suit.cpp">
+      <Filter>Test</Filter>
+    </ClCompile>
+    <ClCompile Include="libxml2_iterator_suit.cpp">
+      <Filter>Test</Filter>
+    </ClCompile>
+    <ClCompile Include="regex_grammar.cpp" />
+    <ClCompile Include="regex_parser.cpp" />
+    <ClCompile Include="libxslt_wrap.cpp" />
+  </ItemGroup>
+</Project>

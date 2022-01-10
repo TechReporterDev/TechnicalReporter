@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Misc">
+      <UniqueIdentifier>{0d9f3efd-e151-4a71-927d-19cf6efb9450}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="TRExternalFeature.h" />
+    <ClInclude Include="XmlSourceTypeDef.h" />
+    <ClInclude Include="XmlFeatureDef.h" />
+    <ClInclude Include="stddecl.h">
+      <Filter>Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="W32Cmd.h" />
+    <ClInclude Include="CommandSourceType.h" />
+    <ClInclude Include="XmlReportTypeDef.h" />
+    <ClInclude Include="XmlSelectionDef.h" />
+    <ClInclude Include="CommandSelection.h" />
+    <ClInclude Include="RegexParserSelection.h" />
+    <ClInclude Include="XmlGroupingDef.h" />
+    <ClInclude Include="XsltSelection.h" />
+    <ClInclude Include="XmlComplianceDef.h" />
+    <ClInclude Include="XmlValidationDef.h" />
+    <ClInclude Include="XmlActionDef.h" />
+    <ClInclude Include="ScriptActionDelegate.h" />
+    <ClInclude Include="XmlStreamTypeDef.h" />
+    <ClInclude Include="SyslogInputTransport.h" />
+    <ClInclude Include="XmlStreamDoc.h" />
+    <ClInclude Include="StaticActionShortcut.h" />
+    <ClInclude Include="ComposedPreprocessor.h" />
+    <ClInclude Include="XmlDependenciesDef.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="XmlSourceTypeDef.cpp" />
+    <ClCompile Include="W32Cmd.cpp" />
+    <ClCompile Include="TRExternalFeature.cpp" />
+    <ClCompile Include="CommandSourceType.cpp" />
+    <ClCompile Include="XmlReportTypeDef.cpp" />
+    <ClCompile Include="XmlSelectionDef.cpp" />
+    <ClCompile Include="XmlFeatureDef.cpp" />
+    <ClCompile Include="CommandSelection.cpp" />
+    <ClCompile Include="RegexParserSelection.cpp" />
+    <ClCompile Include="XmlGroupingDef.cpp" />
+    <ClCompile Include="XsltSelection.cpp" />
+    <ClCompile Include="XmlComplianceDef.cpp" />
+    <ClCompile Include="XmlValidationDef.cpp" />
+    <ClCompile Include="XmlActionDef.cpp" />
+    <ClCompile Include="ScriptActionDelegate.cpp" />
+    <ClCompile Include="XmlStreamTypeDef.cpp" />
+    <ClCompile Include="SyslogInputTransport.cpp" />
+    <ClCompile Include="XmlStreamDoc.cpp" />
+    <ClCompile Include="StaticActionShortcut.cpp" />
+    <ClCompile Include="XmlDependenciesDef.cpp" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,252 @@
+.tr-content {
+    border: 1px solid #DDD;
+    border-radius: 4px;
+    overflow: auto;
+    white-space: pre;
+}
+
+.tr-title {
+  font-size: 130%;
+}
+
+.tr-caption {
+  font-size: 100%;
+  font-weight: bold
+}
+
+.tr-links-block {
+  word-wrap: break-word;
+}
+
+.tr-link {
+  font-size: 80%;
+}
+
+.tr-title-bar {
+  overflow: hidden;
+}
+
+.tr-panel-default {
+  border: 1px solid #DDD;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  cursor: pointer
+}
+
+.tr-panel-selected {
+  border: 1px solid #DDD;
+  border-radius: 4px;
+  background-color: #F5F5F5;
+  cursor: pointer
+}
+
+.tr-panel-default .tr_panel_button{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  visibility: hidden;
+}
+
+.tr-panel-selected .tr_panel_button{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  visibility: visible;
+}
+
+
+.tr-inplace-checkbox {
+  padding-top: 0px !important;
+  min-height: 10px !important;
+  line-height: 150% !important;
+}
+
+.tr-inplace-combobox {
+  padding-top: px !important;
+  padding-left: 6px !important;
+  padding-right: 6px !important;
+  padding-bottom: 3px !important;
+}
+
+.tr-inplace-button {
+
+  padding: 1px 5px !important;
+  font-size: 12px !important;
+  line-height: 1.5 !important;
+  border-radius: 3px !important;
+  height: 20px !important;
+  display: block !important;
+}
+
+.tr-rule-panel{
+  height: 50px;
+  margin: 6px;
+  border: 1px solid #DDD;
+  border-radius: 2px;
+}
+
+.tr-rule-panel-default{
+  background-color: #FFFFFF;
+}
+
+.tr-rule-panel-selected{
+  background-color: #F5F5F5;
+}
+
+.tr-rule-panel-caption {
+  margin-top: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  font-weight: bold;
+}
+
+.tr-rule-panel-description {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+.tr-rule-panel-image{
+  height: 40px;
+  margin: 4px;
+  float: left;
+}
+
+.tr-rule-panel-default .tr-rule-panel-button{
+  margin: 7px;
+  height: 34px;
+  visibility: hidden;
+  float: right;
+}
+
+.tr-rule-panel-selected .tr-rule-panel-button{
+  margin: 7px;
+  height: 34px;
+  visibility: visible;
+  float: right;
+}
+
+.tr-invalid-cell {
+  background-color: #FFAAAA !important;
+}
+
+.tr-invalid-parent {
+  background-color: #FFEEAA !important;
+}
+
+.table .tr_table_button {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  visibility: hidden;
+  float: right
+}
+
+.table-hover > tbody > tr:hover > td > .tr_table_button{
+  margin-top: 5px;
+  margin-bottom: 5px;
+  visibility: visible;
+}
+
+.table-hover > tbody > tr:hover > td {
+  cursor: pointer;
+}
+
+.table.tr-move-mode > tbody > tr{
+  border: 2px dashed #DDD !important;
+  border-radius: 2px !important;
+}
+
+.tr-panel-heading {
+  color: #333;
+  background-color: #f5f5f5;
+  border-color: #ddd;
+  border-bottom: 1px solid;
+  border-bottom-color: #ddd;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.tr-add-diff-line {
+  background-color: #FFAAAA;
+  overflow-x: visible !important;
+  overflow-y: visible !important;
+}
+
+.tr-del-diff-line {
+  background-color: #AAAAFF;
+  overflow-x: visible !important;
+  overflow-y: visible !important;
+}
+
+.tr-inserted-cell {
+  background-color: #FFAAAA;
+}
+
+.tr-removed-cell {
+  background-color: #AAAAFF;
+}
+
+.tr-modified-cell {
+  background-color: #EEEEAA;
+}
+
+.active .tr-inserted-cell {
+  background-color: transparent;
+}
+
+.active .tr-removed-cell {
+  background-color: transparent;
+}
+
+.btn-toolbar * {
+  float: none !important;
+  display: inline-block;
+  margin-left: 0;
+}
+
+.Wt-item {
+  overflow: hidden !important;
+}
+
+.Wt-tableview.tr-hide-row-splitter .Wt-tv-contents .Wt-tv-c {
+  border-bottom-color: transparent !important;
+}
+
+.tr-header {
+  white-space: nowrap;
+}
+
+.tr-popup-level-2 {
+  margin-left: 40px !important;
+  margin-top: 40px !important;
+}
+
+.tr-section
+{
+  border: 1px solid #DDD;
+  border-radius: 4px;
+  margin-bottom: 5px;
+}
+
+.tr-inventory
+{
+  margin: 0px !important;
+}
+
+.tr-image-button-24
+{
+  padding-top: 3px !important;
+  padding-bottom: 3px !important;
+  padding-left: 4px !important;
+  line-height: 26px !important;
+}
+
+.tr-image-button-24 img
+{
+  padding-right: 4px !important;
+}
+
+.Wt-popup.modal-dialog.Wt-dialog {
+  width: fit-content;
+}

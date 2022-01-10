@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<messages>
+  <message id='unknown_error'>
+    Unknown error was occured
+  </message>
+</messages>

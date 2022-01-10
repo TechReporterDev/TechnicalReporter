@@ -1,0 +1,9 @@
+#pragma once
+#include "XMLDefinition.h"
+#include "XMLRegular.h"
+#include "XMLRegularTable.h"
+#include "XMLQuery.h"
+#include "XMLCompliance.h"
+#include "XMLValidation.h"
+#include "XMLProperties.h"
+#include "XMLMeta.h"

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Misc">
+      <UniqueIdentifier>{5e4fd0e2-23d9-41b3-91a1-e0dab6c1e58b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h">
+      <Filter>Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="framework.h">
+      <Filter>Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="xslt_tools.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pch.cpp">
+      <Filter>Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="xslt_tools.cpp" />
+  </ItemGroup>
+</Project>

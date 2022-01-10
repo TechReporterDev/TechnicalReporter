@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Misc">
+      <UniqueIdentifier>{938e4590-4d55-4b2a-9b99-5810ec21783e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Test">
+      <UniqueIdentifier>{6539cf17-3c9d-43fc-936a-eddc1f0c4612}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="boost">
+      <UniqueIdentifier>{cd933d80-f91b-4793-bdef-1de91801d637}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="boost\example">
+      <UniqueIdentifier>{c8c7c0da-33e2-493e-ad43-6f491832dd9a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="make_unique.h" />
+    <ClInclude Include="stl_tools.h" />
+    <ClInclude Include="stl_tools_suit.h">
+      <Filter>Test</Filter>
+    </ClInclude>
+    <ClInclude Include="encoding.h" />
+    <ClInclude Include="u8decdfa.h">
+      <Filter>Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="uuid.h" />
+    <ClInclude Include="meta_function.h" />
+    <ClInclude Include="iterator_adapter.h" />
+    <ClInclude Include="flag.h" />
+    <ClInclude Include="unique_pointer_cast.h" />
+    <ClInclude Include="index.h" />
+    <ClInclude Include="functor.h" />
+    <ClInclude Include="lazy.h" />
+    <ClInclude Include="ordered_signal.h" />
+    <ClInclude Include="finally_guard.h" />
+    <ClInclude Include="function_traits.h" />
+    <ClInclude Include="associate.h" />
+    <ClInclude Include="container_initializer.h" />
+    <ClInclude Include="member_iterator.h" />
+    <ClInclude Include="force_move.h" />
+    <ClInclude Include="make_blob.h" />
+    <ClInclude Include="storage.h" />
+    <ClInclude Include="no_except.h" />
+    <ClInclude Include="current_path_lock.h" />
+    <ClInclude Include="copy.h" />
+    <ClInclude Include="invoke.h" />
+    <ClInclude Include="boost\example\container_device.hpp">
+      <Filter>boost\example</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="stl_tools_suit.cpp">
+      <Filter>Test</Filter>
+    </ClCompile>
+    <ClCompile Include="encoding.cpp" />
+    <ClCompile Include="u8decdfa.c">
+      <Filter>Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="uuid.cpp" />
+    <ClCompile Include="ordered_signal.cpp" />
+    <ClCompile Include="current_path_lock.cpp" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,1031 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Misc">
+      <UniqueIdentifier>{1db40688-006c-4898-9f13-7be5c1de7f5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application">
+      <UniqueIdentifier>{f7d96ecd-db3a-4570-b942-87e954a63fb3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\Pages">
+      <UniqueIdentifier>{e09ebc06-d28d-406b-8192-8c7c86de6c64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\Pages\Views">
+      <UniqueIdentifier>{532b9384-d0d4-4326-9890-ed47c8c02e03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\Pages\Views\Source">
+      <UniqueIdentifier>{c7a238e2-e236-493f-9b67-03057cd6f184}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\Pages\Views\Content">
+      <UniqueIdentifier>{2f01ba7f-9ab0-471a-863f-442bc9f41fe7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\Pages\Views\Property">
+      <UniqueIdentifier>{ed7d78ae-e3f5-409c-b5cf-cc75a88b4f15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\Pages\Views\Options">
+      <UniqueIdentifier>{68aa786d-73a1-4772-9da8-6b2d9df86bd9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\Pages\Views\Archive">
+      <UniqueIdentifier>{624f1ddc-d6d1-4664-9f05-1658c1cf66b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\Pages\Views\Diff">
+      <UniqueIdentifier>{6165f119-7ec2-4584-a58a-0faad1bec4c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\Pages\Views\Action">
+      <UniqueIdentifier>{a4e4839b-58c9-4214-a4c7-aec30d4889e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\Pages\Views\Task">
+      <UniqueIdentifier>{4483884e-afb8-4418-b63b-e291e43ba728}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\Pages\Views\Content\Text">
+      <UniqueIdentifier>{05122c98-178b-4bf1-a189-7980fb669602}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\Pages\Views\Content\Validated">
+      <UniqueIdentifier>{b95f13aa-c748-4595-911a-2e26b5e5e089}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\Pages\Views\Role">
+      <UniqueIdentifier>{510d7e71-1b46-4557-b2d4-8f5b887f8609}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\Pages\Views\Schedule">
+      <UniqueIdentifier>{4de3ec5d-67c8-4e42-bedd-68ed641acfb7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\Pages\Views\Welcome">
+      <UniqueIdentifier>{7769a43e-7ed0-4cbe-a4a6-2781d4eabe00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\Pages\Views\Transform">
+      <UniqueIdentifier>{3aec133a-ef92-4b8a-847f-fc497aebdaca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\Pages\Views\Transform\Query">
+      <UniqueIdentifier>{da158d6b-b536-4cd5-a130-f1aecfa2dd12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\Pages\Views\Transform\ComplianceSetup">
+      <UniqueIdentifier>{fb247718-f2e1-40e8-92dd-80ddb023c97f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\Pages\Views\Content\Xml">
+      <UniqueIdentifier>{e6f0402c-ad74-42f0-8929-425a732237ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\Pages\Views\Content\Regular">
+      <UniqueIdentifier>{38beadac-f64e-4f2b-8be4-73e568a720e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\Pages\Views\Content\Compliance">
+      <UniqueIdentifier>{30395cc5-4212-4355-a61d-0be2357d5cdf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\Pages\Views\Transform\Validator">
+      <UniqueIdentifier>{0d6f6b58-74b2-4958-b841-97114f04955c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\Pages\Views\Transform\Filter">
+      <UniqueIdentifier>{a612922e-8501-46ac-a4f8-73e1effa46af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\Pages\Views\Property\ValueAdaptors">
+      <UniqueIdentifier>{79a8a91f-3a4f-4e97-b78b-65df2e3441cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\Pages\Views\Property\PropertySheet">
+      <UniqueIdentifier>{47bfe303-8b5d-444c-82f3-79d620641e8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\Pages\Views\Property\CommonProperty">
+      <UniqueIdentifier>{9e19d90a-c941-4d66-ab2f-818780ef99c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\Pages\Views\Property\CommonProperty\PropertiesDoc">
+      <UniqueIdentifier>{ef2b31cf-5579-46e8-a112-e8d3a2d5c137}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{a7399ac2-2058-4084-870b-05098fab488b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\Pages\Views\Stream">
+      <UniqueIdentifier>{85df241d-e3a4-48a3-9c86-d8949ccd4ff9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\Pages\Views\Alerts">
+      <UniqueIdentifier>{d61a2adf-5059-4c17-a74e-58106e3bcc8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\Pages\Views\Changes">
+      <UniqueIdentifier>{a20a5cdd-43fc-4bc5-8e4e-eae5208a7b50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application\Pages\Views\Report">
+      <UniqueIdentifier>{f14aeaa8-a4c0-436b-968a-3a1983ff32bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Docroot">
+      <UniqueIdentifier>{1218a086-475e-4124-8acf-6cccfac21a44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Docroot\Icons">
+      <UniqueIdentifier>{12f7c9db-cbb3-415e-9675-3a81c30e4d37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Docroot\CSS">
+      <UniqueIdentifier>{0e30891b-9473-4de6-aa36-faa95cf2f509}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Docroot\Localization">
+      <UniqueIdentifier>{a3aec5f0-edce-477f-a8c7-8155a32f6ded}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="Application.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="TRWebServer.h" />
+    <ClInclude Include="SourcesPage.h">
+      <Filter>Application\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="MainFrame.h">
+      <Filter>Application\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="WelcomePage.h">
+      <Filter>Application\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="SourcePage.h">
+      <Filter>Application\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="AppEventDisp.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="CurrentReportPage.h">
+      <Filter>Application\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionsPage.h">
+      <Filter>Application\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="ReportOptionsPage.h">
+      <Filter>Application\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="ReportSelectionPage.h">
+      <Filter>Application\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="WidgetHolder.h">
+      <Filter>Application\Pages\Views</Filter>
+    </ClInclude>
+    <ClInclude Include="RegularReportPage.h">
+      <Filter>Application\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceSettingsPage.h">
+      <Filter>Application\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="Property.h">
+      <Filter>Application\Pages\Views\Property</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseTreeModel.h">
+      <Filter>Application\Pages\Views</Filter>
+    </ClInclude>
+    <ClInclude Include="ContentView.h">
+      <Filter>Application\Pages\Views\Content</Filter>
+    </ClInclude>
+    <ClInclude Include="SourcePanel.h">
+      <Filter>Application\Pages\Views\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="CurrentReportsTable.h">
+      <Filter>Application\Pages\Views\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="RoleOptionsPage.h">
+      <Filter>Application\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="TabWidget.h">
+      <Filter>Application\Pages\Views</Filter>
+    </ClInclude>
+    <ClInclude Include="RoleSelectionPage.h">
+      <Filter>Application\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="ComplianceReportPage.h">
+      <Filter>Application\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="SubjectReportOptionsPage.h">
+      <Filter>Application\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="RoleSettingsDlg.h">
+      <Filter>Application\Pages\Views\Role</Filter>
+    </ClInclude>
+    <ClInclude Include="PatternEditor.h">
+      <Filter>Application\Pages\Views\Options</Filter>
+    </ClInclude>
+    <ClInclude Include="ContentEditor.h">
+      <Filter>Application\Pages\Views\Content</Filter>
+    </ClInclude>
+    <ClInclude Include="UploadDialog.h">
+      <Filter>Application\Pages\Views</Filter>
+    </ClInclude>
+    <ClInclude Include="ComplianceEditor.h">
+      <Filter>Application\Pages\Views\Options</Filter>
+    </ClInclude>
+    <ClInclude Include="ValidatedDocModel.h">
+      <Filter>Application\Pages\Views\Content\Validated</Filter>
+    </ClInclude>
+    <ClInclude Include="ValidatedDocTreeView.h">
+      <Filter>Application\Pages\Views\Content\Validated</Filter>
+    </ClInclude>
+    <ClInclude Include="ValidationSettingsPage.h">
+      <Filter>Application\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="ValidatedDocTableView.h">
+      <Filter>Application\Pages\Views\Content\Validated</Filter>
+    </ClInclude>
+    <ClInclude Include="ValidatedReportPage.h">
+      <Filter>Application\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceSelectionPage.h">
+      <Filter>Application\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="VirtualList.h">
+      <Filter>Application\Pages\Views</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceOptionsPage.h">
+      <Filter>Application\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="CurrentReportsPage.h">
+      <Filter>Application\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="ArchiveTable.h">
+      <Filter>Application\Pages\Views\Archive</Filter>
+    </ClInclude>
+    <ClInclude Include="StandardModel.h">
+      <Filter>Application\Pages\Views</Filter>
+    </ClInclude>
+    <ClInclude Include="StandardTable.h">
+      <Filter>Application\Pages\Views</Filter>
+    </ClInclude>
+    <ClInclude Include="ArchivePage.h">
+      <Filter>Application\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="ArchivedReportPage.h">
+      <Filter>Application\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="ValidatorEditor.h">
+      <Filter>Application\Pages\Views\Options</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginScreen.h">
+      <Filter>Application\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="ArchiveQueryDlg.h">
+      <Filter>Application\Pages\Views\Archive</Filter>
+    </ClInclude>
+    <ClInclude Include="QueriedReportPage.h">
+      <Filter>Application\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="DiffView.h">
+      <Filter>Application\Pages\Views\Diff</Filter>
+    </ClInclude>
+    <ClInclude Include="RegularDiffModel.h">
+      <Filter>Application\Pages\Views\Diff</Filter>
+    </ClInclude>
+    <ClInclude Include="RegularDiffTreeView.h">
+      <Filter>Application\Pages\Views\Diff</Filter>
+    </ClInclude>
+    <ClInclude Include="RegularDiffView.h">
+      <Filter>Application\Pages\Views\Diff</Filter>
+    </ClInclude>
+    <ClInclude Include="CompareContentPage.h">
+      <Filter>Application\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="ActionDlg.h">
+      <Filter>Application\Pages\Views\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="Dialog.h">
+      <Filter>Application\Pages\Views</Filter>
+    </ClInclude>
+    <ClInclude Include="GetTimeDlg.h">
+      <Filter>Application\Pages\Views\Diff</Filter>
+    </ClInclude>
+    <ClInclude Include="ActionOutputPage.h">
+      <Filter>Application\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="ShortcutDlg.h">
+      <Filter>Application\Pages\Views\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="TaskOutputPage.h">
+      <Filter>Application\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="ReloadDlg.h">
+      <Filter>Application\Pages\Views\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="SourcesTableView.h">
+      <Filter>Application\Pages\Views\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="SourcesView.h">
+      <Filter>Application\Pages\Views\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="SourcesTreeView.h">
+      <Filter>Application\Pages\Views\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="TextDiffModel.h">
+      <Filter>Application\Pages\Views\Diff</Filter>
+    </ClInclude>
+    <ClInclude Include="TextDiffTableView.h">
+      <Filter>Application\Pages\Views\Diff</Filter>
+    </ClInclude>
+    <ClInclude Include="TextDiffView.h">
+      <Filter>Application\Pages\Views\Diff</Filter>
+    </ClInclude>
+    <ClInclude Include="XmlDiffModel.h">
+      <Filter>Application\Pages\Views\Diff</Filter>
+    </ClInclude>
+    <ClInclude Include="XmlDiffTreeView.h">
+      <Filter>Application\Pages\Views\Diff</Filter>
+    </ClInclude>
+    <ClInclude Include="XmlDiffView.h">
+      <Filter>Application\Pages\Views\Diff</Filter>
+    </ClInclude>
+    <ClInclude Include="XmlDocModel.h">
+      <Filter>Application\Pages\Views\Content\Xml</Filter>
+    </ClInclude>
+    <ClInclude Include="XmlDocTreeView.h">
+      <Filter>Application\Pages\Views\Content\Xml</Filter>
+    </ClInclude>
+    <ClInclude Include="PlainTextView.h">
+      <Filter>Application\Pages\Views\Content\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="RegularDocModel.h">
+      <Filter>Application\Pages\Views\Content\Regular</Filter>
+    </ClInclude>
+    <ClInclude Include="RegularDocTableView.h">
+      <Filter>Application\Pages\Views\Content\Regular</Filter>
+    </ClInclude>
+    <ClInclude Include="RegularDocTreeView.h">
+      <Filter>Application\Pages\Views\Content\Regular</Filter>
+    </ClInclude>
+    <ClInclude Include="RegularDocEditor.h">
+      <Filter>Application\Pages\Views\Content\Regular</Filter>
+    </ClInclude>
+    <ClInclude Include="ScheduleSelectionPage.h">
+      <Filter>Application\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="ScheduleSettingsDlg.h">
+      <Filter>Application\Pages\Views\Schedule</Filter>
+    </ClInclude>
+    <ClInclude Include="Panel.h">
+      <Filter>Application\Pages\Views</Filter>
+    </ClInclude>
+    <ClInclude Include="WelcomePanels.h">
+      <Filter>Application\Pages\Views\Welcome</Filter>
+    </ClInclude>
+    <ClInclude Include="ComplianceSetupPage.h">
+      <Filter>Application\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="QueryConditionDlg.h">
+      <Filter>Application\Pages\Views\Transform\Query</Filter>
+    </ClInclude>
+    <ClInclude Include="QueryDocModel.h">
+      <Filter>Application\Pages\Views\Transform\Query</Filter>
+    </ClInclude>
+    <ClInclude Include="QueryDocView.h">
+      <Filter>Application\Pages\Views\Transform\Query</Filter>
+    </ClInclude>
+    <ClInclude Include="XmlContentView.h">
+      <Filter>Application\Pages\Views\Content\Xml</Filter>
+    </ClInclude>
+    <ClInclude Include="ValidatedContentView.h">
+      <Filter>Application\Pages\Views\Content\Validated</Filter>
+    </ClInclude>
+    <ClInclude Include="TextContentView.h">
+      <Filter>Application\Pages\Views\Content\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="TextContentEditor.h">
+      <Filter>Application\Pages\Views\Content\Text</Filter>
+    </ClInclude>
+    <ClInclude Include="RegularContentView.h">
+      <Filter>Application\Pages\Views\Content\Regular</Filter>
+    </ClInclude>
+    <ClInclude Include="RegularContentEditor.h">
+      <Filter>Application\Pages\Views\Content\Regular</Filter>
+    </ClInclude>
+    <ClInclude Include="ComplianceContentView.h">
+      <Filter>Application\Pages\Views\Content\Compliance</Filter>
+    </ClInclude>
+    <ClInclude Include="ValidatorView.h">
+      <Filter>Application\Pages\Views\Transform\Validator</Filter>
+    </ClInclude>
+    <ClInclude Include="ComplianceSetupView.h">
+      <Filter>Application\Pages\Views\Transform\ComplianceSetup</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeFiltersView.h">
+      <Filter>Application\Pages\Views\Transform\Filter</Filter>
+    </ClInclude>
+    <ClInclude Include="PreviewPage.h">
+      <Filter>Application\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="CreateQueryPage.h">
+      <Filter>Application\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="RefValue.h">
+      <Filter>Application\Pages\Views\Property\ValueAdaptors</Filter>
+    </ClInclude>
+    <ClInclude Include="StaticValue.h">
+      <Filter>Application\Pages\Views\Property\ValueAdaptors</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomValue.h">
+      <Filter>Application\Pages\Views\Property\ValueAdaptors</Filter>
+    </ClInclude>
+    <ClInclude Include="ContainerArray.h">
+      <Filter>Application\Pages\Views\Property\ValueAdaptors</Filter>
+    </ClInclude>
+    <ClInclude Include="PropertyDialog.h">
+      <Filter>Application\Pages\Views\Property\PropertySheet</Filter>
+    </ClInclude>
+    <ClInclude Include="Value.h">
+      <Filter>Application\Pages\Views\Property</Filter>
+    </ClInclude>
+    <ClInclude Include="ComposedCollection.h">
+      <Filter>Application\Pages\Views\Property\ValueAdaptors</Filter>
+    </ClInclude>
+    <ClInclude Include="PropertySheet.h">
+      <Filter>Application\Pages\Views\Property\PropertySheet</Filter>
+    </ClInclude>
+    <ClInclude Include="PropertyWizard.h">
+      <Filter>Application\Pages\Views\Property\PropertySheet</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonPropertyView.h">
+      <Filter>Application\Pages\Views\Property\CommonProperty</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonProperty.h">
+      <Filter>Application\Pages\Views\Property\CommonProperty</Filter>
+    </ClInclude>
+    <ClInclude Include="PropertyGrid.h">
+      <Filter>Application\Pages\Views\Property</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonPropertyPage.h">
+      <Filter>Application\Pages\Views\Property\CommonProperty</Filter>
+    </ClInclude>
+    <ClInclude Include="SelfArray.h">
+      <Filter>Application\Pages\Views\Property\ValueAdaptors</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonPropertyTable.h">
+      <Filter>Application\Pages\Views\Property\CommonProperty</Filter>
+    </ClInclude>
+    <ClInclude Include="TaskDlg.h">
+      <Filter>Application\Pages\Views\Task</Filter>
+    </ClInclude>
+    <ClInclude Include="FilterSetupPage.h">
+      <Filter>Application\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonPropertyArrayView.h">
+      <Filter>Application\Pages\Views\Property\CommonProperty</Filter>
+    </ClInclude>
+    <ClInclude Include="PropertyBox.h">
+      <Filter>Application\Pages\Views\Property\CommonProperty</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonPropertyDoc.h">
+      <Filter>Application\Pages\Views\Property\CommonProperty\PropertiesDoc</Filter>
+    </ClInclude>
+    <ClInclude Include="PropertyNodeFactory.h">
+      <Filter>Application\Pages\Views\Property\CommonProperty\PropertiesDoc</Filter>
+    </ClInclude>
+    <ClInclude Include="PropertyNodeValue.h">
+      <Filter>Application\Pages\Views\Property\CommonProperty\PropertiesDoc</Filter>
+    </ClInclude>
+    <ClInclude Include="BrowseNodeDlg.h">
+      <Filter>Application\Pages\Views\Transform\Filter</Filter>
+    </ClInclude>
+    <ClInclude Include="AppClient.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="SubjectActionOptionsPage.h">
+      <Filter>Application\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="ActionOptionsEditor.h">
+      <Filter>Application\Pages\Views\Options</Filter>
+    </ClInclude>
+    <ClInclude Include="SearchPage.h">
+      <Filter>Application\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="InventoryTable.h">
+      <Filter>Application\Pages\Views\Options</Filter>
+    </ClInclude>
+    <ClInclude Include="ActionSelectionPage.h">
+      <Filter>Application\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="ActionOptionsPage.h">
+      <Filter>Application\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="PatternComparePage.h">
+      <Filter>Application\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceBrowseDlg.h">
+      <Filter>Application\Pages\Views\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="RunTaskWizard.h">
+      <Filter>Application\Pages\Views\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="StreamView.h">
+      <Filter>Application\Pages\Views\Stream</Filter>
+    </ClInclude>
+    <ClInclude Include="StreamPage.h">
+      <Filter>Application\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenStreamDlg.h">
+      <Filter>Application\Pages\Views\Stream</Filter>
+    </ClInclude>
+    <ClInclude Include="StreamSelectionPage.h">
+      <Filter>Application\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="StreamOptionsPage.h">
+      <Filter>Application\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="SubjectStreamOptionsPage.h">
+      <Filter>Application\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="SubjectOptionsPage.h">
+      <Filter>Application\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="StreamFilterView.h">
+      <Filter>Application\Pages\Views\Stream</Filter>
+    </ClInclude>
+    <ClInclude Include="StreamFilterPage.h">
+      <Filter>Application\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="StreamPreviewPage.h">
+      <Filter>Application\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="AdminPage.h">
+      <Filter>Application\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="UsersPage.h">
+      <Filter>Application\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="FeaturesPage.h">
+      <Filter>Application\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="Layout.h">
+      <Filter>Application\Pages\Views</Filter>
+    </ClInclude>
+    <ClInclude Include="AlertsTable.h">
+      <Filter>Application\Pages\Views\Alerts</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionProperties.h">
+      <Filter>Application\Pages\Views\Options</Filter>
+    </ClInclude>
+    <ClInclude Include="SuitSettingsPage.h">
+      <Filter>Application\Pages</Filter>
+    </ClInclude>
+    <ClInclude Include="RebuildDlg.h">
+      <Filter>Application\Pages\Views\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="ChangesTable.h">
+      <Filter>Application\Pages\Views\Changes</Filter>
+    </ClInclude>
+    <ClInclude Include="ReportViewOptionsEditor.h">
+      <Filter>Application\Pages\Views\Options</Filter>
+    </ClInclude>
+    <ClInclude Include="ReportOptionsEditor.h">
+      <Filter>Application\Pages\Views\Options</Filter>
+    </ClInclude>
+    <ClInclude Include="PersistReportWizard.h">
+      <Filter>Application\Pages\Views\Report</Filter>
+    </ClInclude>
+    <ClInclude Include="WtTools.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="ExportSummaryDlg.h">
+      <Filter>Application\Pages\Views\Welcome</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="TRWebServer.cpp" />
+    <ClCompile Include="Application.cpp">
+      <Filter>Application</Filter>
+    </ClCompile>
+    <ClCompile Include="SourcesPage.cpp">
+      <Filter>Application\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="MainFrame.cpp">
+      <Filter>Application\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="WelcomePage.cpp">
+      <Filter>Application\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="SourcePage.cpp">
+      <Filter>Application\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="AppEventDisp.cpp">
+      <Filter>Application</Filter>
+    </ClCompile>
+    <ClCompile Include="CurrentReportPage.cpp">
+      <Filter>Application\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionsPage.cpp">
+      <Filter>Application\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="ReportSelectionPage.cpp">
+      <Filter>Application\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="ReportOptionsPage.cpp">
+      <Filter>Application\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="RegularReportPage.cpp">
+      <Filter>Application\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceSettingsPage.cpp">
+      <Filter>Application\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="Property.cpp">
+      <Filter>Application\Pages\Views\Property</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseTreeModel.cpp">
+      <Filter>Application\Pages\Views</Filter>
+    </ClCompile>
+    <ClCompile Include="ContentView.cpp">
+      <Filter>Application\Pages\Views\Content</Filter>
+    </ClCompile>
+    <ClCompile Include="SourcePanel.cpp">
+      <Filter>Application\Pages\Views\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="CurrentReportsTable.cpp">
+      <Filter>Application\Pages\Views\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="RoleOptionsPage.cpp">
+      <Filter>Application\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="TabWidget.cpp">
+      <Filter>Application\Pages\Views</Filter>
+    </ClCompile>
+    <ClCompile Include="RoleSelectionPage.cpp">
+      <Filter>Application\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="ComplianceReportPage.cpp">
+      <Filter>Application\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="SubjectReportOptionsPage.cpp">
+      <Filter>Application\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="RoleSettingsDlg.cpp">
+      <Filter>Application\Pages\Views\Role</Filter>
+    </ClCompile>
+    <ClCompile Include="PatternEditor.cpp">
+      <Filter>Application\Pages\Views\Options</Filter>
+    </ClCompile>
+    <ClCompile Include="UploadDialog.cpp">
+      <Filter>Application\Pages\Views</Filter>
+    </ClCompile>
+    <ClCompile Include="ComplianceEditor.cpp">
+      <Filter>Application\Pages\Views\Options</Filter>
+    </ClCompile>
+    <ClCompile Include="ValidatedDocModel.cpp">
+      <Filter>Application\Pages\Views\Content\Validated</Filter>
+    </ClCompile>
+    <ClCompile Include="ValidatedDocTreeView.cpp">
+      <Filter>Application\Pages\Views\Content\Validated</Filter>
+    </ClCompile>
+    <ClCompile Include="ValidationSettingsPage.cpp">
+      <Filter>Application\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="ValidatedDocTableView.cpp">
+      <Filter>Application\Pages\Views\Content\Validated</Filter>
+    </ClCompile>
+    <ClCompile Include="ValidatedReportPage.cpp">
+      <Filter>Application\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceSelectionPage.cpp">
+      <Filter>Application\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="VirtualList.cpp">
+      <Filter>Application\Pages\Views</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceOptionsPage.cpp">
+      <Filter>Application\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="CurrentReportsPage.cpp">
+      <Filter>Application\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="ArchiveTable.cpp">
+      <Filter>Application\Pages\Views\Archive</Filter>
+    </ClCompile>
+    <ClCompile Include="ArchivePage.cpp">
+      <Filter>Application\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="ArchivedReportPage.cpp">
+      <Filter>Application\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="ValidatorEditor.cpp">
+      <Filter>Application\Pages\Views\Options</Filter>
+    </ClCompile>
+    <ClCompile Include="LoginScreen.cpp">
+      <Filter>Application\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="ArchiveQueryDlg.cpp">
+      <Filter>Application\Pages\Views\Archive</Filter>
+    </ClCompile>
+    <ClCompile Include="QueriedReportPage.cpp">
+      <Filter>Application\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="RegularDiffModel.cpp">
+      <Filter>Application\Pages\Views\Diff</Filter>
+    </ClCompile>
+    <ClCompile Include="RegularDiffTreeView.cpp">
+      <Filter>Application\Pages\Views\Diff</Filter>
+    </ClCompile>
+    <ClCompile Include="RegularDiffView.cpp">
+      <Filter>Application\Pages\Views\Diff</Filter>
+    </ClCompile>
+    <ClCompile Include="CompareContentPage.cpp">
+      <Filter>Application\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="DiffView.cpp">
+      <Filter>Application\Pages\Views\Diff</Filter>
+    </ClCompile>
+    <ClCompile Include="ActionDlg.cpp">
+      <Filter>Application\Pages\Views\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="Dialog.cpp">
+      <Filter>Application\Pages\Views</Filter>
+    </ClCompile>
+    <ClCompile Include="GetTimeDlg.cpp">
+      <Filter>Application\Pages\Views\Diff</Filter>
+    </ClCompile>
+    <ClCompile Include="ActionOutputPage.cpp">
+      <Filter>Application\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="ShortcutDlg.cpp">
+      <Filter>Application\Pages\Views\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="TaskOutputPage.cpp">
+      <Filter>Application\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="TaskDlg.cpp">
+      <Filter>Application\Pages\Views\Task</Filter>
+    </ClCompile>
+    <ClCompile Include="ReloadDlg.cpp">
+      <Filter>Application\Pages\Views\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="SourcesTableView.cpp">
+      <Filter>Application\Pages\Views\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="TextDiffModel.cpp">
+      <Filter>Application\Pages\Views\Diff</Filter>
+    </ClCompile>
+    <ClCompile Include="TextDiffTableView.cpp">
+      <Filter>Application\Pages\Views\Diff</Filter>
+    </ClCompile>
+    <ClCompile Include="TextDiffView.cpp">
+      <Filter>Application\Pages\Views\Diff</Filter>
+    </ClCompile>
+    <ClCompile Include="XmlDiffModel.cpp">
+      <Filter>Application\Pages\Views\Diff</Filter>
+    </ClCompile>
+    <ClCompile Include="XmlDiffTreeView.cpp">
+      <Filter>Application\Pages\Views\Diff</Filter>
+    </ClCompile>
+    <ClCompile Include="XmlDiffView.cpp">
+      <Filter>Application\Pages\Views\Diff</Filter>
+    </ClCompile>
+    <ClCompile Include="XmlDocModel.cpp">
+      <Filter>Application\Pages\Views\Content\Xml</Filter>
+    </ClCompile>
+    <ClCompile Include="XmlDocTreeView.cpp">
+      <Filter>Application\Pages\Views\Content\Xml</Filter>
+    </ClCompile>
+    <ClCompile Include="PlainTextView.cpp">
+      <Filter>Application\Pages\Views\Content\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="RegularDocModel.cpp">
+      <Filter>Application\Pages\Views\Content\Regular</Filter>
+    </ClCompile>
+    <ClCompile Include="RegularDocTableView.cpp">
+      <Filter>Application\Pages\Views\Content\Regular</Filter>
+    </ClCompile>
+    <ClCompile Include="RegularDocTreeView.cpp">
+      <Filter>Application\Pages\Views\Content\Regular</Filter>
+    </ClCompile>
+    <ClCompile Include="RegularDocEditor.cpp">
+      <Filter>Application\Pages\Views\Content\Regular</Filter>
+    </ClCompile>
+    <ClCompile Include="ScheduleSelectionPage.cpp">
+      <Filter>Application\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="ScheduleSettingsDlg.cpp">
+      <Filter>Application\Pages\Views\Schedule</Filter>
+    </ClCompile>
+    <ClCompile Include="Panel.cpp">
+      <Filter>Application\Pages\Views</Filter>
+    </ClCompile>
+    <ClCompile Include="WelcomePanels.cpp">
+      <Filter>Application\Pages\Views\Welcome</Filter>
+    </ClCompile>
+    <ClCompile Include="ComplianceSetupPage.cpp">
+      <Filter>Application\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="QueryConditionDlg.cpp">
+      <Filter>Application\Pages\Views\Transform\Query</Filter>
+    </ClCompile>
+    <ClCompile Include="QueryDocModel.cpp">
+      <Filter>Application\Pages\Views\Transform\Query</Filter>
+    </ClCompile>
+    <ClCompile Include="QueryDocView.cpp">
+      <Filter>Application\Pages\Views\Transform\Query</Filter>
+    </ClCompile>
+    <ClCompile Include="XmlContentView.cpp">
+      <Filter>Application\Pages\Views\Content\Xml</Filter>
+    </ClCompile>
+    <ClCompile Include="ValidatedContentView.cpp">
+      <Filter>Application\Pages\Views\Content\Validated</Filter>
+    </ClCompile>
+    <ClCompile Include="TextContentView.cpp">
+      <Filter>Application\Pages\Views\Content\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="TextContentEditor.cpp">
+      <Filter>Application\Pages\Views\Content\Text</Filter>
+    </ClCompile>
+    <ClCompile Include="RegularContentEditor.cpp">
+      <Filter>Application\Pages\Views\Content\Regular</Filter>
+    </ClCompile>
+    <ClCompile Include="RegularContentView.cpp">
+      <Filter>Application\Pages\Views\Content\Regular</Filter>
+    </ClCompile>
+    <ClCompile Include="ComplianceContentView.cpp">
+      <Filter>Application\Pages\Views\Content\Compliance</Filter>
+    </ClCompile>
+    <ClCompile Include="ValidatorView.cpp">
+      <Filter>Application\Pages\Views\Transform\Validator</Filter>
+    </ClCompile>
+    <ClCompile Include="ComplianceSetupView.cpp">
+      <Filter>Application\Pages\Views\Transform\ComplianceSetup</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeFiltersView.cpp">
+      <Filter>Application\Pages\Views\Transform\Filter</Filter>
+    </ClCompile>
+    <ClCompile Include="PreviewPage.cpp">
+      <Filter>Application\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="FilterSetupPage.cpp">
+      <Filter>Application\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="PropertyDialog.cpp">
+      <Filter>Application\Pages\Views\Property\PropertySheet</Filter>
+    </ClCompile>
+    <ClCompile Include="Value.cpp">
+      <Filter>Application\Pages\Views\Property</Filter>
+    </ClCompile>
+    <ClCompile Include="PropertySheet.cpp">
+      <Filter>Application\Pages\Views\Property\PropertySheet</Filter>
+    </ClCompile>
+    <ClCompile Include="PropertyWizard.cpp">
+      <Filter>Application\Pages\Views\Property\PropertySheet</Filter>
+    </ClCompile>
+    <ClCompile Include="CommonProperty.cpp">
+      <Filter>Application\Pages\Views\Property\CommonProperty</Filter>
+    </ClCompile>
+    <ClCompile Include="CommonPropertyView.cpp">
+      <Filter>Application\Pages\Views\Property\CommonProperty</Filter>
+    </ClCompile>
+    <ClCompile Include="CommonPropertyPage.cpp">
+      <Filter>Application\Pages\Views\Property\CommonProperty</Filter>
+    </ClCompile>
+    <ClCompile Include="PropertyBox.cpp">
+      <Filter>Application\Pages\Views\Property\CommonProperty</Filter>
+    </ClCompile>
+    <ClCompile Include="CommonPropertyTable.cpp">
+      <Filter>Application\Pages\Views\Property\CommonProperty</Filter>
+    </ClCompile>
+    <ClCompile Include="SourcesTreeView.cpp">
+      <Filter>Application\Pages\Views\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateQueryPage.cpp">
+      <Filter>Application\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="CommonPropertyArrayView.cpp">
+      <Filter>Application\Pages\Views\Property\CommonProperty</Filter>
+    </ClCompile>
+    <ClCompile Include="CommonPropertyDoc.cpp">
+      <Filter>Application\Pages\Views\Property\CommonProperty\PropertiesDoc</Filter>
+    </ClCompile>
+    <ClCompile Include="PropertyNodeFactory.cpp">
+      <Filter>Application\Pages\Views\Property\CommonProperty\PropertiesDoc</Filter>
+    </ClCompile>
+    <ClCompile Include="PropertyNodeValue.cpp">
+      <Filter>Application\Pages\Views\Property\CommonProperty\PropertiesDoc</Filter>
+    </ClCompile>
+    <ClCompile Include="BrowseNodeDlg.cpp">
+      <Filter>Application\Pages\Views\Transform\Filter</Filter>
+    </ClCompile>
+    <ClCompile Include="AppClient.cpp">
+      <Filter>Application</Filter>
+    </ClCompile>
+    <ClCompile Include="SubjectActionOptionsPage.cpp">
+      <Filter>Application\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="ActionOptionsEditor.cpp">
+      <Filter>Application\Pages\Views\Options</Filter>
+    </ClCompile>
+    <ClCompile Include="SearchPage.cpp">
+      <Filter>Application\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="InventoryTable.cpp">
+      <Filter>Application\Pages\Views\Options</Filter>
+    </ClCompile>
+    <ClCompile Include="ActionSelectionPage.cpp">
+      <Filter>Application\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="ActionOptionsPage.cpp">
+      <Filter>Application\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="PatternComparePage.cpp">
+      <Filter>Application\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceBrowseDlg.cpp">
+      <Filter>Application\Pages\Views\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="RunTaskWizard.cpp">
+      <Filter>Application\Pages\Views\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="StreamView.cpp">
+      <Filter>Application\Pages\Views\Stream</Filter>
+    </ClCompile>
+    <ClCompile Include="StreamPage.cpp">
+      <Filter>Application\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenStreamDlg.cpp">
+      <Filter>Application\Pages\Views\Stream</Filter>
+    </ClCompile>
+    <ClCompile Include="StreamSelectionPage.cpp">
+      <Filter>Application\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="StreamOptionsPage.cpp">
+      <Filter>Application\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="SubjectStreamOptionsPage.cpp">
+      <Filter>Application\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="SubjectOptionsPage.cpp">
+      <Filter>Application\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="StreamFilterView.cpp">
+      <Filter>Application\Pages\Views\Stream</Filter>
+    </ClCompile>
+    <ClCompile Include="StreamFilterPage.cpp">
+      <Filter>Application\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="StreamPreviewPage.cpp">
+      <Filter>Application\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="AdminPage.cpp">
+      <Filter>Application\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="UsersPage.cpp">
+      <Filter>Application\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="FeaturesPage.cpp">
+      <Filter>Application\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="Layout.cpp">
+      <Filter>Application\Pages\Views</Filter>
+    </ClCompile>
+    <ClCompile Include="AlertsTable.cpp">
+      <Filter>Application\Pages\Views\Alerts</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionProperties.cpp">
+      <Filter>Application\Pages\Views\Options</Filter>
+    </ClCompile>
+    <ClCompile Include="SourcesView.cpp">
+      <Filter>Application\Pages\Views\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="SuitSettingsPage.cpp">
+      <Filter>Application\Pages</Filter>
+    </ClCompile>
+    <ClCompile Include="RebuildDlg.cpp">
+      <Filter>Application\Pages\Views\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="ChangesTable.cpp">
+      <Filter>Application\Pages\Views\Changes</Filter>
+    </ClCompile>
+    <ClCompile Include="ReportViewOptionsEditor.cpp">
+      <Filter>Application\Pages\Views\Options</Filter>
+    </ClCompile>
+    <ClCompile Include="ReportOptionsEditor.cpp">
+      <Filter>Application\Pages\Views\Options</Filter>
+    </ClCompile>
+    <ClCompile Include="PersistReportWizard.cpp">
+      <Filter>Application\Pages\Views\Report</Filter>
+    </ClCompile>
+    <ClCompile Include="ExportSummaryDlg.cpp">
+      <Filter>Application\Pages\Views\Welcome</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="message.xml">
+      <Filter>Resources</Filter>
+    </Xml>
+    <Xml Include="docroot\localization\localization.xml">
+      <Filter>Docroot\Localization</Filter>
+    </Xml>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="docroot\icons\snow.png">
+      <Filter>Docroot\Icons</Filter>
+    </Image>
+    <Image Include="docroot\icons\sun01.png">
+      <Filter>Docroot\Icons</Filter>
+    </Image>
+    <Image Include="docroot\icons\timer-reload.png">
+      <Filter>Docroot\Icons</Filter>
+    </Image>
+    <Image Include="docroot\icons\w_cloud.png">
+      <Filter>Docroot\Icons</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="docroot\css\technical-reporter.css">
+      <Filter>Docroot\CSS</Filter>
+    </None>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,879 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{90CE06C3-1BA9-4C8B-B864-FF5136352517}</ProjectGuid>
+    <RootNamespace>TRCore</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <AdditionalIncludeDirectories>..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_SCL_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;BOOST_OPTIONAL_USE_OLD_DEFINITION_OF_NONE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalOptions>-Zm228 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>odb-d.lib;odb-mysql-d.lib;odb-boost-d.lib;libxmldiff-d.lib</AdditionalDependencies>
+      <LinkTimeCodeGeneration>false</LinkTimeCodeGeneration>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <AdditionalIncludeDirectories>..\;..\..\3rdParty\vcpkg\installed\x64-windows\include;..\..\3rdParty\libxmldiff;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_SCL_SECURE_NO_WARNINGS;LIBODB_MYSQL_INCLUDE_LONG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>..\..\3rdParty\vcpkg\installed\x64-windows\debug\lib;..\..\3rdParty\libxmldiff\build\vc2019\x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libodb.lib;libodb-mysql.lib;libodb-boost.lib;libxmldiff.lib;libcurl-d.lib;curlpp.lib;bcrypt.lib;podofo.lib</AdditionalDependencies>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>..\..\External\boost_1_59_0;..\..\External\libodb-2.3.0;..\..\External\libodb-mysql-2.3.0;..\..\External\libodb-boost-2.3.0;..\..\External\MySQL Server 5.6\include;..\..\External\libxml2-2.7.7.win32\include;..\..\External\iconv-1.9.2.win32\include;..\..\External\dtl-1.19;..\..\External\libxslt-1.1.26.win32\include;..\..\External\libxmldiff-0.2.8\include;..\..\External\libxslt-plugin-regexp-0.3;..\..\External\Vmime.NET\libvmime\src;..\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>..\..\External\boost_1_59_0\stage\lib;..\..\External\libodb-2.3.0\lib;..\..\External\libodb-mysql-2.3.0\lib;..\..\External\libodb-boost-2.3.0\lib;..\..\External\libxmldiff-0.2.8\bin;..\..\External\Vmime.NET\libvmime\Release32;..\..\External\Vmime.NET\libvmime\src\openssl;..\..\External\Vmime.NET\libvmime\src\gsasl;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>odb.lib;odb-mysql.lib;odb-boost.lib;libxmldiff.lib;vmime.lib;libeay32MD.lib;ssleay32MD.lib;libgsasl-7_32.lib;crypt32.lib</AdditionalDependencies>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>..\;..\..\3rdParty\vcpkg\installed\x64-windows\include;..\..\3rdParty\libxmldiff;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_SCL_SECURE_NO_WARNINGS;LIBODB_MYSQL_INCLUDE_LONG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>..\..\3rdParty\vcpkg\installed\x64-windows\lib;..\..\3rdParty\libxmldiff\build\vc2019\x64\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libodb.lib;libodb-mysql.lib;libodb-boost.lib;libxmldiff.lib;libcurl.lib;curlpp.lib;bcrypt.lib;podofo.lib</AdditionalDependencies>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="ActionDelegatesSuit.h" />
+    <ClInclude Include="Actions.h" />
+    <ClInclude Include="ActionShortcuts.h" />
+    <ClInclude Include="ActionsSuit.h" />
+    <ClInclude Include="Activity.h" />
+    <ClInclude Include="ActionDelegates.h" />
+    <ClInclude Include="AppDecl.h" />
+    <ClInclude Include="AppFwd.h" />
+    <ClInclude Include="AppRefs.h" />
+    <ClInclude Include="AppTrivialTypes.h" />
+    <ClInclude Include="ArchivingDataset.h" />
+    <ClInclude Include="AsioSyslog.h" />
+    <ClInclude Include="ComplianceDataset.h" />
+    <ClInclude Include="Convertions.h" />
+    <ClInclude Include="CurrentReportDataset.h" />
+    <CustomBuild Include="TrackingStreamData.hxx">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="LinkData.hxx">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="CustomReportData.hxx">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="DateTime.h" />
+    <ClInclude Include="EventLog.h" />
+    <CustomBuild Include="EventRecord.hxx">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="SummaryCollector.h" />
+    <ClInclude Include="ExportTasks.h" />
+    <ClInclude Include="LinkDataset.h" />
+    <ClInclude Include="Links.h" />
+    <ClInclude Include="ODBTools.h" />
+    <ClInclude Include="PdfCursorPainter.h" />
+    <ClInclude Include="PdfRegularDocTableModel.h" />
+    <ClInclude Include="ScheduleDataset.h" />
+    <ClInclude Include="SecurityDataset.h" />
+    <CustomBuild Include="StreamData.hxx">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="StreamInputData.hxx">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="StreamDataset.h" />
+    <ClInclude Include="StreamRecordData.h" />
+    <ClInclude Include="SuitsFeature.h" />
+    <CustomBuild Include="SummaryData.hxx">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="SummaryPdf.h" />
+    <ClInclude Include="TimeTools.h" />
+    <ClInclude Include="TrackingStreams.h" />
+    <ClInclude Include="Groupings.h" />
+    <ClInclude Include="GroupingsSuit.h" />
+    <ClInclude Include="IntegrityCheckingDataset.h" />
+    <ClInclude Include="Mail.h" />
+    <ClInclude Include="Mailing.h" />
+    <CustomBuild Include="MailingData.hxx">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="Notifier.h" />
+    <CustomBuild Include="NotificationData.hxx">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="Reservoir.h" />
+    <CustomBuild Include="StreamRecordData.hxx">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="ResourcePolicyDataset.h" />
+    <ClInclude Include="RoleDataset.h" />
+    <ClInclude Include="Selections.h" />
+    <CustomBuild Include="StreamFilterData.hxx">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="StreamSettingsData.hxx">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="SelectionsSuit.h" />
+    <ClInclude Include="SourceDataset.h" />
+    <ClInclude Include="StreamFilters.h" />
+    <ClInclude Include="StreamMessage.h" />
+    <ClInclude Include="StreamTypes.h" />
+    <ClInclude Include="StreamTypesSuit.h" />
+    <ClInclude Include="Syslog.h" />
+    <CustomBuild Include="SyslogData.hxx">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="Trackings.h" />
+    <ClInclude Include="CustomReportDataset.h" />
+    <ClInclude Include="ValidationDataset.h" />
+    <ClInclude Include="XmlNodeFilter.h" />
+    <CustomBuild Include="AppValues.hxx">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="Archive.h" />
+    <ClInclude Include="Async.h" />
+    <ClInclude Include="CollectorSuit.h" />
+    <CustomBuild Include="CustomActionData.hxx">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="ConveyorSuit.h" />
+    <ClInclude Include="CoreDomain.h" />
+    <ClInclude Include="CustomActions.h" />
+    <CustomBuild Include="CustomFilterData.hxx">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="CustomFilters.h" />
+    <ClInclude Include="ResourcePoliciesSuit.h" />
+    <ClInclude Include="RolesSuit.h" />
+    <ClInclude Include="ShortcutsSuit.h" />
+    <ClInclude Include="SourceResourcesSuit.h" />
+    <ClInclude Include="SourceTypeActivitiesSuit.h" />
+    <ClInclude Include="SourceTypesSuit.h" />
+    <ClInclude Include="Tasks.h" />
+    <ClInclude Include="Registry.h" />
+    <ClInclude Include="RegistryDecl.h" />
+    <ClInclude Include="RegistryFwd.h" />
+    <ClInclude Include="RegistryPacking.h" />
+    <ClInclude Include="RegistryRefs.h" />
+    <ClInclude Include="RegistryTrivialTypes.h" />
+    <CustomBuild Include="RegistryValues.hxx">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="ResourcePolicies.h" />
+    <CustomBuild Include="ReportPolicyData.hxx">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="RoutineRunner.h" />
+    <CustomBuild Include="ScheduleData.hxx">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="ServicesDecl.h" />
+    <ClInclude Include="Scheduler.h" />
+    <ClInclude Include="TextDiffSuit.h" />
+    <ClInclude Include="TrivialTypes.h" />
+    <ClInclude Include="XmlDiff.h" />
+    <ClInclude Include="XmlDiffSuit.h" />
+    <CustomBuild Include="ArchivedReportData.hxx">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="ArchivingSettingsData.hxx">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="BasisPacking.h" />
+    <CustomBuild Include="BasisValues.hxx">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="BasisTrivialTypes.h" />
+    <ClInclude Include="Collector.h" />
+    <ClInclude Include="Compliance.h" />
+    <CustomBuild Include="ComplianceData.hxx">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="ComposedFeature.h" />
+    <ClInclude Include="Conveyor.h" />
+    <ClInclude Include="Counters.h" />
+    <ClInclude Include="BackgndFwd.h" />
+    <ClInclude Include="Basis.h" />
+    <ClInclude Include="BasisFwd.h" />
+    <ClInclude Include="BasisRefs.h" />
+    <ClInclude Include="Client.h" />
+    <ClInclude Include="Content.h" />
+    <ClInclude Include="Core.h" />
+    <ClInclude Include="JobManager.h" />
+    <ClInclude Include="Security.h" />
+    <CustomBuild Include="SecurityData.hxx">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="TextDiff.h" />
+    <ClInclude Include="EventFlow.h" />
+    <ClInclude Include="EventDispatcher.h" />
+    <ClInclude Include="JoinedQueries.h" />
+    <CustomBuild Include="RoleData.hxx">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="GroupingReportData.hxx">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="FeatureData.hxx">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="GroupingReports.h" />
+    <ClInclude Include="IntegrityChecking.h" />
+    <CustomBuild Include="IntegrityCheckingData.hxx">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="Packing.h" />
+    <CustomBuild Include="Values.hxx">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+    </CustomBuild>
+    <CustomBuild Include="CustomQueryData.hxx">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="CustomQueries.h" />
+    <ClInclude Include="Roles.h" />
+    <CustomBuild Include="ServicesValues.hxx">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="ServicesPacking.h" />
+    <ClInclude Include="ServicesRefs.h" />
+    <ClInclude Include="ServicesTrivialTypes.h" />
+    <ClInclude Include="SourceResources.h" />
+    <ClInclude Include="Services.h" />
+    <ClInclude Include="ServicesFwd.h" />
+    <ClInclude Include="SourceTypeActivities.h" />
+    <ClInclude Include="Restrictions.h" />
+    <ClInclude Include="Transformations.h" />
+    <ClInclude Include="Validation.h" />
+    <CustomBuild Include="ValidationData.hxx">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="Variant.h" />
+    <CustomBuild Include="CurrentReportData.hxx">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="Executive.h" />
+    <ClInclude Include="CoreFwd.h" />
+    <ClInclude Include="CoreImpl.h" />
+    <ClInclude Include="CoreTestAssist.h" />
+    <ClInclude Include="Database.h" />
+    <ClInclude Include="Diff.h" />
+    <ClInclude Include="DirectClient.h" />
+    <ClInclude Include="Exception.h" />
+    <ClInclude Include="RoutineRunnerSuit.h" />
+    <ClInclude Include="Executor.h" />
+    <ClInclude Include="FakeCiscoFeature.h" />
+    <ClInclude Include="Features.h" />
+    <ClInclude Include="Frontend.h" />
+    <ClInclude Include="PlainTypes.h" />
+    <ClInclude Include="PlainFacade.h" />
+    <ClInclude Include="ReportTypes.h" />
+    <ClInclude Include="ReportTypesSuit.h" />
+    <CustomBuild Include="SourceData.hxx">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="Sources.h" />
+    <ClInclude Include="SourcesSuit.h" />
+    <ClInclude Include="SourceTypes.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="Transaction.h" />
+    <ClInclude Include="stddecl.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ActionDelegates.cpp" />
+    <ClCompile Include="ActionDelegatesSuit.cpp" />
+    <ClCompile Include="Actions.cpp" />
+    <ClCompile Include="ActionsSuit.cpp" />
+    <ClCompile Include="Activity.cpp" />
+    <ClCompile Include="AppRefs.cpp" />
+    <ClCompile Include="AppValues-odb.cxx">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Archive.cpp" />
+    <ClCompile Include="ArchivedReportData-odb.cxx">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="ArchivingDataset.cpp" />
+    <ClCompile Include="ArchivingSettingsData-odb.cxx">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="AsioSyslog.cpp" />
+    <ClCompile Include="Async.cpp" />
+    <ClCompile Include="BasisPacking.cpp" />
+    <ClCompile Include="BasisValues-odb.cxx">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Collector.cpp" />
+    <ClCompile Include="CollectorSuit.cpp" />
+    <ClCompile Include="Compliance.cpp" />
+    <ClCompile Include="ComplianceData-odb.cxx">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="ComplianceDataset.cpp" />
+    <ClCompile Include="ComposedFeature.cpp" />
+    <ClCompile Include="Convertions.cpp" />
+    <ClCompile Include="Conveyor.cpp" />
+    <ClCompile Include="ConveyorSuit.cpp" />
+    <ClCompile Include="CoreDomain.cpp" />
+    <ClCompile Include="Counters.cpp" />
+    <ClCompile Include="Basis.cpp" />
+    <ClCompile Include="BasisRefs.cpp" />
+    <ClCompile Include="Client.cpp" />
+    <ClCompile Include="Content.cpp" />
+    <ClCompile Include="Core.cpp" />
+    <ClCompile Include="CoreImpl.cpp" />
+    <ClCompile Include="CoreTestAssist.cpp" />
+    <ClCompile Include="CurrentReportData-odb.cxx">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="CurrentReportDataset.cpp" />
+    <ClCompile Include="CustomActionData-odb.cxx">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="CustomActions.cpp" />
+    <ClCompile Include="CustomFilterData-odb.cxx">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="CustomFilters.cpp" />
+    <ClCompile Include="CustomQueryData-odb.cxx">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="CustomReportData-odb.cxx">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="CustomReportDataset.cpp" />
+    <ClCompile Include="Database.cpp" />
+    <ClCompile Include="Diff.cpp" />
+    <ClCompile Include="EventLog.cpp" />
+    <ClCompile Include="EventRecord-odb.cxx">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="ExportTasks.cpp" />
+    <ClCompile Include="LinkData-odb.cxx">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="LinkDataset.cpp" />
+    <ClCompile Include="Links.cpp" />
+    <ClCompile Include="PdfCursorPainter.cpp" />
+    <ClCompile Include="PdfRegularDocTableModel.cpp" />
+    <ClCompile Include="ScheduleDataset.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="SecurityDataset.cpp" />
+    <ClCompile Include="StreamData-odb.cxx">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="StreamDataset.cpp" />
+    <ClCompile Include="StreamInputData-odb.cxx">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="SuitsFeature.cpp" />
+    <ClCompile Include="SummaryCollector.cpp" />
+    <ClCompile Include="SummaryData-odb.cxx">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="SummaryPdf.cpp" />
+    <ClCompile Include="TrackingStreamData-odb.cxx">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="TrackingStreams.cpp" />
+    <ClCompile Include="DirectClient.cpp" />
+    <ClCompile Include="EventFlow.cpp" />
+    <ClCompile Include="Groupings.cpp" />
+    <ClCompile Include="GroupingsSuit.cpp" />
+    <ClCompile Include="IntegrityCheckingDataset.cpp" />
+    <ClCompile Include="JoinedQueries.cpp" />
+    <ClCompile Include="Executive.cpp" />
+    <ClCompile Include="FeatureData-odb.cxx">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="GroupingReportData-odb.cxx">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="GroupingReports.cpp" />
+    <ClCompile Include="IntegrityChecking.cpp" />
+    <ClCompile Include="IntegrityCheckingData-odb.cxx">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="JobManager.cpp" />
+    <ClCompile Include="Mail.cpp" />
+    <ClCompile Include="Mailing.cpp" />
+    <ClCompile Include="MailingData-odb.cxx">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Notifier.cpp" />
+    <ClCompile Include="NotificationData-odb.cxx">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="ResourcePoliciesSuit.cpp" />
+    <ClCompile Include="Reservoir.cpp" />
+    <ClCompile Include="ResourcePolicyDataset.cpp" />
+    <ClCompile Include="RoleDataset.cpp" />
+    <ClCompile Include="RolesSuit.cpp" />
+    <ClCompile Include="Selections.cpp" />
+    <ClCompile Include="SelectionsSuit.cpp" />
+    <ClCompile Include="ShortcutsSuit.cpp" />
+    <ClCompile Include="SourceDataset.cpp" />
+    <ClCompile Include="SourceResourcesSuit.cpp" />
+    <ClCompile Include="SourceTypeActivitiesSuit.cpp" />
+    <ClCompile Include="SourceTypesSuit.cpp" />
+    <ClCompile Include="StreamSettingsData-odb.cxx">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="StreamFilterData-odb.cxx">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="StreamFilters.cpp" />
+    <ClCompile Include="StreamMessage.cpp" />
+    <ClCompile Include="StreamRecordData-odb.cxx">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="StreamTypes.cpp" />
+    <ClCompile Include="StreamTypesSuit.cpp" />
+    <ClCompile Include="Syslog.cpp" />
+    <ClCompile Include="SyslogData-odb.cxx">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Tasks.cpp" />
+    <ClCompile Include="Packing.cpp" />
+    <ClCompile Include="Registry.cpp" />
+    <ClCompile Include="RegistryPacking.cpp" />
+    <ClCompile Include="RegistryRefs.cpp" />
+    <ClCompile Include="RegistryValues-odb.cxx">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="CustomQueries.cpp" />
+    <ClCompile Include="ResourcePolicies.cpp" />
+    <ClCompile Include="ReportPolicyData-odb.cxx">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="RoleData-odb.cxx">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Roles.cpp" />
+    <ClCompile Include="ScheduleData-odb.cxx">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Scheduler.cpp" />
+    <ClCompile Include="Security.cpp" />
+    <ClCompile Include="SecurityData-odb.cxx">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="ServicesPacking.cpp" />
+    <ClCompile Include="ServicesRefs.cpp" />
+    <ClCompile Include="ServicesValues-odb.cxx">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="ActionShortcuts.cpp" />
+    <ClCompile Include="TextDiff.cpp" />
+    <ClCompile Include="TextDiffSuit.cpp" />
+    <ClCompile Include="Trackings.cpp" />
+    <ClCompile Include="Validation.cpp" />
+    <ClCompile Include="ValidationData-odb.cxx">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="ValidationDataset.cpp" />
+    <ClCompile Include="Values-odb.cxx">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Exception.cpp" />
+    <ClCompile Include="RoutineRunnerSuit.cpp" />
+    <ClCompile Include="Executor.cpp" />
+    <ClCompile Include="FakeCiscoFeature.cpp" />
+    <ClCompile Include="Features.cpp" />
+    <ClCompile Include="Frontend.cpp">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">/bigobj %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <ClCompile Include="PlainFacade.cpp" />
+    <ClCompile Include="SourceResources.cpp" />
+    <ClCompile Include="SourceTypeActivities.cpp" />
+    <ClCompile Include="ReportTypes.cpp" />
+    <ClCompile Include="ReportTypesSuit.cpp" />
+    <ClCompile Include="Services.cpp" />
+    <ClCompile Include="Sources.cpp" />
+    <ClCompile Include="SourceData-odb.cxx">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="SourcesSuit.cpp" />
+    <ClCompile Include="SourceTypes.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Transaction.cpp" />
+    <ClCompile Include="XmlDiff.cpp" />
+    <ClCompile Include="XmlDiffSuit.cpp" />
+    <ClCompile Include="XmlNodeFilter.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
