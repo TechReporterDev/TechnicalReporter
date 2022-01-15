@@ -17,7 +17,7 @@ class CommandSourceType: public SourceType
 public:
     using MakeCommandFunctor = std::function<std::wstring(const XmlDoc& input)>;
 
-    CommandSourceType(UUID uuid, std::wstring name, std::unique_ptr<XML::XmlPropertiesDef> config_def, UUID family_uuid);
+    CommandSourceType(SourceTypeUUID uuid, std::wstring name, std::unique_ptr<XML::XmlPropertiesDef> config_def, UUID family_uuid);
     void                                    add_download_command(ReportTypeRef download_ref, MakeCommandFunctor make_command_functor);
     void                                    add_download_command(ReportTypeRef download_ref, DownloadCommand download_command);
 

@@ -8,6 +8,7 @@
 #include "SuitSettingsPage.h"
 #include "RunTaskWizard.h"
 #include "ContainerArray.h"
+#include "PropertyBox.h"
 #include "TRCore\SuitsFeature.h"
 #include "Application.h"
 
@@ -130,7 +131,7 @@ struct OnAddClick: boost::static_visitor<void>
     {
     }
 
-    void operator()(SourcesView::SourceItem& parentItem) const
+    void operator()(const SourcesView::SourceItem& parentItem) const
     {
         TR::SourceSettings settings{
             L"",
@@ -144,7 +145,7 @@ struct OnAddClick: boost::static_visitor<void>
         Application::pushPage(std::move(settingsPage));
     }
 
-    void operator()(SourcesView::SuitRootItem& parentItem) const
+    void operator()(const SourcesView::SuitRootItem& parentItem) const
     {
         TR::SourceSettings settings(
             L"",
@@ -157,7 +158,7 @@ struct OnAddClick: boost::static_visitor<void>
         Application::pushPage(std::move(settingsPage));
     }
 
-    void operator()(SourcesView::SuitItem& parentItem) const
+    void operator()(const SourcesView::SuitItem& parentItem) const
     {
         auto parentKey = parentItem.getID();
         auto onApply = m_onApply;
@@ -170,7 +171,7 @@ struct OnAddClick: boost::static_visitor<void>
         browseDlg->show();
     }
 
-    void operator()(SourcesView::LinkItem& parentItem) const
+    void operator()(const SourcesView::LinkItem& parentItem) const
     {
     }
 
@@ -182,6 +183,8 @@ void SourcesWidget::onAddClick()
     auto selection = m_sourcesView->getSelection();
     if (selection.size() != 1)
     {
+        auto propertyBox = new PropertyBox(stl_tools::flag | Dialog::BTN_OK, L"Add source", L"You should select parent source or suit", Wt::Icon::Warning);
+        propertyBox->show();
         return;
     }
 
@@ -199,21 +202,23 @@ struct OnRemoveClick: boost::static_visitor<void>
     {
     }
 
-    void operator()(SourcesView::SourceItem& sourceItem) const
+    void operator()(const SourcesView::SourceItem& sourceItem) const
     {
         m_client.removeSource(sourceItem.m_sourceInfo.m_key);
     }
 
-    void operator()(SourcesView::SuitRootItem& suitRootItem) const
-    {       
+    void operator()(const SourcesView::SuitRootItem& suitRootItem) const
+    {
+        auto propertyBox = new PropertyBox(stl_tools::flag | Dialog::BTN_OK, L"Remove", L"You can not remove 'Suits'", Wt::Icon::Critical);
+        propertyBox->show();
     }
 
-    void operator()(SourcesView::SuitItem& suitItem) const
+    void operator()(const SourcesView::SuitItem& suitItem) const
     {
         m_client.removeSource(suitItem.m_sourceInfo.m_key);
     }
 
-    void operator()(SourcesView::LinkItem& linkItem) const
+    void operator()(const SourcesView::LinkItem& linkItem) const
     {
         m_client.removeLink(linkItem.m_link);
     }
@@ -226,10 +231,15 @@ void SourcesWidget::onRemoveClick()
     auto selection = m_sourcesView->getSelection();
     if (selection.size() != 1)
     {
+        auto propertyBox = new PropertyBox(stl_tools::flag | Dialog::BTN_OK, L"Remove source", L"You should select single source or suit to remove", Wt::Icon::Information);
+        propertyBox->show();
         return;
     }
 
-    boost::apply_visitor(OnRemoveClick(), selection[0]);
+    auto propertyBox = new PropertyBox(stl_tools::flag | Dialog::BTN_OK | Dialog::BTN_CANCEL, L"Remove", L"Do you really want to remove selected source?", Wt::Icon::Question);
+    propertyBox->show([this, selection]() {
+        boost::apply_visitor(OnRemoveClick(), selection[0]);
+    });    
 }
 
 struct OnEditClick: boost::static_visitor<void>
@@ -268,6 +278,8 @@ void SourcesWidget::onEditClick()
     auto selection = m_sourcesView->getSelection();
     if (selection.size() != 1)
     {
+        auto propertyBox = new PropertyBox(stl_tools::flag | Dialog::BTN_OK, L"Edit source", L"You should select single source or suit to edit", Wt::Icon::Information);
+        propertyBox->show();
         return;
     }
 

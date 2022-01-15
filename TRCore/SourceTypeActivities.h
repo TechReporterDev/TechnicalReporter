@@ -63,6 +63,8 @@ private:
     void                                on_remove_source_type(SourceTypeUUID source_type_uuid, Transaction& t);
     void                                on_add_selection(SelectionDirection direction, Transaction& t);
     void                                on_remove_selection(SelectionDirection direction, Transaction& t);
+    void                                on_add_generator(UUID generator_uuid, Transaction& t);
+    void                                on_remove_generator(UUID generator_uuid, Transaction& t);
     void                                on_add_grouping(GroupingDirection direction, Transaction& t);
     void                                on_remove_grouping(ReportTypeRef input_ref, ReportTypeRef output_ref, Transaction& t);
     void                                on_add_convertion(ConvertionDirection direction, Transaction& t);

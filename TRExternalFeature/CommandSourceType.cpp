@@ -35,7 +35,7 @@ void compress_spaces(std::wstring& command)
 }
 } //namespace {
 
-CommandSourceType::CommandSourceType(UUID uuid, std::wstring name, std::unique_ptr<XML::XmlPropertiesDef> config_def, UUID family_uuid):
+CommandSourceType::CommandSourceType(SourceTypeUUID uuid, std::wstring name, std::unique_ptr<XML::XmlPropertiesDef> config_def, UUID family_uuid):
     SourceType(uuid, std::move(name), std::move(config_def), family_uuid)
 {
 }
@@ -116,7 +116,7 @@ SourceType::DownloadFunctor CommandSourceType::prepare_download(ReportTypeRef re
             return nullptr;
         }
 
-        return make_content(exec_command(command_line, input));
+        return make_content(std::move(blob));
     };
 }
 

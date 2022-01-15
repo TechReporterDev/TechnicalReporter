@@ -6,7 +6,7 @@ using namespace TR::Core;
 
 std::unique_ptr<CoreImpl> clean_and_install();
 
-extern const UUID fake_source_type_uuid;
+extern const SourceTypeUUID fake_source_type_uuid;
 extern const ReportTypeUUID fake_report_type_uuid;
 extern const std::string empty_config_def;
 extern const std::string empty_params_def;
@@ -14,7 +14,7 @@ extern const std::string empty_params_def;
 class SourceTypeMockup: public SourceType
 {
 public:
-    SourceTypeMockup(UUID source_type_uuid = fake_source_type_uuid, std::string config_def = empty_config_def);
+    SourceTypeMockup(SourceTypeUUID source_type_uuid = fake_source_type_uuid, std::string config_def = empty_config_def);
     
     void push_download(ReportTypeRef report_type_ref, DownloadFunctor download_functor);
     void push_action(ActionRef action_ref, ActionFunctor action_functor);

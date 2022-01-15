@@ -41,7 +41,7 @@ struct XmlSourceTypeDef: XmlNode
     using ConstActionNodeIterator = xml_tools::node_iterator<const XmlActionNode, next_action_node>;
     using ConstActionNodeRange = boost::iterator_range<ConstActionNodeIterator>;
 
-    UUID                            get_uuid() const;
+    SourceTypeUUID                  get_uuid() const;
     std::wstring                    get_name() const;
     std::string                     get_settings() const;
     ConstDownloadNodeRange          get_downloads() const;

@@ -152,17 +152,17 @@ std::vector<TR::SourceTypeInfo> AppClient::getSourceTypesInfo() const
     DELEGATE_METHOD(get_source_types_info(), "unknown_error");
 }
 
-TR::SourceTypeInfo AppClient::getSourceTypeInfo(TR::UUID sourceTypeUUID) const
+TR::SourceTypeInfo AppClient::getSourceTypeInfo(TR::SourceTypeUUID sourceTypeUUID) const
 {
     DELEGATE_METHOD(get_source_type_info(sourceTypeUUID), "unknown_error");
 }
 
-std::shared_ptr<const TR::XmlDefDoc> AppClient::getConfigDef(TR::UUID sourceTypeUUID) const
+std::shared_ptr<const TR::XmlDefDoc> AppClient::getConfigDef(TR::SourceTypeUUID sourceTypeUUID) const
 {
     DELEGATE_METHOD(get_config_def(sourceTypeUUID), "unknown_error");
 }
 
-TR::SourceConfig AppClient::getDefaultConfig(TR::UUID sourceTypeUUID) const
+TR::SourceConfig AppClient::getDefaultConfig(TR::SourceTypeUUID sourceTypeUUID) const
 {
     DELEGATE_METHOD(get_default_config(sourceTypeUUID), "unknown_error");
 }

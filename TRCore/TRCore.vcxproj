@@ -202,6 +202,8 @@
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\3rdParty\odb\bin\odb.exe -I ..\..\3rdParty\vcpkg\installed\x64-windows\include --std c++11 -d mysql --generate-schema --schema-format embedded --generate-query --profile boost %(Identity)</Command>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename)-odb.hxx;%(Filename)-odb.cxx;%(Filename)-odb.ixx;%(Outputs)</Outputs>
     </CustomBuild>
+    <ClInclude Include="Generators.h" />
+    <ClInclude Include="SettingsCapture.h" />
     <ClInclude Include="SummaryCollector.h" />
     <ClInclude Include="ExportTasks.h" />
     <ClInclude Include="LinkDataset.h" />
@@ -697,6 +699,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="ExportTasks.cpp" />
+    <ClCompile Include="Generators.cpp" />
     <ClCompile Include="LinkData-odb.cxx">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
@@ -709,6 +712,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="SecurityDataset.cpp" />
+    <ClCompile Include="SettingsCapture.cpp" />
     <ClCompile Include="StreamData-odb.cxx">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>

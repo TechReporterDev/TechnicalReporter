@@ -141,7 +141,7 @@ const XmlRuleDef& XmlRuleNode::get_bound_def() const
 
 XmlRuleNode::CheckResult XmlRuleNode::get_check_result() const
 {
-    auto check_result = (get_bound_def().get_type() == XmlRuleDef::Type::CHECKING) ? CheckResult::EXCEPTED : CheckResult::CHECKED;
+    auto check_result = (get_bound_def().get_type() == XmlRuleDef::Type::CHECKING) ? CheckResult::UNDEFINED : CheckResult::SUCCEEDED;
     
     for (auto& rule_check : get_rule_checks())
     {
@@ -152,7 +152,7 @@ XmlRuleNode::CheckResult XmlRuleNode::get_check_result() const
 
         if (rule_check.is_checked())
         {
-            check_result = CheckResult::CHECKED;
+            check_result = CheckResult::SUCCEEDED;
             continue;
         }
 

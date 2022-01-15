@@ -44,7 +44,7 @@ struct XmlRuleCheck: XmlStructNode
 
 struct XmlRuleNode: XmlRegularNode
 {
-    enum class CheckResult { CHECKED = 0, FAILED, EXCEPTED };
+    enum class CheckResult { SUCCEEDED = 0, FAILED, UNDEFINED };
 
     static const XmlRuleCheck* next_rule_check(const XmlRuleCheck*);
     using ConstRuleCheckIterator = xml_tools::node_iterator<const XmlRuleCheck, next_rule_check>;

@@ -39,6 +39,28 @@
             </input>      
           </line>
         </lines>
+        <access_lists class="LIST" caption="Access lists" description="">
+          <access-list class="STRUCT" caption="Access list" description="">
+            <name class="STRING" caption="Name" description=""/>
+            <records class="LIST" caption="Records" description="">
+              <record class="STRUCT" caption="Record" description="">
+                <action class="STRING" caption="Action" description=""/>
+                <source_address class="STRING" caption="Source address" description=""/>
+                <target_address class="STRING" caption="Target address" description=""/>
+              </record>
+            </records>
+          </access-list>
+        </access_lists>
+        <interfaces class="LIST" caption="Interfaces" description="">
+          <interface class="STRUCT" caption="Interface" description="">
+            <name class="STRING" caption="Name" description=""/>
+            <access_groups class="LIST" caption="Access groups" description="">
+              <access_group class="STRUCT" caption="Access group" description="">
+                <name class="STRING" caption="Name" description=""/>    
+              </access_group>              
+            </access_groups>
+          </interface>
+        </interfaces>
       </running>
     </content_definition>
   </report_type>
@@ -57,10 +79,10 @@
     <syntax>CHECKLIST</syntax>
     <content_definition>
       <compliance>
-        <interface_type caption='interface_type' description='Checkinterface_type' type='LISTING' result='Ethernet' value='Name'>
-        </interface_type>
-        <unsecured_protocols caption='unsecured_protocols' description='unsecured_protocols' type='LISTING' result='Found' value='Line'>
+        <unsecured_protocols caption='Use secured protocols' description='' type='LISTING' result='Secured' value='Line(protocol)'>
         </unsecured_protocols>
+        <infrastucture_protection caption='Infrastructure protected by iACL' description='' type='LISTING' result='Protected' value='Interface'>
+        </infrastucture_protection>
       </compliance>
     </content_definition>
   </report_type>
@@ -80,6 +102,15 @@
         <en_password style="STRINGLINE" caption="Enable password" description="" secret="1">
         </en_password>
       </connection>
+      <additional style="COLLECTION" caption="" description="">
+        <info style="COLLECTION" caption="Additional information" description="Optional info used for rules checking">
+          <iACLs style="LIST" caption="Infrastructure access lists" description="">
+            <iACL style="COLLECTION" caption="" description="">
+              <name style="STRINGLINE" caption="Name" description=""/>
+            </iACL>
+          </iACLs>
+        </info>
+      </additional>
     </settings>
     <downloads>
       <download>
@@ -144,7 +175,7 @@
       </networks>
     </script>
   </selection>
-
+  
   <selection>
     <uuid>2E0AC6C0-FB19-4034-B1EA-3CCA805CE029</uuid>
     <input>
@@ -171,6 +202,47 @@
             </input>      
           </line>
         </lines>
+        
+        <access_lists>
+          <access-list select="^ip access-list extended (\S+).*?((?=^\S+)|\Z)">
+            <name input="1">
+              <copy/>
+            </name>
+            <records>
+              <record select="^ (permit|deny)\s+(\S+) (?:host ([\d\.]+)|(any)|([\d\.]+) (?:[\d\.]+)) .*?(?:host ([\d\.]+)|(any)|([\d\.]+) (?:[\d\.]+))$">
+                <action input="1">
+                  <copy/>
+                </action>                
+                <source_address select="continue">
+                  <copy input="3"/>
+                  <copy input="4"/>
+                  <copy input="5"/>
+                </source_address>
+                <target_address select="continue">
+                  <copy input="6"/>
+                  <copy input="7"/>
+                  <copy input="8"/>
+                </target_address>
+              </record>
+            </records>
+          </access-list>
+        </access_lists>
+
+        <interfaces>
+          <interface select="^interface (\S+).*?((?=^\S+)|\Z)" >
+            <name input="1">
+              <copy/>
+            </name>
+            <access_groups>
+              <access_group select="^ ip access-group (\S+).*?$">
+                <name input="1">
+                  <copy/>
+                </name>
+              </access_group>
+            </access_groups>
+          </interface>
+        </interfaces>
+        
       </running>
     </script>
   </selection>
@@ -178,5 +250,13 @@
   <selection>
     <external_definition>Security.xml</external_definition>
   </selection>
+
+  <compliance>
+    <name>IOS Security checking</name>
+    <input_uuid>
+      <uuid-of>SECURITY</uuid-of>
+    </input_uuid>
+    <output_uuid>6C59E4D9-6FCC-4E91-A044-EA972ABBB133</output_uuid>
+  </compliance>
   
 </feature>

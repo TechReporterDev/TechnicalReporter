@@ -20,6 +20,8 @@ Basis::Basis(Database* db)
     m_transformations.m_convertions.set_stream_types(&m_stream_types);
     m_transformations.m_trackings.set_report_types(&m_report_types);
     m_transformations.m_trackings.set_stream_types(&m_stream_types);
+    m_transformations.m_generators.set_source_types(&m_source_types);
+    m_transformations.m_generators.set_report_types(&m_report_types);
 
     m_source_type_activities.set_source_types(&m_source_types);
     m_source_type_activities.set_report_types(&m_report_types);

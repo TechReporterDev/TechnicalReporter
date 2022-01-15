@@ -3,6 +3,7 @@
 #include "Groupings.h"
 #include "Convertions.h"
 #include "Trackings.h"
+#include "Generators.h"
 namespace TR { namespace Core {
 
 struct Transformations
@@ -11,6 +12,7 @@ struct Transformations
     Groupings       m_groupings;
     Convertions     m_convertions;
     Trackings       m_trackings;
+    Generators      m_generators;
 };
 
 }} //namespace TR { namespace Core {

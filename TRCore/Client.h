@@ -106,9 +106,9 @@ public:
 
     // source type info
     virtual std::vector<SourceTypeInfo>         get_source_types_info() const = 0;
-    virtual SourceTypeInfo                      get_source_type_info(UUID source_type_uuid) const = 0;
-    virtual std::shared_ptr<const XmlDefDoc>    get_config_def(UUID source_type_uuid) const = 0;
-    virtual SourceConfig                        get_default_config(UUID source_type_uuid) const = 0;
+    virtual SourceTypeInfo                      get_source_type_info(SourceTypeUUID source_type_uuid) const = 0;
+    virtual std::shared_ptr<const XmlDefDoc>    get_config_def(SourceTypeUUID source_type_uuid) const = 0;
+    virtual SourceConfig                        get_default_config(SourceTypeUUID source_type_uuid) const = 0;
 
     // roles info
     virtual std::vector<RoleInfo>               get_roles_info() const = 0;

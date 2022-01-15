@@ -194,21 +194,21 @@ std::vector<SourceTypeInfo> Frontend::get_source_types_info(Key session_key) con
     });
 }
 
-SourceTypeInfo Frontend::get_source_type_info(Key session_key, UUID source_type_uuid) const
+SourceTypeInfo Frontend::get_source_type_info(Key session_key, SourceTypeUUID source_type_uuid) const
 {
     return m_executive.exec([&]{
         return m_facade->get_source_type_info(source_type_uuid);
     });
 }
 
-std::shared_ptr<const XmlDefDoc> Frontend::get_config_def(Key session_key, UUID source_type_uuid) const
+std::shared_ptr<const XmlDefDoc> Frontend::get_config_def(Key session_key, SourceTypeUUID source_type_uuid) const
 {
     return m_executive.exec([&]{
         return m_facade->get_config_def(source_type_uuid);
     });
 }
 
-SourceConfig Frontend::get_default_config(Key session_key, UUID source_type_uuid) const
+SourceConfig Frontend::get_default_config(Key session_key, SourceTypeUUID source_type_uuid) const
 {
     return m_executive.exec([&]{
         return m_facade->get_default_config(source_type_uuid);

@@ -5,7 +5,7 @@ namespace TR { namespace Core {
 using namespace stl_tools;
 using namespace XML;
 
-const UUID SuitRootSourceType::SOURCE_TYPE_UUID = gen_uuid(L"94508C9F-2011-4B23-9646-6188F06D5F71");
+const SourceTypeUUID SuitRootSourceType::SOURCE_TYPE_UUID = SourceTypeUUID(gen_uuid(L"94508C9F-2011-4B23-9646-6188F06D5F71"));
 const auto SUIT_ROOT_CONFIG_DEF = 
     "<?xml version=\"1.0\"?>"
     "<settings style=\"COLLECTION\" caption=\"Suits settings\" description=\"Suits settings description\">"
@@ -55,7 +55,7 @@ SourceType::ActionFunctor SuitRootSourceType::prepare_action(ActionRef action_re
     throw std::logic_error("Invalid action type");
 }
 
-const UUID SuitSourceType::SOURCE_TYPE_UUID = gen_uuid(L"14DBA14A-532C-4202-95CE-28241D61870B");
+const SourceTypeUUID SuitSourceType::SOURCE_TYPE_UUID = SourceTypeUUID(gen_uuid(L"14DBA14A-532C-4202-95CE-28241D61870B"));
 const auto SUIT_CONFIG_DEF = 
     "<?xml version=\"1.0\"?>"
     "<settings style=\"COLLECTION\" caption=\"Suit settings\" description=\"Suit settings description\">"

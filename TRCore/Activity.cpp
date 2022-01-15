@@ -73,6 +73,11 @@ struct get_activity_output_ref: boost::static_visitor<boost::optional<ResourceRe
         return inflow_activity.m_stream_type_ref;
     }
 
+    boost::optional<ResourceRef> operator()(const GeneratingActivity& generating_activity) const
+    {
+        return generating_activity.m_output_ref;
+    }
+
     boost::optional<ResourceRef> operator()(const GroupingActivity& grouping_activity) const
     {
         return grouping_activity.m_output_ref;
@@ -137,6 +142,11 @@ struct get_activity_uuid : boost::static_visitor<UUID>
     UUID operator()(const SelectionActivity& selection_activity) const
     {
         return selection_activity.m_uuid;
+    }
+
+    UUID operator()(const GeneratingActivity& generating_activity) const
+    {
+        return generating_activity.m_uuid;
     }
 
     UUID operator()(const GroupingActivity& grouping_activity) const

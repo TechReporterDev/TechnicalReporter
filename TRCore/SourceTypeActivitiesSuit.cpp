@@ -16,7 +16,7 @@ void add_download_activity_test()
     auto report_type_uuid = ReportTypeUUID(stl_tools::gen_uuid());
     auto& report_type = report_types.add_report_type(std::make_unique<PlainTextReportType>(report_type_uuid, L""));
 
-    auto source_type_uuid = stl_tools::gen_uuid();  
+    auto source_type_uuid = SourceTypeUUID(stl_tools::gen_uuid());
     auto source_type_mockup = std::make_unique<SourceTypeMockup>(source_type_uuid);
     push_download(*source_type_mockup, download_1, "");
     push_download(*source_type_mockup, download_2, "");
@@ -43,7 +43,7 @@ void add_action_activity_test()
     auto& action = actions.add_action(std::make_unique<ActionMockup>(action_uuid), t);
     t.commit();
 
-    auto source_type_uuid = stl_tools::gen_uuid();  
+    auto source_type_uuid = SourceTypeUUID(stl_tools::gen_uuid());
     auto source_type_mockup = std::make_unique<SourceTypeMockup>(source_type_uuid);
     push_action(*source_type_mockup, action);
     auto& source_type = source_types.add_source_type(std::move(source_type_mockup));
@@ -63,7 +63,7 @@ void add_selection_activity_test()
     auto output_uuid = ReportTypeUUID(stl_tools::gen_uuid());
     auto& output_type = report_types.add_report_type(std::make_unique<PlainTextReportType>(output_uuid, L""));
 
-    auto source_type_uuid = stl_tools::gen_uuid();  
+    auto source_type_uuid = SourceTypeUUID(stl_tools::gen_uuid());
     auto source_type_mockup = std::make_unique<SourceTypeMockup>(source_type_uuid);
     push_download(*source_type_mockup, download, "");
     auto& source_type = source_types.add_source_type(std::move(source_type_mockup));
@@ -111,7 +111,7 @@ void duplicate_activity_output_test()
     auto output_uuid = ReportTypeUUID(stl_tools::gen_uuid());
     auto& output_type = report_types.add_report_type(std::make_unique<PlainTextReportType>(output_uuid, L""));
 
-    auto source_type_uuid = stl_tools::gen_uuid();  
+    auto source_type_uuid = SourceTypeUUID(stl_tools::gen_uuid());
     auto source_type_mockup = std::make_unique<SourceTypeMockup>(source_type_uuid);
     push_download(*source_type_mockup, download_1, "");
     push_download(*source_type_mockup, download_2, "");
@@ -133,7 +133,7 @@ void remove_selection_activity_test()
     auto output_uuid = ReportTypeUUID(stl_tools::gen_uuid());
     auto& output_type = report_types.add_report_type(std::make_unique<PlainTextReportType>(output_uuid, L""));
 
-    auto source_type_uuid = stl_tools::gen_uuid();  
+    auto source_type_uuid = SourceTypeUUID(stl_tools::gen_uuid());
     auto source_type_mockup = std::make_unique<SourceTypeMockup>(source_type_uuid);
     push_download(*source_type_mockup, download, "");
     auto& source_type = source_types.add_source_type(std::move(source_type_mockup));
@@ -259,7 +259,7 @@ void add_action_delegate_activity_test()
     auto& guest_action = actions.add_action(std::make_unique<ActionMockup>(guest_action_uuid), t);
     t.commit();
 
-    auto source_type_uuid = stl_tools::gen_uuid();  
+    auto source_type_uuid = SourceTypeUUID(stl_tools::gen_uuid());
     auto source_type_mockup = std::make_unique<SourceTypeMockup>(source_type_uuid);
     push_action(*source_type_mockup, host_action);
     auto& source_type = source_types.add_source_type(std::move(source_type_mockup));
@@ -298,7 +298,7 @@ void remove_action_delegate_activity_test()
     action_delegates.add_action_delegate(std::unique_ptr<ActionDelegateMockup>(new ActionDelegateMockup({}, {host_action}, guest_action)), t);
     t.commit();
 
-    auto source_type_uuid = stl_tools::gen_uuid();  
+    auto source_type_uuid = SourceTypeUUID(stl_tools::gen_uuid());
     auto source_type_mockup = std::make_unique<SourceTypeMockup>(source_type_uuid);
     push_action(*source_type_mockup, host_action);
     auto& source_type = source_types.add_source_type(std::move(source_type_mockup));
@@ -485,7 +485,7 @@ void add_action_shortcut_activity_test()
     auto& output_type = report_types.add_report_type(std::make_unique<PlainTextReportType>(output_uuid, L""), t1);
     t1.commit();
 
-    auto source_type_uuid = stl_tools::gen_uuid();  
+    auto source_type_uuid = SourceTypeUUID(stl_tools::gen_uuid());
     auto source_type_mockup = std::make_unique<SourceTypeMockup>(source_type_uuid);
     push_action(*source_type_mockup, host_action);
     auto& source_type = source_types.add_source_type(std::move(source_type_mockup));
@@ -530,7 +530,7 @@ void remove_action_shortcut_activity_test()
     auto& shortcut = action_shortcuts.add_shortcut(std::make_unique<ActionShortcutMockup>(shortcut_uuid, host_action, output_type.get_ref()), t1);
     t1.commit();
 
-    auto source_type_uuid = stl_tools::gen_uuid();  
+    auto source_type_uuid = SourceTypeUUID(stl_tools::gen_uuid());
     auto source_type_mockup = std::make_unique<SourceTypeMockup>(source_type_uuid);
     push_action(*source_type_mockup, host_action);
     auto& source_type = source_types.add_source_type(std::move(source_type_mockup));
@@ -568,7 +568,7 @@ void remove_source_type_test()
     auto download_uuid = ReportTypeUUID(stl_tools::gen_uuid());
     auto& download = report_types.add_report_type(std::make_unique<PlainTextReportType>(download_uuid, L""));
 
-    auto source_type_uuid = stl_tools::gen_uuid();  
+    auto source_type_uuid = SourceTypeUUID(stl_tools::gen_uuid());
     auto source_type_mockup = std::make_unique<SourceTypeMockup>(source_type_uuid);
     push_download(*source_type_mockup, download, "");
     SourceTypeRef source_type_ref = source_types.add_source_type(std::move(source_type_mockup));
@@ -591,7 +591,7 @@ void strict_selection_activity_test()
     auto output_uuid = ReportTypeUUID(stl_tools::gen_uuid());
     auto& output_type = report_types.add_report_type(std::make_unique<PlainTextReportType>(output_uuid, L""));
 
-    auto source_type_1_uuid = stl_tools::gen_uuid();    
+    auto source_type_1_uuid = SourceTypeUUID(stl_tools::gen_uuid());
     auto source_type_1_mockup = std::make_unique<SourceTypeMockup>(source_type_1_uuid);
     push_download(*source_type_1_mockup, download_1, "");
     push_download(*source_type_1_mockup, download_2, "");
@@ -603,7 +603,7 @@ void strict_selection_activity_test()
         SelectionActivity({download_1, download_2}, output_type, stl_tools::null_uuid())
     };
 
-    auto source_type_2_uuid = stl_tools::gen_uuid();    
+    auto source_type_2_uuid = SourceTypeUUID(stl_tools::gen_uuid());
     auto source_type_2_mockup = std::make_unique<SourceTypeMockup>(source_type_2_uuid);
     push_download(*source_type_2_mockup, download_1, "");
     auto& source_type_2 = source_types.add_source_type(std::move(source_type_2_mockup));
@@ -612,7 +612,7 @@ void strict_selection_activity_test()
         LoadingActivity(download_1)
     };
 
-    auto source_type_3_uuid = stl_tools::gen_uuid();    
+    auto source_type_3_uuid = SourceTypeUUID(stl_tools::gen_uuid());
     auto& source_type_3 = source_types.add_source_type(std::make_unique<SourceTypeMockup>(source_type_3_uuid));
     
     Transaction t(db);
@@ -646,7 +646,7 @@ void not_strict_selection_activity_test()
     auto output_uuid = ReportTypeUUID(stl_tools::gen_uuid());
     auto& output_type = report_types.add_report_type(std::make_unique<PlainTextReportType>(output_uuid, L""));
 
-    auto source_type_1_uuid = stl_tools::gen_uuid();    
+    auto source_type_1_uuid = SourceTypeUUID(stl_tools::gen_uuid());
     auto source_type_1_mockup = std::make_unique<SourceTypeMockup>(source_type_1_uuid);
     push_download(*source_type_1_mockup, download_1, "");
     push_download(*source_type_1_mockup, download_2, "");
@@ -658,7 +658,7 @@ void not_strict_selection_activity_test()
         SelectionActivity({download_1, download_2}, output_type, stl_tools::null_uuid())
     };
 
-    auto source_type_2_uuid = stl_tools::gen_uuid();    
+    auto source_type_2_uuid = SourceTypeUUID(stl_tools::gen_uuid());
     auto source_type_2_mockup = std::make_unique<SourceTypeMockup>(source_type_2_uuid);
     push_download(*source_type_2_mockup, download_1, "");
     auto& source_type_2 = source_types.add_source_type(std::move(source_type_2_mockup));
@@ -668,7 +668,7 @@ void not_strict_selection_activity_test()
         SelectionActivity({download_1, download_2}, output_type, stl_tools::null_uuid())
     };
 
-    auto source_type_3_uuid = stl_tools::gen_uuid();    
+    auto source_type_3_uuid = SourceTypeUUID(stl_tools::gen_uuid());
     auto& source_type_3 = source_types.add_source_type(std::make_unique<SourceTypeMockup>(source_type_3_uuid));
     
     Transaction t(db);
@@ -714,7 +714,7 @@ void selection_diamond_test()
     auto& bottom_report_type = report_types.add_report_type(std::make_unique<PlainTextReportType>(bottom_report_type_uuid, L""));
 
     
-    auto source_type_uuid = stl_tools::gen_uuid();  
+    auto source_type_uuid = SourceTypeUUID(stl_tools::gen_uuid());
     auto source_type_mockup = std::make_unique<SourceTypeMockup>(source_type_uuid);
     push_download(*source_type_mockup, download, "");
     auto& source_type = source_types.add_source_type(std::move(source_type_mockup));

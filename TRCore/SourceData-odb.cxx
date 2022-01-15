@@ -113,11 +113,9 @@ namespace odb
 
     // m_source_type_uuid
     //
-    if (t[4UL])
-    {
-      i.m_source_type_uuid_value.capacity (i.m_source_type_uuid_size);
+    if (composite_value_traits< ::TR::Core::SourceTypeUUID, id_mysql >::grow (
+          i.m_source_type_uuid_value, t + 4UL))
       grew = true;
-    }
 
     // m_config
     //
@@ -178,13 +176,9 @@ namespace odb
 
     // m_source_type_uuid
     //
-    b[n].buffer_type = MYSQL_TYPE_BLOB;
-    b[n].buffer = i.m_source_type_uuid_value.data ();
-    b[n].buffer_length = static_cast<unsigned long> (
-      i.m_source_type_uuid_value.capacity ());
-    b[n].length = &i.m_source_type_uuid_size;
-    b[n].is_null = &i.m_source_type_uuid_null;
-    n++;
+    composite_value_traits< ::TR::Core::SourceTypeUUID, id_mysql >::bind (
+      b + n, i.m_source_type_uuid_value, sk);
+    n += 1UL;
 
     // m_config
     //
@@ -291,22 +285,14 @@ namespace odb
     // m_source_type_uuid
     //
     {
-      ::TR::Core::UUID const& v =
+      ::TR::Core::SourceTypeUUID const& v =
         o.m_source_type_uuid;
 
-      bool is_null (true);
-      std::size_t size (0);
-      std::size_t cap (i.m_source_type_uuid_value.capacity ());
-      mysql::value_traits<
-          ::TR::Core::UUID,
-          mysql::id_blob >::set_image (
-        i.m_source_type_uuid_value,
-        size,
-        is_null,
-        v);
-      i.m_source_type_uuid_null = is_null;
-      i.m_source_type_uuid_size = static_cast<unsigned long> (size);
-      grew = grew || (cap != i.m_source_type_uuid_value.capacity ());
+      if (composite_value_traits< ::TR::Core::SourceTypeUUID, id_mysql >::init (
+            i.m_source_type_uuid_value,
+            v,
+            sk))
+        grew = true;
     }
 
     // m_config
@@ -404,16 +390,13 @@ namespace odb
     // m_source_type_uuid
     //
     {
-      ::TR::Core::UUID& v =
+      ::TR::Core::SourceTypeUUID& v =
         o.m_source_type_uuid;
 
-      mysql::value_traits<
-          ::TR::Core::UUID,
-          mysql::id_blob >::set_value (
+      composite_value_traits< ::TR::Core::SourceTypeUUID, id_mysql >::init (
         v,
         i.m_source_type_uuid_value,
-        i.m_source_type_uuid_size,
-        i.m_source_type_uuid_null);
+        db);
     }
 
     // m_config
@@ -451,7 +434,7 @@ namespace odb
   "`name`, "
   "`parent_key_value`, "
   "`role_key`, "
-  "`source_type_uuid`, "
+  "`source_type_uuid_value`, "
   "`config`) "
   "VALUES "
   "(?, ?, ?, ?, ?, ?)";
@@ -462,7 +445,7 @@ namespace odb
   "`SourceData`.`name`, "
   "`SourceData`.`parent_key_value`, "
   "`SourceData`.`role_key`, "
-  "`SourceData`.`source_type_uuid`, "
+  "`SourceData`.`source_type_uuid_value`, "
   "`SourceData`.`config` "
   "FROM `SourceData` "
   "WHERE `SourceData`.`key`=?";
@@ -473,7 +456,7 @@ namespace odb
   "`name`=?, "
   "`parent_key_value`=?, "
   "`role_key`=?, "
-  "`source_type_uuid`=?, "
+  "`source_type_uuid_value`=?, "
   "`config`=? "
   "WHERE `key`=?";
 
@@ -487,7 +470,7 @@ namespace odb
   "`SourceData`.`name`, "
   "`SourceData`.`parent_key_value`, "
   "`SourceData`.`role_key`, "
-  "`SourceData`.`source_type_uuid`, "
+  "`SourceData`.`source_type_uuid_value`, "
   "`SourceData`.`config` "
   "FROM `SourceData`";
 
@@ -922,7 +905,7 @@ namespace odb
                       "  `name` TEXT NOT NULL,\n"
                       "  `parent_key_value` INT NULL,\n"
                       "  `role_key` INT NOT NULL,\n"
-                      "  `source_type_uuid` BINARY(16) NULL,\n"
+                      "  `source_type_uuid_value` BINARY(16) NULL,\n"
                       "  `config` TEXT NOT NULL)\n"
                       " ENGINE=InnoDB");
           return false;

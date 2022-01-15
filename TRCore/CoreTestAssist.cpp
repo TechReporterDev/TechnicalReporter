@@ -25,7 +25,7 @@ std::unique_ptr<CoreImpl> clean_and_install()
     return core_impl;
 }
 
-const UUID fake_source_type_uuid = stl_tools::gen_uuid();
+const SourceTypeUUID fake_source_type_uuid = SourceTypeUUID(stl_tools::gen_uuid());
 const ReportTypeUUID fake_report_type_uuid = ReportTypeUUID(stl_tools::gen_uuid());
 const std::string empty_config_def =
     "<?xml version=\"1.0\"?>"
@@ -37,7 +37,7 @@ const std::string empty_params_def =
     "<params class=\"COLLECTION\" caption=\"Params\" description=\"Params Description\">"
     "</params>";
 
-SourceTypeMockup::SourceTypeMockup(UUID source_type_uuid, std::string config_def):
+SourceTypeMockup::SourceTypeMockup(SourceTypeUUID source_type_uuid, std::string config_def):
     SourceType(source_type_uuid, L"FakeSource", XML::parse_properties_def(config_def), stl_tools::null_uuid())
 {
 }

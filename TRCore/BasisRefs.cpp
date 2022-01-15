@@ -88,7 +88,7 @@ bool operator != (const StreamTypeRef& left, const StreamTypeRef& right)
     return !operator == (left, right);
 }
 
-UUID SourceTypeRef::get_uuid() const
+SourceTypeUUID SourceTypeRef::get_uuid() const
 {
     return m_source_type_uuid;
 }
@@ -103,12 +103,12 @@ bool SourceTypeRef::is_relevant() const
     return m_source_types->has_source_type(m_source_type_uuid);
 }
 
-SourceTypeRef::SourceTypeRef(const SourceTypes* source_types, UUID source_type_uuid):
+SourceTypeRef::SourceTypeRef(const SourceTypes* source_types, SourceTypeUUID source_type_uuid):
     m_source_types(source_types),
     m_source_type_uuid(source_type_uuid)
 {
     _ASSERT(m_source_types);
-    _ASSERT(! m_source_type_uuid.is_nil());
+    _ASSERT(m_source_type_uuid != stl_tools::null_uuid());
 }
 
 bool operator < (const SourceTypeRef& left, const SourceTypeRef& right)

@@ -58,9 +58,9 @@ public:
 
     // source type info
     std::vector<SourceTypeInfo>             get_source_types_info(Key session_key) const;
-    SourceTypeInfo                          get_source_type_info(Key session_key, UUID source_type_uuid) const;
-    std::shared_ptr<const XmlDefDoc>        get_config_def(Key session_key, UUID source_type_uuid) const;
-    SourceConfig                            get_default_config(Key session_key, UUID source_type_uuid) const;
+    SourceTypeInfo                          get_source_type_info(Key session_key, SourceTypeUUID source_type_uuid) const;
+    std::shared_ptr<const XmlDefDoc>        get_config_def(Key session_key, SourceTypeUUID source_type_uuid) const;
+    SourceConfig                            get_default_config(Key session_key, SourceTypeUUID source_type_uuid) const;
 
     // roles info
     std::vector<RoleInfo>                   get_roles_info(Key session_key) const ;

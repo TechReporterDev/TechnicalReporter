@@ -58,14 +58,14 @@ public:
     template<class T>
     friend struct Unpacking;    
 
-    UUID                get_uuid() const;
+    SourceTypeUUID      get_uuid() const;
     const SourceType&   operator*() const;
     bool                is_relevant() const;
 
 private:
-    SourceTypeRef(const SourceTypes* source_types, UUID source_type_uuid);
+    SourceTypeRef(const SourceTypes* source_types, SourceTypeUUID source_type_uuid);
     const SourceTypes* m_source_types;
-    UUID m_source_type_uuid;
+    SourceTypeUUID m_source_type_uuid;
 };
 
 bool operator < (const SourceTypeRef& left, const SourceTypeRef& right);

@@ -22,7 +22,7 @@ PoolingTransport::PoolingTransport(StreamTypeRef stream_type_ref):
 {
 }
 
-SourceType::SourceType(UUID uuid, std::wstring name, std::unique_ptr<XmlPropertiesDef> config_def, UUID family_uuid):
+SourceType::SourceType(SourceTypeUUID uuid, std::wstring name, std::unique_ptr<XmlPropertiesDef> config_def, UUID family_uuid):
     m_uuid(uuid),
     m_name(std::move(name)),
     m_config_def(std::move(config_def)),
@@ -30,7 +30,7 @@ SourceType::SourceType(UUID uuid, std::wstring name, std::unique_ptr<XmlProperti
 {
 }
 
-UUID SourceType::get_uuid() const
+SourceTypeUUID SourceType::get_uuid() const
 {
     return m_uuid;
 }
@@ -69,7 +69,7 @@ SourceType::operator SourceTypeRef() const
     return get_ref();
 }
 
-const UUID GroupSourceType::s_uuid = stl_tools::gen_uuid(L"E82F3179-49DB-463C-83D1-A36D110C5A43");
+const SourceTypeUUID GroupSourceType::s_uuid(stl_tools::gen_uuid(L"E82F3179-49DB-463C-83D1-A36D110C5A43"));
 const std::shared_ptr<XmlPropertiesDef> GroupSourceType::s_config_def = XML::parse_properties_def(
     "<?xml version=\"1.0\"?>"
     "<settings style=\"COLLECTION\" caption=\"Group settings\" description=\"Group settings description\">"
@@ -120,7 +120,7 @@ SourceType::ActionFunctor GroupSourceType::prepare_action(ActionRef, SourceRef) 
 }
 
 namespace {
-using SourceTypeIndex = stl_tools::memfun_index_traits<UUID, SourceType, &SourceType::get_uuid, stl_tools::storage_index_cathegory::unique_index>;
+using SourceTypeIndex = stl_tools::memfun_index_traits<SourceTypeUUID, SourceType, &SourceType::get_uuid, stl_tools::storage_index_cathegory::unique_index>;
 
 struct DownloadIndex: stl_tools::multi_storage_index<ReportTypeUUID>
 {
@@ -207,14 +207,14 @@ const SourceType& SourceTypes::add_source_type(std::unique_ptr<SourceType> sourc
     return added_source_type;
 }
 
-void SourceTypes::remove_source_type(UUID uuid)
+void SourceTypes::remove_source_type(SourceTypeUUID uuid)
 {
     Transaction t(*m_db);
     remove_source_type(uuid, t);
     t.commit();
 }
 
-void SourceTypes::remove_source_type(UUID uuid, Transaction& t)
+void SourceTypes::remove_source_type(SourceTypeUUID uuid, Transaction& t)
 {
     auto found = m_storage->find(uuid);
     if (found == m_storage->end())
@@ -225,12 +225,12 @@ void SourceTypes::remove_source_type(UUID uuid, Transaction& t)
     m_remove_source_type_sig(uuid, t);
 }
 
-bool SourceTypes::has_source_type(UUID uuid) const
+bool SourceTypes::has_source_type(SourceTypeUUID uuid) const
 {
     return m_storage->find(uuid) != m_storage->end();
 }
 
-const SourceType& SourceTypes::get_source_type(UUID uuid) const
+const SourceType& SourceTypes::get_source_type(SourceTypeUUID uuid) const
 {
     auto found = m_storage->find(uuid);
     if (found == m_storage->end())

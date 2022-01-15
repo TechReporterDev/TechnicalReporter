@@ -9,7 +9,7 @@ namespace TR { namespace Core {
 class SuitRootSourceType: public SourceType
 {
 public:
-    static const UUID SOURCE_TYPE_UUID;
+    static const SourceTypeUUID SOURCE_TYPE_UUID;
     SuitRootSourceType();
     
     // override
@@ -27,7 +27,7 @@ public:
 class SuitSourceType: public SourceType
 {
 public:
-    static const UUID SOURCE_TYPE_UUID;
+    static const SourceTypeUUID SOURCE_TYPE_UUID;
     SuitSourceType();
 
     // override

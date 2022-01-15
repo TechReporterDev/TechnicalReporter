@@ -232,6 +232,20 @@ void SourceTypeActivities::set_transformations(Transformations* transformations)
             on_remove_tracking(direction, t);
         }
     }, SOURCE_TYPE_ACTIVITIES_PRIORITY);
+
+    m_transformations->m_generators.connect_add_generator([this](UUID uuid, Transaction& t){
+        if (m_running)
+        {
+            on_add_generator(uuid, t);
+        }
+    }, SOURCE_TYPE_ACTIVITIES_PRIORITY);
+
+    m_transformations->m_generators.connect_remove_generator([this](UUID uuid, Transaction& t){
+        if (m_running)
+        {
+            on_remove_generator(uuid, t);
+        }
+    }, SOURCE_TYPE_ACTIVITIES_PRIORITY);
 }
 
 void SourceTypeActivities::set_action_delegates(ActionDelegates* action_delegates)
@@ -348,6 +362,12 @@ void SourceTypeActivities::add_activities(const SourceType& source_type, Transac
     {
         InflowActivity inflow_activity{inflow_ref};
         add_activity({source_type, inflow_activity}, t);
+    }
+
+    for (auto generator : m_transformations->m_generators.find_by_source_type(source_type))
+    {
+        GeneratingActivity generating_activity(generator->get_report_type(), generator->get_uuid());
+        add_activity({ source_type, generating_activity }, t);
     }
 
     for (auto grouping : m_transformations->m_groupings.get_groupings())
@@ -609,6 +629,22 @@ void SourceTypeActivities::on_remove_selection(SelectionDirection direction, Tra
     for (auto& found : stl_tools::copy_vector(m_storage->find_range<ActivityIndex>(selection_identity)))
     {
         remove_activity(found.m_source_type_ref, selection_identity, t);
+    }
+}
+
+void SourceTypeActivities::on_add_generator(UUID generator_uuid, Transaction& t)
+{
+    auto generator = m_transformations->m_generators.get_generator(generator_uuid);
+    GeneratingActivity generating_activity(generator->get_report_type(), generator->get_uuid());
+    add_activity({ generator->get_source_type(), generating_activity }, t);
+}
+
+void SourceTypeActivities::on_remove_generator(UUID generator_uuid, Transaction& t)
+{
+    GeneratingIdentity generating_identity(generator_uuid);
+    for (auto& found : stl_tools::copy_vector(m_storage->find_range<ActivityIndex>(generating_identity)))
+    {
+        remove_activity(found.m_source_type_ref, generating_identity, t);
     }
 }
 

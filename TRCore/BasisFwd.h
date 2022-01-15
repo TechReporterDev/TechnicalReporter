@@ -22,6 +22,8 @@ class Selection;
 struct SelectionDirection;
 struct SelectionInput;
 struct SelectionPlan;
+class Generators;
+class Generator;
 class Groupings;
 class Grouping;
 struct GroupingDirection;

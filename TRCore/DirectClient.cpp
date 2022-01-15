@@ -374,17 +374,17 @@ std::vector<SourceTypeInfo> DirectClient::get_source_types_info() const
     return m_frontend->get_source_types_info(m_session_key);
 }
 
-SourceTypeInfo DirectClient::get_source_type_info(UUID source_type_uuid) const
+SourceTypeInfo DirectClient::get_source_type_info(SourceTypeUUID source_type_uuid) const
 {
     return m_frontend->get_source_type_info(m_session_key, source_type_uuid);
 }
 
-std::shared_ptr<const XmlDefDoc> DirectClient::get_config_def(UUID source_type_uuid) const
+std::shared_ptr<const XmlDefDoc> DirectClient::get_config_def(SourceTypeUUID source_type_uuid) const
 {
     return m_frontend->get_config_def(m_session_key, source_type_uuid);
 }
 
-SourceConfig DirectClient::get_default_config(UUID source_type_uuid) const
+SourceConfig DirectClient::get_default_config(SourceTypeUUID source_type_uuid) const
 {
     return m_frontend->get_default_config(m_session_key, source_type_uuid);
 }

@@ -1,12 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <selection>
-  <uuid>3F3810EC-3E48-484D-974F-50496C6242A2</uuid>
+  <uuid>3F3810EC-3E48-484D-974F-50496C6242A1</uuid>
   <input>
     <uuid>
       <uuid-of>INTERFACES</uuid-of>
     </uuid>
     <uuid>
       <uuid-of>PARSED_RUNNING</uuid-of>
+    </uuid>
+    <uuid>
+      <uuid-of>CISCO_IOS</uuid-of>
     </uuid>
   </input>
   <output_uuid>
@@ -16,28 +19,7 @@
     <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:exsl="http://exslt.org/common" xmlns:tools="http://xslt-plugin.org/tools" extension-element-prefixes="exsl tools">
       <xsl:strip-space elements="*" />
       <xsl:output method="xml"/>
-      <xsl:template name="interface_check">
-        <interface_type>
-          <xsl:for-each select="//networks/network">
-            <checking>
-              <result>
-                <xsl:choose>
-                  <xsl:when test="tools:regex-match(name, '.*(E|e)thernet.*')">
-                    <xsl:text>1</xsl:text>
-                  </xsl:when>
-                  <xsl:otherwise>
-                    <xsl:text>0</xsl:text>
-                  </xsl:otherwise>
-                </xsl:choose>
-              </result>
-              <value>
-                <xsl:value-of select="name"/>
-              </value>
-            </checking>
-          </xsl:for-each>
-        </interface_type>
-      </xsl:template>
-
+     
       <xsl:template name="unsecured_protocols_check">
         <unsecured_protocols>
           <xsl:for-each select="//lines/line">
@@ -47,27 +29,46 @@
                 <result>
                   <xsl:choose>
                     <xsl:when test="tools:regex-match(text(), 'all|telnet')">
-                      <xsl:text>1</xsl:text>
+                      <xsl:text>0</xsl:text>
                     </xsl:when>
                     <xsl:otherwise>
-                      <xsl:text>0</xsl:text>
+                      <xsl:text>1</xsl:text>
                     </xsl:otherwise>
                   </xsl:choose>
                 </result>
-                <value>
-                  <xsl:value-of select="$line"/>
-                  [<xsl:value-of select="text()"/>]
-                </value>
+                <value><xsl:value-of select="$line"/>[<xsl:value-of select="text()"/>]</value>
               </checking>
             </xsl:for-each>
           </xsl:for-each>
         </unsecured_protocols>
       </xsl:template>
+
+      <xsl:template name="infrastucture_protection_check">
+        <infrastucture_protection>
+          <xsl:for-each select="//running/interfaces/interface">
+            <checking>
+              <result>
+                <xsl:choose>
+                  <xsl:when test="count(access_groups/access_group[name = //settings/additional/info/iACLs/iACL/name]) > 0 or count(//settings/additional/info/iACLs/iACL) = 0">
+                    <xsl:text>1</xsl:text>
+                  </xsl:when>
+                  <xsl:otherwise>
+                    <xsl:text>0</xsl:text>
+                  </xsl:otherwise>
+                </xsl:choose>
+              </result>
+              <value>
+                <xsl:value-of select="name"/>      
+              </value>
+            </checking>
+          </xsl:for-each>
+        </infrastucture_protection>
+      </xsl:template>
       
       <xsl:template match="/">
         <compliance>
-          <xsl:call-template name="interface_check"/>
           <xsl:call-template name="unsecured_protocols_check"/>
+          <xsl:call-template name="infrastucture_protection_check"/>
         </compliance>
       </xsl:template>
     </xsl:stylesheet>

@@ -99,6 +99,43 @@ inline bool operator < (const SelectionActivity& left, const SelectionActivity& 
     return left.m_uuid < right.m_uuid;
 }
 
+struct GeneratingIdentity : boost::equivalent<GeneratingIdentity>
+{
+    GeneratingIdentity(UUID uuid) :
+        m_uuid(uuid)
+    {
+    }
+
+    UUID m_uuid;
+};
+
+inline bool operator < (const GeneratingIdentity& left, const GeneratingIdentity& right)
+{
+    return left.m_uuid < right.m_uuid;
+}
+
+struct GeneratingActivity : boost::equivalent<GeneratingActivity>
+{
+    GeneratingActivity(ReportTypeRef output_ref, UUID uuid) :
+        m_output_ref(output_ref),
+        m_uuid(uuid)
+    {
+    }
+
+    GeneratingIdentity get_identity() const
+    {
+        return m_uuid;
+    }
+
+    ReportTypeRef m_output_ref;
+    UUID m_uuid;
+};
+
+inline bool operator < (const GeneratingActivity& left, const GeneratingActivity& right)
+{
+    return left.m_uuid < right.m_uuid;
+}
+
 struct GroupingIdentity: boost::equivalent<GroupingIdentity>
 {
     GroupingIdentity(ReportTypeUUID input_uuid, ReportTypeUUID output_uuid):
@@ -416,6 +453,7 @@ inline bool operator < (const InflowActivity& left, const InflowActivity& right)
 using ActivityIdentity = boost::variant<
     LoadingIdentity,
     SelectionIdentity,
+    GeneratingIdentity,
     GroupingIdentity,
     ConvertionIdentity,
     TrackingIdentity,
@@ -426,7 +464,8 @@ using ActivityIdentity = boost::variant<
 
 using Activity = boost::variant<
     LoadingActivity, 
-    SelectionActivity, 
+    SelectionActivity,
+    GeneratingActivity,
     GroupingActivity,
     ConvertionActivity,
     TrackingActivity,

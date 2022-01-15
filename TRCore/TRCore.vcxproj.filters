@@ -481,6 +481,12 @@
     <ClInclude Include="TimeTools.h">
       <Filter>Backgnd</Filter>
     </ClInclude>
+    <ClInclude Include="Generators.h">
+      <Filter>Domain\Basis</Filter>
+    </ClInclude>
+    <ClInclude Include="SettingsCapture.h">
+      <Filter>Domain\Services</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -923,6 +929,12 @@
     </ClCompile>
     <ClCompile Include="SummaryData-odb.cxx">
       <Filter>Application\ODB</Filter>
+    </ClCompile>
+    <ClCompile Include="Generators.cpp">
+      <Filter>Domain\Basis</Filter>
+    </ClCompile>
+    <ClCompile Include="SettingsCapture.cpp">
+      <Filter>Domain\Services</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -73,9 +73,9 @@ public:
 
     // source type info
     std::vector<TR::SourceTypeInfo>             getSourceTypesInfo() const;
-    TR::SourceTypeInfo                          getSourceTypeInfo(TR::UUID sourceTypeUUID) const;
-    std::shared_ptr<const TR::XmlDefDoc>        getConfigDef(TR::UUID sourceTypeUUID) const;
-    TR::SourceConfig                            getDefaultConfig(TR::UUID sourceTypeUUID) const;
+    TR::SourceTypeInfo                          getSourceTypeInfo(TR::SourceTypeUUID sourceTypeUUID) const;
+    std::shared_ptr<const TR::XmlDefDoc>        getConfigDef(TR::SourceTypeUUID sourceTypeUUID) const;
+    TR::SourceConfig                            getDefaultConfig(TR::SourceTypeUUID sourceTypeUUID) const;
 
     // roles info
     std::vector<TR::RoleInfo>                   getRolesInfo() const;

@@ -21,8 +21,7 @@ Application::Application(const Wt::WEnvironment& env):
 
     useStyleSheet("resources/font-awesome/css/font-awesome.min.css");
     useStyleSheet("css/technical-reporter.css");
-
-    messageResourceBundle().use("/docroot/localization");
+    messageResourceBundle().use("docroot/localization/localization");                                 
 
     auto vbox = root()->setLayout(std::make_unique<Wt::WVBoxLayout>()); 
     vbox->setContentsMargins(0, 0, 0, 0);

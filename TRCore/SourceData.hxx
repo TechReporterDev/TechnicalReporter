@@ -1,4 +1,5 @@
 #pragma once
+#include "BasisValues.hxx"
 #include "RegistryValues.hxx"
 #include <boost\optional.hpp>
 
@@ -10,11 +11,12 @@ struct SourceData
 {
 	SourceData():
 		m_key(0),
-		m_role_key(0)
+		m_role_key(0),
+		m_source_type_uuid(stl_tools::null_uuid())
 	{
 	}
 
-	SourceData(Key key, std::string name, boost::optional<SourceKey> parent_key, Key role_key, UUID source_type_uuid, std::string config):
+	SourceData(Key key, std::string name, boost::optional<SourceKey> parent_key, Key role_key, SourceTypeUUID source_type_uuid, std::string config):
 		m_key(key), 
 		m_name(std::move(name)),
 		m_parent_key(parent_key),
@@ -28,7 +30,7 @@ struct SourceData
 	std::string							m_name;	
 	boost::optional<SourceKey>			m_parent_key;
 	Key									m_role_key;
-	UUID								m_source_type_uuid;	
+	SourceTypeUUID						m_source_type_uuid;
 	std::string							m_config;
 };
 

@@ -362,7 +362,7 @@ std::vector<SourceTypeInfo> PlainFacade::get_source_types_info() const
     return source_types_info;
 }
 
-SourceTypeInfo PlainFacade::get_source_type_info(UUID source_type_uuid) const
+SourceTypeInfo PlainFacade::get_source_type_info(SourceTypeUUID source_type_uuid) const
 {
     auto& source_type = m_source_types.get_source_type(source_type_uuid);
     auto source_type_info = SourceTypeInfo(source_type.get_uuid(), source_type.get_name(), source_type.get_family());
@@ -393,13 +393,13 @@ SourceTypeInfo PlainFacade::get_source_type_info(UUID source_type_uuid) const
     return source_type_info;
 }
 
-std::shared_ptr<const XmlDefDoc> PlainFacade::get_config_def(UUID source_type_uuid) const
+std::shared_ptr<const XmlDefDoc> PlainFacade::get_config_def(SourceTypeUUID source_type_uuid) const
 {
     auto& source_type = m_source_types.get_source_type(source_type_uuid);
     return source_type.get_config_def();
 }
 
-SourceConfig PlainFacade::get_default_config(UUID source_type_uuid) const
+SourceConfig PlainFacade::get_default_config(SourceTypeUUID source_type_uuid) const
 {
     auto& source_type = m_source_types.get_source_type(source_type_uuid);
     return SourceConfig(source_type.get_default_config(), source_type.get_config_def());

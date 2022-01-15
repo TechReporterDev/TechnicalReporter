@@ -172,7 +172,7 @@ std::vector<ReportTypeUUID> XmlSourceTypeDef::XmlActionNode::get_reload_uuids() 
     return reload_uuids;
 }
 
-UUID XmlSourceTypeDef::get_uuid() const
+SourceTypeUUID XmlSourceTypeDef::get_uuid() const
 {
     auto uuid_node = find_child(*this, "uuid");
     if (!uuid_node)
@@ -180,7 +180,7 @@ UUID XmlSourceTypeDef::get_uuid() const
         throw std::logic_error("Invalid source type definition");
     }
 
-    return stl_tools::gen_uuid(get_node_wtext(*uuid_node));
+    return SourceTypeUUID(stl_tools::gen_uuid(get_node_wtext(*uuid_node)));
 }
 
 std::wstring XmlSourceTypeDef::get_name() const

@@ -33,6 +33,7 @@
 
 #include "SourceData.hxx"
 
+#include "BasisValues-odb.hxx"
 #include "RegistryValues-odb.hxx"
 #include "Values-odb.hxx"
 
@@ -178,15 +179,26 @@ namespace odb
 
     // source_type_uuid
     //
-    typedef
-    mysql::query_column<
-      mysql::value_traits<
-        ::TR::Core::UUID,
-        mysql::id_blob >::query_type,
-      mysql::id_blob >
-    source_type_uuid_type_;
+    struct source_type_uuid_class_
+    {
+      source_type_uuid_class_ ()
+      {
+      }
 
-    static const source_type_uuid_type_ source_type_uuid;
+      // value
+      //
+      typedef
+      mysql::query_column<
+        mysql::value_traits<
+          ::boost::uuids::uuid,
+          mysql::id_blob >::query_type,
+        mysql::id_blob >
+      value_type_;
+
+      static const value_type_ value;
+    };
+
+    static const source_type_uuid_class_ source_type_uuid;
 
     // config
     //
@@ -226,9 +238,13 @@ namespace odb
   role_key (A::table_name, "`role_key`", 0);
 
   template <typename A>
-  const typename query_columns< ::TR::Core::SourceData, id_mysql, A >::source_type_uuid_type_
-  query_columns< ::TR::Core::SourceData, id_mysql, A >::
-  source_type_uuid (A::table_name, "`source_type_uuid`", 0);
+  const typename query_columns< ::TR::Core::SourceData, id_mysql, A >::source_type_uuid_class_::value_type_
+  query_columns< ::TR::Core::SourceData, id_mysql, A >::source_type_uuid_class_::
+  value (A::table_name, "`source_type_uuid_value`", 0);
+
+  template <typename A>
+  const typename query_columns< ::TR::Core::SourceData, id_mysql, A >::source_type_uuid_class_
+  query_columns< ::TR::Core::SourceData, id_mysql, A >::source_type_uuid;
 
   template <typename A>
   const typename query_columns< ::TR::Core::SourceData, id_mysql, A >::config_type_
@@ -278,9 +294,7 @@ namespace odb
 
       // m_source_type_uuid
       //
-      details::buffer m_source_type_uuid_value;
-      unsigned long m_source_type_uuid_size;
-      my_bool m_source_type_uuid_null;
+      composite_value_traits< ::TR::Core::SourceTypeUUID, id_mysql >::image_type m_source_type_uuid_value;
 
       // m_config
       //

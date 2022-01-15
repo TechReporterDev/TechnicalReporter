@@ -3,13 +3,13 @@
 #include "CoreImpl.h"
 namespace TR {  namespace Core {
 
-SourceTypeFactory::SourceTypeFactory(UUID source_type_uuid, std::wstring source_type_name):
+SourceTypeFactory::SourceTypeFactory(SourceTypeUUID source_type_uuid, std::wstring source_type_name):
     m_source_type_uuid(source_type_uuid),
     m_source_type_name(std::move(source_type_name))
 {
 }
 
-UUID SourceTypeFactory::get_source_type_uuid() const
+SourceTypeUUID SourceTypeFactory::get_source_type_uuid() const
 {
     return m_source_type_uuid;
 }
@@ -19,7 +19,7 @@ std::wstring SourceTypeFactory::get_source_type_name() const
     return m_source_type_name;
 }
 
-CustomSourceTypeFactory::CustomSourceTypeFactory(UUID source_type_uuid, std::wstring source_type_name, Factory factory):
+CustomSourceTypeFactory::CustomSourceTypeFactory(SourceTypeUUID source_type_uuid, std::wstring source_type_name, Factory factory):
     SourceTypeFactory(source_type_uuid, std::move(source_type_name)),
     m_factory(factory)
 {
@@ -326,7 +326,8 @@ void ComposedFeature::install(CoreImpl& core_impl, bool restore, Transaction& t)
 
     for (auto& source_type_factory : m_source_type_factories | boost::adaptors::indirected)
     {
-        core_impl.m_core_domain.m_basis.m_source_types.add_source_type(source_type_factory.create_source_type(core_impl), t);
+        auto& source_type = core_impl.m_core_domain.m_basis.m_source_types.add_source_type(source_type_factory.create_source_type(core_impl), t);
+        core_impl.m_core_domain.m_services.m_settings_capture.enable_capture_source_settings(source_type, t);
     }
 
     for (auto& selection_factory : m_selection_factories | boost::adaptors::indirected)
@@ -412,7 +413,10 @@ void ComposedFeature::uninstall(CoreImpl& core_impl, Transaction& t)
     
     for (auto& source_type_factory : m_source_type_factories | boost::adaptors::indirected)
     {
-        core_impl.m_core_domain.m_basis.m_source_types.remove_source_type(source_type_factory.get_source_type_uuid(), t);
+        auto source_type_uuid = source_type_factory.get_source_type_uuid();
+        core_impl.m_core_domain.m_services.m_settings_capture.disable_capture_source_settings(
+            core_impl.m_core_domain.m_basis.m_source_types.get_source_type(source_type_uuid), t);
+        core_impl.m_core_domain.m_basis.m_source_types.remove_source_type(source_type_uuid, t);
     }
 
     for (auto& action_shortcut_factory : m_action_shortcut_factories | boost::adaptors::indirected)

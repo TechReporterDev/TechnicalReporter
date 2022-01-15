@@ -8,15 +8,15 @@ namespace TR { namespace Core {
 class SourceTypeFactory
 {
 public:
-    SourceTypeFactory(UUID source_type_uuid, std::wstring source_type_name);
+    SourceTypeFactory(SourceTypeUUID source_type_uuid, std::wstring source_type_name);
     virtual ~SourceTypeFactory() = default;
 
-    UUID                                    get_source_type_uuid() const;
+    SourceTypeUUID                          get_source_type_uuid() const;
     std::wstring                            get_source_type_name() const;
     virtual std::unique_ptr<SourceType>     create_source_type(const CoreImpl& core_impl) const = 0;
 
 private:
-    UUID m_source_type_uuid;
+    SourceTypeUUID m_source_type_uuid;
     std::wstring m_source_type_name;
 };
 
@@ -25,7 +25,7 @@ class CustomSourceTypeFactory: public SourceTypeFactory
 public:
     using Factory = std::function<std::unique_ptr<SourceType>(const CoreImpl& core_impl)>;
 
-    CustomSourceTypeFactory(UUID source_type_uuid, std::wstring source_type_name, Factory factory);
+    CustomSourceTypeFactory(SourceTypeUUID source_type_uuid, std::wstring source_type_name, Factory factory);
     virtual std::unique_ptr<SourceType> create_source_type(const CoreImpl& core_impl) const override;
 
 private:

@@ -16,6 +16,7 @@ using Core::UUID;
 using Core::Key;
 using Core::SourceKey;
 using Core::RoleKey;
+using Core::SourceTypeUUID;
 using Core::ReportTypeUUID;
 using Core::StreamTypeUUID;
 using Core::ActionUUID;
@@ -73,7 +74,7 @@ using XML::XmlComplianceDef;
 using XML::XmlPropertiesDef;
 using XML::XmlPropertiesDoc;
 
-const auto GROUP_SOURCE_TYPE_UUID = stl_tools::gen_uuid(L"E82F3179-49DB-463C-83D1-A36D110C5A43");
+const auto GROUP_SOURCE_TYPE_UUID = SourceTypeUUID(stl_tools::gen_uuid(L"E82F3179-49DB-463C-83D1-A36D110C5A43"));
 const auto DEFAULT_ROLE_KEY = RoleKey(1);
 const auto ROOT_GROUP_KEY = SourceKey(1);
 const auto INVALID_SOURCE_KEY = SourceKey(0);
@@ -255,14 +256,14 @@ struct Params
 struct SourceTypeInfo
 {   
     SourceTypeInfo() = default; //required by std::promise
-    SourceTypeInfo(UUID uuid, std::wstring name, UUID family_uuid):
+    SourceTypeInfo(SourceTypeUUID uuid, std::wstring name, UUID family_uuid):
         m_uuid(uuid),
         m_name(std::move(name)),
         m_family_uuid(family_uuid)
     {
     }
 
-    UUID m_uuid;
+    SourceTypeUUID m_uuid;
     std::wstring m_name;    
     UUID m_family_uuid;
     std::vector<ReportTypeUUID> m_download_uuids;
@@ -367,7 +368,7 @@ struct RoleInfo: RoleSettings
 struct SourceSettings
 {
     SourceSettings() = default; //required by std::promise
-    SourceSettings(std::wstring name, RoleKey role_key, SourceKey parent_key, UUID source_type_uuid):
+    SourceSettings(std::wstring name, RoleKey role_key, SourceKey parent_key, SourceTypeUUID source_type_uuid):
         m_name(std::move(name)),
         m_role_key(role_key),
         m_parent_key(parent_key),
@@ -378,13 +379,13 @@ struct SourceSettings
     std::wstring m_name;
     RoleKey m_role_key;
     SourceKey m_parent_key;
-    UUID m_source_type_uuid;
+    SourceTypeUUID m_source_type_uuid;
 };
 
 struct SourceInfo: SourceSettings
 {   
     SourceInfo() = default; //required by std::promise
-    SourceInfo(SourceKey key, std::wstring name, RoleKey role_key, SourceKey parent_key, UUID source_type_uuid):
+    SourceInfo(SourceKey key, std::wstring name, RoleKey role_key, SourceKey parent_key, SourceTypeUUID source_type_uuid):
         SourceSettings(std::move(name), role_key, parent_key, source_type_uuid),
         m_key(key)
     {

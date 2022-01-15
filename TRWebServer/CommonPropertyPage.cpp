@@ -13,6 +13,7 @@ CommonPropertyPage::CommonPropertyPage(const CommonProperty& commonProperty, int
 CommonPropertyPage::CommonPropertyPage(Wt::WString caption, Wt::WString description, int identity):
     PropertyPageWidget(std::move(caption), std::move(description), identity)
 {
+    setOverflow(Wt::Overflow::Auto);
 }
 
 void CommonPropertyPage::show(const CommonProperty& commonProperty)

@@ -9,7 +9,7 @@ std::unique_ptr<Wt::WImage> get_rule_image(const TR::XML::XmlRuleNode& ruleNode)
     const char* image_path = nullptr;
     switch (ruleNode.get_check_result())
     {
-    case TR::XML::XmlRuleNode::CheckResult::CHECKED:
+    case TR::XML::XmlRuleNode::CheckResult::SUCCEEDED:
         image_path = "icons/sun01.png";
         break;
 
@@ -17,7 +17,7 @@ std::unique_ptr<Wt::WImage> get_rule_image(const TR::XML::XmlRuleNode& ruleNode)
         image_path = "icons/snow.png";
         break;
 
-    case TR::XML::XmlRuleNode::CheckResult::EXCEPTED:
+    case TR::XML::XmlRuleNode::CheckResult::UNDEFINED:
         image_path = "icons/w_cloud.png";
         break;
 

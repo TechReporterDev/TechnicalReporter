@@ -154,7 +154,7 @@ static char cisco_definition[] = {
     "</settings>"
 };
 
-auto fake_cisco_uuid = gen_uuid(L"29E49FDF-6456-4075-BECB-81835AD03910");
+auto fake_cisco_uuid = SourceTypeUUID(gen_uuid(L"29E49FDF-6456-4075-BECB-81835AD03910"));
 FakeCiscoSourceType::FakeCiscoSourceType():
     SourceType(fake_cisco_uuid, L"FakeCisco", parse_properties_def(cisco_definition), null_uuid())
 {

@@ -7,7 +7,7 @@ void add_source_type_test()
 {
     CLEAN_AND_INSTALL();
 
-    auto source_type_uuid = stl_tools::gen_uuid();
+    auto source_type_uuid = SourceTypeUUID(stl_tools::gen_uuid());
     TEST_ASSERT(! source_types.has_source_type(source_type_uuid));
     TEST_EXCEPTION(source_types.get_source_type(source_type_uuid));
     TEST_ASSERT(boost::distance(source_types.get_source_types()) == 1);
@@ -34,7 +34,7 @@ void break_add_source_type_test()
 {
     CLEAN_AND_INSTALL();
 
-    auto source_type_uuid = stl_tools::gen_uuid();
+    auto source_type_uuid = SourceTypeUUID(stl_tools::gen_uuid());
     source_types.connect_add_source_type([&](SourceTypeRef ref, Transaction& t){
         throw std::logic_error("");
     }, 0);
@@ -47,7 +47,7 @@ void duplicate_source_type_test()
 {
     CLEAN_AND_INSTALL();
 
-    auto source_type_uuid = stl_tools::gen_uuid();
+    auto source_type_uuid = SourceTypeUUID(stl_tools::gen_uuid());
     source_types.add_source_type(std::make_unique<SourceTypeMockup>(source_type_uuid));
     TEST_ASSERT(source_types.has_source_type(source_type_uuid));
     TEST_EXCEPTION(source_types.add_source_type(std::make_unique<SourceTypeMockup>(source_type_uuid)));
@@ -57,7 +57,7 @@ void remove_source_type_test()
 {
     CLEAN_AND_INSTALL();
 
-    auto source_type_uuid = stl_tools::gen_uuid();
+    auto source_type_uuid = SourceTypeUUID(stl_tools::gen_uuid());
     auto& source_type_ref = source_types.add_source_type(std::make_unique<SourceTypeMockup>(source_type_uuid));
     TEST_ASSERT(source_types.has_source_type(source_type_uuid));
 
@@ -77,7 +77,7 @@ void break_remove_source_type_test()
 {
     CLEAN_AND_INSTALL();
 
-    auto source_type_uuid = stl_tools::gen_uuid();
+    auto source_type_uuid = SourceTypeUUID(stl_tools::gen_uuid());
     auto& source_type = source_types.add_source_type(std::make_unique<SourceTypeMockup>(source_type_uuid));
     TEST_ASSERT(source_types.has_source_type(source_type_uuid));
 
@@ -96,7 +96,7 @@ void break_remove_download_test()
     auto report_type_uuid = ReportTypeUUID(stl_tools::gen_uuid());
     auto& report_type = report_types.add_report_type(std::make_unique<PlainTextReportType>(report_type_uuid, L"report_type"));
 
-    auto source_type_uuid = stl_tools::gen_uuid();
+    auto source_type_uuid = SourceTypeUUID(stl_tools::gen_uuid());
     auto source_type_mockup = std::make_unique<SourceTypeMockup>(source_type_uuid);
     source_type_mockup->push_download(report_type, nullptr);
     auto& source_type = source_types.add_source_type(std::move(source_type_mockup));
@@ -113,7 +113,7 @@ void break_remove_action_test()
     auto& action = actions.add_action(std::make_unique<ActionMockup>(action_uuid), t1);
     t1.commit();
 
-    auto source_type_uuid = stl_tools::gen_uuid();
+    auto source_type_uuid = SourceTypeUUID(stl_tools::gen_uuid());
     auto source_type_mockup = std::make_unique<SourceTypeMockup>(source_type_uuid);
     source_type_mockup->push_action(action, nullptr);
     auto& source_type = source_types.add_source_type(std::move(source_type_mockup));
@@ -127,8 +127,8 @@ void collect_source_types_test()
 {
     CLEAN_AND_INSTALL();
 
-    auto source_type_uuid_1 = stl_tools::gen_uuid();
-    auto source_type_uuid_2 = stl_tools::gen_uuid();
+    auto source_type_uuid_1 = SourceTypeUUID(stl_tools::gen_uuid());
+    auto source_type_uuid_2 = SourceTypeUUID(stl_tools::gen_uuid());
 
     TEST_ASSERT(boost::distance(source_types.get_source_types()) == 1);
     TEST_ASSERT(! source_types.has_source_type(source_type_uuid_1));

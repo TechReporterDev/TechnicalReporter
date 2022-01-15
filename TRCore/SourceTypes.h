@@ -26,10 +26,10 @@ public:
     using DownloadFunctor = std::function<std::unique_ptr<Content>(const XmlDoc& source_config)>;
     using ActionFunctor = std::function<std::unique_ptr<Content>(const XmlDoc& params, const XmlDoc& source_config)>;
 
-    SourceType(UUID uuid, std::wstring name, std::unique_ptr<XmlPropertiesDef> config_def, UUID family_uuid);
+    SourceType(SourceTypeUUID uuid, std::wstring name, std::unique_ptr<XmlPropertiesDef> config_def, UUID family_uuid);
     virtual ~SourceType() = default;
 
-    UUID                                        get_uuid() const;
+    SourceTypeUUID                              get_uuid() const;
     std::wstring                                get_name() const;
     std::shared_ptr<const XmlPropertiesDef>     get_config_def() const;
     std::unique_ptr<XmlPropertiesDoc>           get_default_config() const;
@@ -55,7 +55,7 @@ protected:
     SourceType& operator = (const SourceType&) = default;
     //SourceType& operator = (SourceType&&) = default; //not supported in MSVC2013 
 
-    UUID m_uuid;
+    SourceTypeUUID m_uuid;
     std::wstring m_name;
     std::shared_ptr<XmlPropertiesDef> m_config_def;
     UUID m_family_uuid;
@@ -75,7 +75,7 @@ public:
 class GroupSourceType: public SourceType
 {
 public:
-    static const UUID s_uuid;
+    static const SourceTypeUUID s_uuid;
     static const std::shared_ptr<XmlPropertiesDef> s_config_def;
 
     GroupSourceType();
@@ -106,10 +106,10 @@ public:
 
     const SourceType&       add_source_type(std::unique_ptr<SourceType> source_type);
     const SourceType&       add_source_type(std::unique_ptr<SourceType> source_type, Transaction& t);
-    void                    remove_source_type(UUID uuid);
-    void                    remove_source_type(UUID uuid, Transaction& t);
-    bool                    has_source_type(UUID uuid) const;
-    const SourceType&       get_source_type(UUID uuid) const;
+    void                    remove_source_type(SourceTypeUUID uuid);
+    void                    remove_source_type(SourceTypeUUID uuid, Transaction& t);
+    bool                    has_source_type(SourceTypeUUID uuid) const;
+    const SourceType&       get_source_type(SourceTypeUUID uuid) const;
     SourceTypeRange         get_source_types() const;
 
     template<class T>

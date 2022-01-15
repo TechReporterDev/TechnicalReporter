@@ -21,7 +21,7 @@ auto OUTPUT_UUID = ReportTypeUUID(stl_tools::gen_uuid());
 auto INPUT_UUID_1 = ReportTypeUUID(stl_tools::gen_uuid());
 auto INPUT_UUID_2 = ReportTypeUUID(stl_tools::gen_uuid());
 auto INPUT_UUID_3 = ReportTypeUUID(stl_tools::gen_uuid());
-auto SOURCE_TYPE_UUID = stl_tools::gen_uuid();
+auto SOURCE_TYPE_UUID = SourceTypeUUID(stl_tools::gen_uuid());
 
 void add_strict_selection_test()
 {
@@ -117,7 +117,7 @@ void add_not_strict_selection_input_ready_test()
     auto& input_type = report_types.add_report_type(std::make_unique<PlainTextReportType>(INPUT_UUID, L""));
     auto& output_type = report_types.add_report_type(std::make_unique<PlainTextReportType>(OUTPUT_UUID, L""));  
 
-    auto source_type_uuid = stl_tools::gen_uuid();
+    auto source_type_uuid = SourceTypeUUID(stl_tools::gen_uuid());
     auto source_type_mockup = std::make_unique<SourceTypeMockup>(source_type_uuid);
     push_download(*source_type_mockup, input_type, "");
     auto& source_type = source_types.add_source_type(std::move(source_type_mockup));
@@ -256,7 +256,7 @@ void collect_strict_selection_input_test()
     auto& input_type_3 = report_types.add_report_type(std::make_unique<PlainTextReportType>(INPUT_UUID_3, L""));
     auto& output_type = report_types.add_report_type(std::make_unique<PlainTextReportType>(OUTPUT_UUID, L""));  
 
-    auto source_type_uuid = stl_tools::gen_uuid();
+    auto source_type_uuid = SourceTypeUUID(stl_tools::gen_uuid());
     auto source_type_mockup = std::make_unique<SourceTypeMockup>(source_type_uuid);
     push_download(*source_type_mockup, input_type_1, "");
     push_download(*source_type_mockup, input_type_2, "");
@@ -298,7 +298,7 @@ void collect_not_strict_selection_input_test()
     auto& input_type_3 = report_types.add_report_type(std::make_unique<PlainTextReportType>(INPUT_UUID_3, L""));
     auto& output_type = report_types.add_report_type(std::make_unique<PlainTextReportType>(OUTPUT_UUID, L""));  
 
-    auto source_type_uuid = stl_tools::gen_uuid();
+    auto source_type_uuid = SourceTypeUUID(stl_tools::gen_uuid());
     auto source_type_mockup = std::make_unique<SourceTypeMockup>(source_type_uuid);
     push_download(*source_type_mockup, input_type_1, "");
     push_download(*source_type_mockup, input_type_2, "");

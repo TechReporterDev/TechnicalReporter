@@ -14,6 +14,7 @@
 #include "CustomFilters.h"
 #include "TrackingStreams.h"
 #include "StreamFilters.h"
+#include "SettingsCapture.h"
 
 namespace TR { namespace Core {
 
@@ -34,7 +35,8 @@ struct Services
     Validations m_validations;   
     IntegrityChecking m_integrity_checking;
     Archive m_archive;
-    CustomActions m_custom_actions; 
+    CustomActions m_custom_actions;
+    SettingsCapture m_settings_capture;
 };
 
 }} //namespace TR { namespace Core {
