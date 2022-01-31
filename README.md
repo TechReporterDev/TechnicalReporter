@@ -21,9 +21,84 @@ TechnicalReporter - это универсальная платформа для 
 Для администрирования большого количества устройств используется ролевая модель. Для распределения обязанностей между администраторам можно использовать списки доступа к устройствам. Интерфейс администратора работает в браузере. Страницы интерфейса, относящиеся к конкретному устройству, генерируются динамически на основе формального описания модуля мониторинга.
 
 ## Текущее состояние
-Текущее состояние можно оценить по онлайн демо. Демонстрируется мониторинг нескольких устройств под управлением Cisco IOS и Linux.
-Логин admin без пароля.
+Текущее состояние можно оценить по онлайн демо http://188.227.75.45:8081/.
+Логин admin без пароля. Демонстрируется мониторинг устройств под управлением Cisco IOS и Linux.
 
 ## Планы по развитию
+- Разработка модулей для Windows Server, Cisco ASA, PanOS, FortiOS
+- Управление установкой, обновлением и удалением модулей
+- Выполнение ядра и интефейса в отдельных службах 
+- Динамический анализ данных
 
 ## Как собрать
+Создать корневую папку разработчика, например C:\dev. Клонировать проект TechnicalReporter в корневую папку разработчика:
+```
+c:\dev>git clone https://github.com/TechReporterDev/TechnicalReporter.git
+```
+
+В корневой папке разработчика создать папку для сторонних библиотек \3rdParty. 
+Установить менеджер пакетов vcpkg:
+```
+c:\dev\3rdParty>git clone https://github.com/Microsoft/vcpkg.git
+c:\dev\3rdParty>cd vcpkg
+c:\dev\3rdParty\vcpkg>bootstrap-vcpkg.bat
+```
+
+Устанавить 64x разрадные пакеты vcpkg
+```
+set VCPKG_DEFAULT_TRIPLET=x64-windows
+vcpkg install boost
+vcpkg install curl
+vcpkg install dtl
+vcpkg install libmysql
+vcpkg install libodb
+vcpkg install libodb-mysql
+vcpkg install libodb-boost
+vcpkg install libssh
+vcpkg install libxml2
+vcpkg install libxslt
+vcpkg install podofo[fontconfig]
+vcpkg install wt
+
+```
+Клонировать в папку 3rdParty проект libxmldiff:
+```
+c:\dev\3rdParty>git clone https://github.com/rpeyron/libxmldiff.git
+```
+
+Открыть солюшен c:\dev\3rdParty\libxmldiff\build\vc2019\xmldiff.sln и собрать для платформы x64. 
+
+Скачать ODB Compiler с сайта разработчика https://codesynthesis.com/products/odb/download.xhtml. 
+Распаковать архив в папку c:\dev\3rdParty\odb.
+
+В итоге папка разработчика должна иметь вид:
+```
+- dev
+  - 3rdParty
+    - vcpkg
+       - vcpkg.exe
+       - ...
+    - libxmldiff
+      - build
+      - ...      
+    - odb
+      - bin
+        - odb.exe
+      - ...    
+  - TecnicalReporter
+    - TechnicalReporter.sln
+    - install.cmd
+    - ...
+```
+
+Запускаем TechnicalReporter/install.bat для копирования библиотек и ресурсов в папку сборки проекта
+```
+C:\dev\TechnicalReporter>install.cmd
+```
+
+Собираем солюшен c:\dev\TechnicalReporter\TechnicalReporter.sln
+Для запуска сервера TechnicalReporter (TRWebServer.exe) нужно установить MySQL сервер с сайта разработчика.
+
+
+
+
