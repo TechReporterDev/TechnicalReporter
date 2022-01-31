@@ -188,3 +188,4 @@ UpgradeLog*.htm
 FakesAssemblies/
 
 /.vs/TechnicalReporter/v16
+/null

@@ -7,8 +7,88 @@
 #include "Diff.h"
 
 using namespace PoDoFo;
+using namespace TR::XML;
 
 namespace TR { namespace Core {
+
+namespace
+{
+    struct ValidationError
+    {
+        std::wstring m_name;
+        std::wstring m_value;
+        std::wstring m_comment;
+    };
+
+    struct ValidationErrorCollector : boost::static_visitor<void>
+    {
+        ValidationErrorCollector(std::vector<ValidationError>& errors, std::wstring path) :
+            m_errors(errors),
+            m_path(std::move(path))
+        {
+        }
+
+        void operator ()(const XmlStructNode& struct_node)
+        {
+            auto& def_node = struct_node.get_bound_def();
+            std::wstring path = m_path;
+            path += L"/";
+            path += def_node.get_caption();
+            if (auto id_attr = struct_node.find_id_attr())
+            {
+                path += L"[";
+                path += xml_tools::get_attr_wvalue(*id_attr);
+                path += L"]";
+            }
+
+            for (auto& regular_node : struct_node.get_members())
+            {
+                visit_regular_node(ValidationErrorCollector(m_errors, path), regular_node);
+            }
+        }
+
+        template<class T>
+        void operator ()(const XmlListNode<T>& list_node)
+        {
+            auto& def_node = list_node.get_bound_def();
+            std::wstring path = m_path;
+            path += L"/";
+            path += def_node.get_caption();
+
+            for (auto& regular_node : list_node.get_items())
+            {
+                visit_regular_node(ValidationErrorCollector(m_errors, path), regular_node);
+            }
+        }
+
+        template<class T>
+        void operator ()(const XmlTrivialNode<T>& trivial_node)
+        {
+            auto& validated_node = static_cast<const XmlValidatedNode&>(static_cast<const XmlRegularNode&>(trivial_node));
+            if (validated_node.is_valid())
+            {
+                return;
+            }
+
+            auto& def_node = trivial_node.get_bound_def();
+            std::wstring path = m_path;
+            path += L"/";
+            path += def_node.get_caption();
+
+            m_errors.push_back({ std::move(path), trivial_node.get_wtext(), validated_node.get_comment() });
+        }
+
+        std::vector<ValidationError>& m_errors;
+        std::wstring m_path;
+    };
+
+    std::vector<ValidationError> GetValidationErrors(const XmlRegularDoc& regDoc)
+    {
+        std::vector<ValidationError> errors;
+        visit_regular_node(ValidationErrorCollector(errors, L"/"), *regDoc.get_root());
+        return errors;
+    }
+}
 
 const char* TITLE_FONT_NAME = "Arial";
 const double TITLE_FONT_SIZE = 20.0;
@@ -287,6 +367,43 @@ void SummaryPdf::print_integrity_checking_alert(const std::wstring& report_name,
 
         m_painter->DrawTable(LEFT_MARGIN_2, diffTable);
     }
+}
+
+void SummaryPdf::print_validation_alert(const std::wstring& report_name, const XmlRegularDoc& validationDoc)
+{
+    m_painter->SetFont(TEXT_FONT_NAME, TEXT_FONT_SIZE);
+    m_painter->MoveCursor(INDENT);
+    m_painter->DrawText(LEFT_MARGIN_2, "Validation errors found for " +
+        stl_tools::ucs_to_ansi(report_name));
+
+    auto validation_errors = GetValidationErrors(validationDoc);
+    PdfSimpleTableModel errors_model(3, int(validation_errors.size() + 1));
+    errors_model.SetWordWrapEnabled(true);
+    errors_model.SetForegroundColor(PdfColor(0, 0, 0));
+    errors_model.SetText(0, 0, "Path");
+    errors_model.SetText(1, 0, "Value");
+    errors_model.SetText(2, 0, "Comment");
+    
+    for (int i = 0; i < validation_errors.size(); ++i)
+    {
+        auto& validation_error = validation_errors[i];
+        errors_model.SetText(0, i + 1, stl_tools::ucs_to_ansi(validation_error.m_name));
+        errors_model.SetText(1, i + 1, stl_tools::ucs_to_ansi(validation_error.m_value));
+        errors_model.SetText(2, i + 1, stl_tools::ucs_to_ansi(validation_error.m_comment));
+    }
+
+    m_painter->SetFont(TABLE_FONT_NAME, TABLE_FONT_SIZE);
+    m_painter->MoveCursor(INDENT);
+
+    PdfTable diffTable(3, int(validation_errors.size() + 1));
+    auto colWidths = GetColumnWidths({ 100, 50, 0 }, LEFT_MARGIN_2);
+    diffTable.SetColumnWidths(&colWidths[0]);
+    auto rowHeights = GetRowHeights(errors_model, validation_errors.size() + 1, colWidths, *m_painter->GetFont());
+    diffTable.SetRowHeights(&rowHeights[0]);
+    diffTable.SetAutoPageBreak(true, pageBreak, m_pdf.get());
+    diffTable.SetModel(&errors_model);
+
+    m_painter->DrawTable(LEFT_MARGIN_2, diffTable);
 }
 
 void SummaryPdf::close()

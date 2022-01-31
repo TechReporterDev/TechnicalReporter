@@ -64,6 +64,9 @@
     <Filter Include="Domain\Services\ODB">
       <UniqueIdentifier>{f747f4d3-8ccc-4486-98d0-b7ba0d1898ca}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Application\PDF">
+      <UniqueIdentifier>{496429b4-e2c2-40db-b4cb-a5356d564d3c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -469,12 +472,6 @@
     <ClInclude Include="SummaryPdf.h">
       <Filter>Application</Filter>
     </ClInclude>
-    <ClInclude Include="PdfCursorPainter.h">
-      <Filter>Application</Filter>
-    </ClInclude>
-    <ClInclude Include="PdfRegularDocTableModel.h">
-      <Filter>Application</Filter>
-    </ClInclude>
     <ClInclude Include="SummaryCollector.h">
       <Filter>Application</Filter>
     </ClInclude>
@@ -486,6 +483,12 @@
     </ClInclude>
     <ClInclude Include="SettingsCapture.h">
       <Filter>Domain\Services</Filter>
+    </ClInclude>
+    <ClInclude Include="PdfCursorPainter.h">
+      <Filter>Application\PDF</Filter>
+    </ClInclude>
+    <ClInclude Include="PdfRegularDocTableModel.h">
+      <Filter>Application\PDF</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -918,12 +921,6 @@
     <ClCompile Include="SummaryPdf.cpp">
       <Filter>Application</Filter>
     </ClCompile>
-    <ClCompile Include="PdfCursorPainter.cpp">
-      <Filter>Application</Filter>
-    </ClCompile>
-    <ClCompile Include="PdfRegularDocTableModel.cpp">
-      <Filter>Application</Filter>
-    </ClCompile>
     <ClCompile Include="SummaryCollector.cpp">
       <Filter>Application</Filter>
     </ClCompile>
@@ -935,6 +932,12 @@
     </ClCompile>
     <ClCompile Include="SettingsCapture.cpp">
       <Filter>Domain\Services</Filter>
+    </ClCompile>
+    <ClCompile Include="PdfCursorPainter.cpp">
+      <Filter>Application\PDF</Filter>
+    </ClCompile>
+    <ClCompile Include="PdfRegularDocTableModel.cpp">
+      <Filter>Application\PDF</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

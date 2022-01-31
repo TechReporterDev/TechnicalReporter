@@ -528,7 +528,7 @@
           <uuid-of>PS</uuid-of>
         </uuid>
         <command xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-          c:\dev\TechnicalReporter\x64\Debug\LinuxTerminal.exe
+          LinuxTerminal.exe
           "ps"
           --address <xsl:value-of select="/settings/connection/address"/>
           --login <xsl:value-of select="/settings/connection/login"/>
@@ -540,7 +540,7 @@
           <uuid-of>PASSWD</uuid-of>
         </uuid>
         <command xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-          c:\dev\TechnicalReporter\x64\Debug\LinuxTerminal.exe
+          LinuxTerminal.exe
           "cat /etc/passwd"
           --address <xsl:value-of select="/settings/connection/address"/>
           --login <xsl:value-of select="/settings/connection/login"/>
@@ -552,7 +552,7 @@
           <uuid-of>SHADOW</uuid-of>
         </uuid>
         <command xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-          c:\dev\TechnicalReporter\x64\Debug\LinuxTerminal.exe
+          LinuxTerminal.exe
           "sudo cat /etc/shadow"
           --address <xsl:value-of select="/settings/connection/address"/>
           --login <xsl:value-of select="/settings/connection/login"/>
@@ -564,7 +564,7 @@
           <uuid-of>GROUP</uuid-of>
         </uuid>
         <command xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-          c:\dev\TechnicalReporter\x64\Debug\LinuxTerminal.exe
+          LinuxTerminal.exe
           "cat /etc/group"
           --address <xsl:value-of select="/settings/connection/address"/>
           --login <xsl:value-of select="/settings/connection/login"/>
@@ -576,7 +576,7 @@
           <uuid-of>SUDOERS</uuid-of>
         </uuid>
         <command xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-          c:\dev\TechnicalReporter\x64\Debug\LinuxTerminal.exe
+          LinuxTerminal.exe
           "sudo cat /etc/sudoers"
           --address <xsl:value-of select="/settings/connection/address"/>
           --login <xsl:value-of select="/settings/connection/login"/>
@@ -588,7 +588,7 @@
           <uuid-of>MOUNT</uuid-of>
         </uuid>
         <command xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-          c:\dev\TechnicalReporter\x64\Debug\LinuxTerminal.exe
+          LinuxTerminal.exe
           "mount"
           --address <xsl:value-of select="/settings/connection/address"/>
           --login <xsl:value-of select="/settings/connection/login"/>
@@ -600,7 +600,7 @@
           <uuid-of>GRUB_MENU</uuid-of>
         </uuid>
         <command xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-          c:\dev\TechnicalReporter\x64\Debug\LinuxTerminal.exe
+          LinuxTerminal.exe
           "cat /mnt/sda1/boot/grub/menu.lst || echo''"
           --address <xsl:value-of select="/settings/connection/address"/>
           --login <xsl:value-of select="/settings/connection/login"/>
@@ -612,7 +612,7 @@
           <uuid-of>FSTAB</uuid-of>
         </uuid>
         <command xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-          c:\dev\TechnicalReporter\x64\Debug\LinuxTerminal.exe
+          LinuxTerminal.exe
           "cat /etc/fstab"
           --address <xsl:value-of select="/settings/connection/address"/>
           --login <xsl:value-of select="/settings/connection/login"/>
@@ -624,7 +624,7 @@
           <uuid-of>IFCONFIG</uuid-of>
         </uuid>
         <command xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-          c:\dev\TechnicalReporter\x64\Debug\LinuxTerminal.exe
+          LinuxTerminal.exe
           "ifconfig"
           --address <xsl:value-of select="/settings/connection/address"/>
           --login <xsl:value-of select="/settings/connection/login"/>
@@ -636,7 +636,7 @@
           <uuid-of>MODPROBE</uuid-of>
         </uuid>
         <command xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-          c:\dev\TechnicalReporter\x64\Debug\LinuxTerminal.exe
+          LinuxTerminal.exe
           "cat /etc/modprobe.conf"
           --address <xsl:value-of select="/settings/connection/address"/>
           --login <xsl:value-of select="/settings/connection/login"/>
@@ -648,7 +648,7 @@
           <uuid-of>SECURETTY</uuid-of>
         </uuid>
         <command xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-          c:\dev\TechnicalReporter\x64\Debug\LinuxTerminal.exe
+          LinuxTerminal.exe
           "cat /etc/securetty"
           --address <xsl:value-of select="/settings/connection/address"/>
           --login <xsl:value-of select="/settings/connection/login"/>
@@ -660,7 +660,7 @@
           <uuid-of>NETSTAT_NATP</uuid-of>
         </uuid>
         <command xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-          c:\dev\TechnicalReporter\x64\Debug\LinuxTerminal.exe
+          LinuxTerminal.exe
           "sudo netstat -natp"
           --address <xsl:value-of select="/settings/connection/address"/>
           --login <xsl:value-of select="/settings/connection/login"/>
@@ -672,7 +672,7 @@
           <uuid-of>ENV</uuid-of>
         </uuid>
         <command xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-          c:\dev\TechnicalReporter\x64\Debug\LinuxTerminal.exe
+          LinuxTerminal.exe
           "sudo env"
           --address <xsl:value-of select="/settings/connection/address"/>
           --login <xsl:value-of select="/settings/connection/login"/>
@@ -720,7 +720,7 @@
           <uuid-of>ADD_USER</uuid-of>
         </uuid>
         <command xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-          c:\dev\TechnicalReporter\x64\Debug\LinuxTerminal.exe
+          LinuxTerminal.exe
           "sudo adduser <xsl:value-of select="/input/params/name"/>"
           --address <xsl:value-of select="/input/settings/connection/address"/>
           --login <xsl:value-of select="/input/settings/connection/login"/>
@@ -739,7 +739,7 @@
           <uuid-of>DELETE_USER</uuid-of>
         </uuid>
         <command xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-          c:\dev\TechnicalReporter\x64\Debug\LinuxTerminal.exe
+          LinuxTerminal.exe
           "sudo deluser <xsl:value-of select="/input/params/name"/>"
           --address <xsl:value-of select="/input/settings/connection/address"/>
           --login <xsl:value-of select="/input/settings/connection/login"/>
@@ -757,7 +757,7 @@
           <uuid-of>FIND</uuid-of>
         </uuid>
         <command xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xml:space="preserve">
-          c:\dev\TechnicalReporter\x64\Debug\LinuxTerminal.exe
+          LinuxTerminal.exe
           "sudo find <xsl:value-of select="/input/params/where"/> <xsl:value-of select="/input/params/what"/>"
           --address <xsl:value-of select="/input/settings/connection/address"/>
           --login <xsl:value-of select="/input/settings/connection/login"/>
@@ -770,7 +770,7 @@
           <uuid-of>LS</uuid-of>
         </uuid>
         <command xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-          c:\dev\TechnicalReporter\x64\Debug\LinuxTerminal.exe
+          LinuxTerminal.exe
           "echo -n 'ls -l ';realpath <xsl:value-of select="/input/params/path"/>; sudo ls 
           <xsl:if test="/input/params/show_hidden='1'">-a </xsl:if>
           -l <xsl:value-of select="/input/params/path"/>"

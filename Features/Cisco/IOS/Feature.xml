@@ -102,10 +102,10 @@
         <en_password style="STRINGLINE" caption="Enable password" description="" secret="1">
         </en_password>
       </connection>
-      <additional style="COLLECTION" caption="" description="">
-        <info style="COLLECTION" caption="Additional information" description="Optional info used for rules checking">
+      <additional style="COLLECTION" caption="Additional information" description="">
+        <info style="COLLECTION" caption="Infrastructure information" description="Optional info used for rules checking">
           <iACLs style="LIST" caption="Infrastructure access lists" description="">
-            <iACL style="COLLECTION" caption="" description="">
+            <iACL style="COLLECTION" caption="Access list" description="">
               <name style="STRINGLINE" caption="Name" description=""/>
             </iACL>
           </iACLs>

@@ -57,6 +57,7 @@ public:
     void print_source_issues_title();
     void print_source_has_no_issues();
     void print_integrity_checking_alert(const std::wstring& report_name, std::shared_ptr<const Diff> diff);
+    void print_validation_alert(const std::wstring& report_name, const XmlRegularDoc& validationDoc);
     void close();
 
 protected:

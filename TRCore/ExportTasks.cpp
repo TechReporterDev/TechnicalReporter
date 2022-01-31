@@ -473,6 +473,74 @@ private:
 
 using PrintIntegrityCheckingAlert = ProcessingTask<PrintIntegrityCheckingRoutine>;
 
+class PrintValidationErrorsRoutine
+{
+public:
+    PrintValidationErrorsRoutine(SourceKey source_key, ReportTypeUUID report_type_uuid, CoreDomain& core_domain, std::shared_ptr<SummaryPdf> summaryPdf) :
+        m_source_key(source_key),
+        m_report_type_uuid(report_type_uuid),
+        m_core_domain(core_domain),
+        m_summaryPdf(summaryPdf)
+    {
+    }
+
+    std::function<void()> prepare_functor()
+    {
+        auto& sources = m_core_domain.m_registry.m_sources;
+        auto& report_types = m_core_domain.m_basis.m_report_types;
+        auto& collector = m_core_domain.m_registry.m_collector;
+        auto& validations = m_core_domain.m_services.m_validations;
+
+        if (!sources.has_source(m_source_key))
+        {
+            return nullptr;
+        }
+
+        if (!report_types.has_report_type(m_report_type_uuid))
+        {
+            return nullptr;
+        }
+
+        auto& report_type = report_types.get_report_type(m_report_type_uuid);
+        auto source = sources.get_source(m_source_key);
+        auto validation = validations.find_by_output(report_type);
+        if (!validation)
+        {
+            return nullptr;
+        }
+
+        if (validations.get_validation_result(*validation, source) != ValidationResult::VALIDATION_FAILED)
+        {
+            return nullptr;
+        }
+
+        auto current_content = collector.get_current_report(source, report_type).get_content();
+        return[report_name = report_type.get_name(), current_content, summaryPdf = m_summaryPdf]() {
+            summaryPdf->print_validation_alert(report_name, std::dynamic_pointer_cast<RegularContent>(current_content)->as_regular_doc());
+        };
+    }
+
+    void on_completed() const
+    {
+    }
+
+    void on_failed(const std::exception& err) const
+    {
+    }
+
+    void on_cancel() const
+    {
+    }
+
+private:
+    SourceKey m_source_key;
+    ReportTypeUUID m_report_type_uuid;
+    std::shared_ptr<SummaryPdf> m_summaryPdf;
+    CoreDomain& m_core_domain;
+};
+
+using PrintValidationErrorsAlert = ProcessingTask<PrintValidationErrorsRoutine>;
+
 class PrintSourceIssues : public Task, public std::enable_shared_from_this<PrintSourceIssues>
 {
 public:
@@ -509,6 +577,7 @@ protected:
         auto& source_resources = m_core_domain.m_registry.m_source_resources;
         auto& collector = m_core_domain.m_registry.m_collector;
         auto& integrity_checking = m_core_domain.m_services.m_integrity_checking;
+        auto& validations = m_core_domain.m_services.m_validations;
 
         if (!sources.has_source(m_source_key))
         {
@@ -555,17 +624,22 @@ protected:
                 ++issues_count;
             }
 
-            /*if (auto validation = validations.find_by_output(*report_type_ref))
+            if (auto validation = validations.find_by_output(*report_type_ref))
             {
                 if (validations.get_validation_result(*validation, source) == ValidationResult::VALIDATION_FAILED)
                 {
-                    ++report_counters.m_validation_errors;
-                    source_status = std::max(source_status, SourceStatus::WARNING);
-                    alerts.push_back({ source.get_name(), report_type.get_name(), Alert::Reason::VALIDATION_FAILED });
+                    subtasks.push_back(std::make_shared<PrintValidationErrorsAlert>(
+                        m_executive,
+                        m_source_key,
+                        report_type.get_uuid(),
+                        std::ref(m_core_domain),
+                        m_summaryPdf));
+
+                    ++issues_count;
                 }
             }
 
-            if (auto compliance = compliances.find_by_output(*report_type_ref))
+            /*if (auto compliance = compliances.find_by_output(*report_type_ref))
             {
                 if (compliances.get_checking_result(*compliance, source) == ComplianceCheckingResult::CHECKING_FAILED)
                 {
