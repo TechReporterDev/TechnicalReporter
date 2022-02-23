@@ -253,6 +253,8 @@ void Frontend::remove_role(Key session_key, RoleKey role_key)
 std::vector<SourceInfo> Frontend::get_sources_info(Key session_key) const
 {
     return m_executive.exec([&]{
+        ReadOnlyTransaction t(*m_core_impl.m_db);
+
         std::vector<SourceInfo> sources_info;
         for (auto& source_info : m_facade->get_sources_info())
         {
