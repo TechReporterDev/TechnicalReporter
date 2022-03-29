@@ -95,6 +95,7 @@
       <AdditionalIncludeDirectories>..\;..\..\3rdParty\vcpkg\installed\x64-windows\include;..\..\3rdParty\libxmldiff;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_SCL_SECURE_NO_WARNINGS;LIBODB_MYSQL_INCLUDE_LONG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <LanguageStandard>stdcpp14</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -133,6 +134,7 @@
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>..\;..\..\3rdParty\vcpkg\installed\x64-windows\include;..\..\3rdParty\libxmldiff;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_SCL_SECURE_NO_WARNINGS;LIBODB_MYSQL_INCLUDE_LONG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>

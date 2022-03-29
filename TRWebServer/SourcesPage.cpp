@@ -31,9 +31,6 @@ SourcesWidget::SourcesWidget():
 {
     createToolBar();
 
-    auto vbox = setLayout(std::make_unique<Wt::WVBoxLayout>());
-    vbox->setContentsMargins(9, 0, 9, 9);
-
     for (auto sourceTypeInfo : m_client->getSourceTypesInfo())
     {
         m_sourceTypes[sourceTypeInfo.m_uuid] = sourceTypeInfo;
@@ -329,13 +326,11 @@ void SourcesWidget::onSourceDblClick(const SourcesView::Item& item)
 
 void SourcesWidget::setMode(Mode mode)
 {
-    if (m_sourcesView)
-    {
-        removeWidget(m_sourcesView);
-        m_sourcesView = nullptr;
-    }
-    
-    auto vbox = (Wt::WVBoxLayout*)layout();
+    clear();
+    m_sourcesView = nullptr;
+
+    auto vbox = setLayout(std::make_unique<Wt::WVBoxLayout>());
+    vbox->setContentsMargins(9, 0, 9, 9);
 
     std::vector<SourcesView::Item> items;
     for (auto& sourceInfo : m_client->getSourcesInfo())
