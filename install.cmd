@@ -41,11 +41,11 @@ goto EOF:
 		)
  	
 		FOR %%f IN (
-			boost_filesystem-vc142-mt-gd-x64-1_77.dll
-			boost_program_options-vc142-mt-gd-x64-1_77.dll
-			boost_regex-vc142-mt-gd-x64-1_77.dll
-			boost_serialization-vc142-mt-gd-x64-1_77.dll
-			boost_thread-vc142-mt-gd-x64-1_77.dll
+			boost_filesystem-vc142-mt-gd-x64-1_78.dll
+			boost_program_options-vc142-mt-gd-x64-1_78.dll
+			boost_regex-vc142-mt-gd-x64-1_78.dll
+			boost_serialization-vc142-mt-gd-x64-1_78.dll
+			boost_thread-vc142-mt-gd-x64-1_78.dll
 			brotlicommon.dll
 			brotlidec.dll
 			bz2d.dll
@@ -55,6 +55,7 @@ goto EOF:
 			glew32d.dll
 			iconv-2.dll
 			jpeg62.dll
+			libcrypto-1_1-x64.dll
 			libcurl-d.dll
 			libexslt.dll
 			libhpdfd.dll
@@ -62,10 +63,11 @@ goto EOF:
 			libodb.dll
 			libodb-boost.dll
 			libodb-mysql.dll
+			liblzma.dll
 			libpng16d.dll
 			libxml2.dll
 			libxslt.dll
-			lzmad.dll
+			libssl-1_1-x64.dll
 			podofo.dll
 			pthreadVC3d.dll
 			ssh.dll
@@ -87,11 +89,11 @@ goto EOF:
 		)
  	
 		FOR %%f IN (
-			boost_filesystem-vc142-mt-x64-1_77.dll
-			boost_program_options-vc142-mt-x64-1_77.dll
-			boost_regex-vc142-mt-x64-1_77.dll
-			boost_serialization-vc142-mt-x64-1_77.dll
-			boost_thread-vc142-mt-x64-1_77.dll
+			boost_filesystem-vc142-mt-x64-1_78.dll
+			boost_program_options-vc142-mt-x64-1_78.dll
+			boost_regex-vc142-mt-x64-1_78.dll
+			boost_serialization-vc142-mt-x64-1_78.dll
+			boost_thread-vc142-mt-x64-1_78.dll
 			brotlicommon.dll
 			brotlidec.dll
 			bz2.dll
@@ -101,6 +103,7 @@ goto EOF:
 			glew32.dll
 			iconv-2.dll
 			jpeg62.dll
+			libcrypto-1_1-x64.dll
 			libcurl.dll
 			libexslt.dll
 			libhpdf.dll
@@ -108,10 +111,11 @@ goto EOF:
 			libodb.dll
 			libodb-boost.dll
 			libodb-mysql.dll
+			liblzma.dll
 			libpng16.dll
 			libxml2.dll
 			libxslt.dll
-			lzma.dll
+			libssl-1_1-x64.dll
 			podofo.dll
 			pthreadVC3.dll
 			ssh.dll

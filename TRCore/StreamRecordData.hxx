@@ -1,6 +1,6 @@
 #pragma once
 #include <boost\optional.hpp>
-#include "STLTools\uuid.h"
+#include "..\STLTools\uuid.h"
 #include "BasisValues.hxx"
 #include "RegistryValues.hxx"
 #include "StreamRecordData.h"
