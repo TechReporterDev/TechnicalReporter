@@ -43,10 +43,12 @@ struct Alert
 class SummaryPdf
 {
 public:
+    SummaryPdf();
     SummaryPdf(const std::wstring& path);
     SummaryPdf(const std::ostream* ostream);
     ~SummaryPdf();
 
+    void connect(const std::ostream* ostream);
     void print_overview_title();
     void print_source_counters(const SourceCounters& source_counters);
     void print_report_counters(const ReportCounters& report_counters);

@@ -2,7 +2,7 @@
 #include "Tasks.h"
 
 namespace TR { namespace Core {
-class SummaryPdf;
+class SummaryPdfBuilder;
 
 class ExportSummary : public Task, public std::enable_shared_from_this<ExportSummary>
 {
@@ -21,10 +21,8 @@ protected:
     ReportTypes& m_report_types;
     SourceResources& m_source_resources;
 
-    Key m_user_key;
-    std::shared_ptr<SummaryPdf> m_summaryPdf;
-    std::unique_ptr<std::ostream> m_ostream;
-    Blob m_output;
+    Key m_user_key = 0;
+    std::shared_ptr<SummaryPdfBuilder> m_summaryPdfBuilder;
 };
 
 }} //namespace TR { namespace Core {

@@ -31,6 +31,34 @@ void increment(SourceCounters& source_counters, SourceStatus status)
     }
 }
 
+class SummaryPdfBuilder : public SummaryPdf
+{
+public:
+    SummaryPdfBuilder() :
+        m_ostream(std::make_unique<stl_tools::boost_ios::stream<stl_tools::blob_sink>>(m_output))
+    {
+        connect(m_ostream.get());
+    }
+
+    ~SummaryPdfBuilder()
+    {
+        if (m_painter)
+        {
+            close();
+        }
+    }
+
+    Blob finish()
+    {
+        m_ostream.reset();
+        return std::move(m_output);
+    }
+
+private:
+    Blob m_output;
+    std::unique_ptr<std::ostream> m_ostream;
+};
+
 class ExportOverview : public Task, public std::enable_shared_from_this<ExportOverview>
 {
 public:
@@ -761,18 +789,15 @@ ExportSummary::ExportSummary(CoreDomain& core_domain, Scheduler& scheduler, Key 
 
 void ExportSummary::do_run()
 {
-    m_ostream = std::make_unique<stl_tools::boost_ios::stream<stl_tools::blob_sink>>(m_output);
-    m_summaryPdf = std::make_shared<SummaryPdf>(m_ostream.get());
-    //m_summaryPdf = std::make_shared<SummaryPdf>(L"d:\\Temp\\1.pdf");
+    m_summaryPdfBuilder = std::make_shared<SummaryPdfBuilder>();
 
     run_sequence(
         {
-            std::make_shared<ExportOverview>(m_core_domain, m_scheduler, m_summaryPdf, m_executive),
-            std::make_shared<PrintDetails>(m_core_domain, m_scheduler, m_summaryPdf, m_executive)
+            std::make_shared<ExportOverview>(m_core_domain, m_scheduler, m_summaryPdfBuilder, m_executive),
+            std::make_shared<PrintDetails>(m_core_domain, m_scheduler, m_summaryPdfBuilder, m_executive)
         },
         [this] {
-            m_summaryPdf->close();
-            m_ostream.reset();
+            m_summaryPdfBuilder->close();
             emit_completed();
         });
 }
@@ -780,7 +805,7 @@ void ExportSummary::do_run()
 Blob ExportSummary::get_output()
 {
     _ASSERT(get_state() == State::STATE_COMPLETED);
-    return std::move(m_output);
+    return m_summaryPdfBuilder->finish();
 }
 
 }} //namespace TR { namespace Core {

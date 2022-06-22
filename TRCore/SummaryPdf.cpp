@@ -114,6 +114,8 @@ PdfPage* pageBreak(PdfRect& rClipRect, void* pCustom)
     return page;
 };
 
+SummaryPdf::SummaryPdf() = default;
+
 SummaryPdf::SummaryPdf(const std::wstring& path):
     m_pdf(std::make_unique<PdfStreamedDocument>(path.c_str())),
     m_painter(std::make_unique<PdfCursorPainter>(*m_pdf))
@@ -143,6 +145,21 @@ SummaryPdf::~SummaryPdf()
     {
         close();
     }
+}
+
+void SummaryPdf::connect(const std::ostream* ostream)
+{
+    _ASSERT(m_output == nullptr && m_pdf == nullptr && m_painter == nullptr);
+
+    m_output = std::make_unique<PdfOutputDevice>(ostream);
+    m_pdf = std::make_unique<PdfStreamedDocument>(m_output.get());
+    m_painter = std::make_unique<PdfCursorPainter>(*m_pdf);
+
+    m_pdf->GetInfo()->SetCreator(PdfString("examplahelloworld - A PoDoFo test application"));
+    m_pdf->GetInfo()->SetAuthor(PdfString("Dominik Seichter"));
+    m_pdf->GetInfo()->SetTitle(PdfString("Hello World"));
+    m_pdf->GetInfo()->SetSubject(PdfString("Testing the PoDoFo PDF Library"));
+    m_pdf->GetInfo()->SetKeywords(PdfString("Test;PDF;Hello World;"));
 }
 
 void SummaryPdf::print_overview_title()
